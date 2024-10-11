@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Usuários</title>
+    <link rel="shortcut icon" href="../img/LOGO NOVA.jpg type="image>
+    <link rel="stylesheet" href="../Estilos/ListaUsuario.css">
+    <SCript src="../listaUsuario.js"></SCript>
+</head>
+
+<body>
+    <header>
+        <div class="container-header">
+            <img src="../img/LOGO NOVA.jpg" alt="Logo">
+            <h2 class="nome-loja">N O V A</h2>         
+               <img class="icone" src="../img/perfil.png" alt="icone de uma pessoa">
+        </div>
+    </header>
+
+    <div class="espaco-body">
+        <p>""</p>
+    </div>
+
+    <div class="header-body">
+        <h1 class="titulo">Lista de Usuários</h1>
+        <div class="botao-add">
+            <a href="TelaCadastroUsuarioAdm.html"><button class="botao">Adicionar usuário</button></a>
+        </div>
+        <div class="caixa-pesquisa">
+            <input type="text" class="pesquisa" id="searchInput" placeholder="Pesquisar usuário" onkeyup="searchUser()">
+
+            <button class="botao-pesquisa" onclick="searchUser()">Pesquisar</button>
+
+            <a href="TelaBackoffice.html"><button class="botao-voltar">Voltar</button></a>
+        </div> 
+
+    </div>
+
+
+    <div class="tabela-container">
+        <table class="tabela">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>NOME</th>
+                    <th>EMAIL</th>
+                    <th>CPF</th>
+                    <th>GRUPO</th>
+                    <th>STATUS</th>
+                </tr>
+            </thead>
+            <tbody id="product-table-body"></tbody>
+        </table>
+    </div>
+    </div>
+
+    <Script src="../Conexoes/PesquisaInteligenteUsers.js"></Script>
+    <SCript src="../Conexoes/listaUsuario.js"></SCript>
+
+</body>
+</html>

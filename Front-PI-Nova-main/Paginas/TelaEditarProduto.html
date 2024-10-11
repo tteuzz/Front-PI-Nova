@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Produto</title>
+    <link rel="shortcut icon" href="../img/LOGO NOVA.jpg type="image/x-icon">
+    <link rel="stylesheet" href="../Estilos/CadastrarProduto.css">
+</head>
+<body>
+    <header>
+        <div class="container-header">
+            <img src="../img/LOGO NOVA.jpg" alt="Logo">
+            <h2 class="nome-loja">N O V A</h2>
+            <img class="icone" src="../img/perfil.png" alt="icone de uma pessoa">
+        </div>
+    </header>
+
+    <div class="espaco-preto">
+        <p>""</p>
+    </div>
+
+    <div class="header-body">
+        <h1 class="titulo-cadastro">Cadastro de Produto</h1>
+        <button class="botao-voltar" onclick="window.location.href='ListaProdutos.html'">Voltar</button>
+    </div>
+
+    <form class="form-cadastro">
+        <div class="campo-container">
+             <h2 class="titulo-campo">Nome do produto</h2>
+            <input type="text" class="input-cadastro" id="nomeProduto" name="nomeProduto" placeholder="Nome do Produto" required>
+    
+            <h2 class="titulo-campo">Avaliação</h2>
+            <select class="input-cadastro" id="avalProduto" name="avalProduto">
+                <option value="1">1</option>
+                <option value="1.5">1.5</option>
+                <option value="2">2</option>
+                <option value="2.5">2.5</option>
+                <option value="3">3</option>
+                <option value="3.5">3.5</option>
+                <option value="4">4</option>
+                <option value="4.5">4.5</option>
+                <option value="5">5</option>
+            </select>
+    
+            <h2 class="titulo-campo">Descrição detalhada</h2>
+            <input type="text" class="input-cadastro" id="descDetalhadaProduto" name="descDetalhadaProduto" placeholder="Descrição">
+    
+            <h2 class="titulo-campo">Preço</h2>
+            <input type="text" class="input-cadastro" id="precoProduto" name="precoProduto" placeholder="R$ 00,00" required>
+    
+            <h2 class="titulo-campo">Quantidade em estoque</h2>
+            <input type="number" class="input-cadastro" id="qtdEstoqueProduto" name="qtdEstoqueProduto" placeholder="Quantidade" required>
+    
+            <button type="submit" class="botao-cadastro">Cadastrar Produto</button>
+        </div>
+    </form>
+
+    <div class="upload-container">
+        <div id="image-previews"></div>
+        <label for="upload" class="label-upload">Adicionar Imagem</label>
+        <input type="file" id="upload" name="upload" accept="image/*" multiple style="display:none;" onchange="previewImages(event)">
+    </div>
+
+    <script src="../Conexoes/editarProduto.js""></script>
+</body>
+</html>
