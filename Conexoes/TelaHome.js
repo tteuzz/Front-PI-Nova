@@ -1,11 +1,24 @@
 document.addEventListener('DOMContentLoaded', (event) => {
     const icone = document.querySelector('.icone');
     const cardLoginCadastro = document.getElementById('card-login-cadastro');
+    const userLogado = sessionStorage.getItem("UserLogado")
 
     fetchProducts();
     icone.addEventListener('click', (event) => {
         event.stopPropagation(); 
         if (cardLoginCadastro.style.display === 'none' || cardLoginCadastro.style.display === '') {
+
+            if(userLogado){
+                cardLoginCadastro.innerHTML = `
+                <button onclick="verPerfil()">Ver Perfil</button>
+                <button onclick="logout()">Logout</button>
+            `;
+            } else{
+                cardLoginCadastro.innerHTML = `
+                <button onclick="verPerfil()">Ver Perfil</button>
+                <button onclick="logout()">Logout</button>
+            `;
+            }
             cardLoginCadastro.style.display = 'block';
         } else {
             cardLoginCadastro.style.display = 'none';
