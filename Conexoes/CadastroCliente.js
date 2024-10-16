@@ -32,11 +32,15 @@ document.addEventListener('DOMContentLoaded', (event) => {
         })
         .then(response => response.json())
         .then(data => {
-    
             window.location.href = 'TelaHome.html';
         })
         .catch(error => {
-            console.error('Erro:', error);
+            //deadCOde nao funciona
+           if(error.response && error.response.status === 409){
+            alert(error.response.data.message)
+           }else{
+            console.log("error de cadastro", error)
+           }
         });
     });
 });
