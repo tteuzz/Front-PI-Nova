@@ -24,9 +24,18 @@
         <label for="cpf">CPF</label>
         <input type="text" id="cpf" name="cpf" placeholder="CPF" required>
 
+        <label for="genero">Genero</label>
+        <select id="genero" name="genero" required>
+            <option value="" disabled selected>Escolha uma opção</option>
+            <option value="masculino">masculino</option>
+            <option value="feminino">feminino</option>
+        </select>
+
+        <label for="dataNascimento">Data de nascimento</label>
+        <input type="date" name="dataNascimento" id="dataNascimento">
+
         <input type="submit" value="Cadastrar">
-        <script src="../Conexoes/CadastroUsuario.js"></script>
+        <script src="../Conexoes/CadastroCliente.js"></script>
     </form>
 </body>
-
 </html>
