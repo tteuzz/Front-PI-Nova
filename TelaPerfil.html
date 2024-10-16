@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOVA | Perfil</title>
+    <link rel="stylesheet" href="TelaPerfil.css">
+</head>
+
+<body>
+    <header class="container-header">
+        <div class="logo">
+            <a href="TelaHome.html"><img src="Front-PI-Nova-MatheusBranch/img/LOGO NOVA.jpg" alt="Logo NOVA"></a>
+            <h2>N O V A</h2>
+        </div>
+        <nav class="navegacao">
+            <ul>
+                <li><a href="TelaHome.html">Home</a></li>
+                <li><a href="TelaProdutos.html">Produtos</a></li>
+                <li><a href="TelaSobre.html">Sobre</a></li>
+                <li><a href="TelaContato.html">Contato</a></li>
+            </ul>
+        </nav>
+
+        <div class="nav-icon-container">
+            <img src="Front-PI-Nova-MatheusBranch/img/icone.png" class="icone" alt="Ícone">
+            <a href="TelaCarrinho.html"><img class="carrinho-button"
+                    src="Front-PI-Nova-MatheusBranch/img/carrinho-de-compras.png"
+                    alt="icone de carrinho de compras"></a>
+        </div>
+    </header>
+
+    <main>
+        <h2>Dados do usuário</h2>
+        <div id="user-info">
+            <p><strong>Nome:</strong> <span id="user-name"></span></p>
+            <p><strong>Email:</strong> <span id="user-email"></span></p>
+            <p><strong>Senha:</strong> <span id="user-password"></span></p>
+            <p><strong>CPF:</strong> <span id="user-cpf"></span></p>
+            <p><strong>Gênero:</strong> <span id="user-gender"></span></p>
+            <p><strong>Data de Nascimento:</strong> <span id="user-dob"></span></p>
+        </div>
+        <button id="add-address-btn">Adicionar Novo Endereço</button>
+        <div id="new-address-container" class="hidden">
+        <input type="text" id="new-address-input" placeholder="Digite o novo endereço">
+        <button id="save-address-btn">Salvar Endereço</button>
+    </div>
+    </main>
+
+    <div class="card-login-cadastro" id="card-login-cadastro"></div>
+
+    <script src="TelaPerfil.js"></script>
+</body>
+
+</html>
