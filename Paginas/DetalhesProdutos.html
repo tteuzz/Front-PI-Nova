@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Estilos/DetalhesProdutos.css">
+    <title>Detalhes do Produto</title>
+</head>
+<body>
+
+    <!-- Header com estilo Kabum -->
+    <header>
+        <div class="logo">
+            <img src="../img/LOGO NOVA.jpg" alt="Logo da NOVA">
+            <h1>NOVA</h1>
+        </div>
+        <nav class="nav-menu">
+            <a href="TelaHome.html">Home</a>
+            <a href="TelaProdutos.html">Produtos</a>
+            <a href="TelaCarrinho.html">Carrinho</a>
+            <a href="TelaContato.html">Contato</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        
+        <section class="product-section">
+            <div class="carousel-container">
+                <button class="carousel-button prev" onclick="prevImage()">&#10094;</button>
+                <div class="carousel-images" id="carousel-images">
+               
+                </div>
+                <button class="carousel-button next" onclick="nextImage()">&#10095;</button>
+            </div>
+        </section>
+
+        <aside class="details-section">
+            <div class="product-details" id="product-details">
+              
+            </div>
+            <div class="user-review">
+            
+                <div class="fixed-review" id="user-review">
+           
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <section class="cart">
+        <h2>Carrinho de Compras</h2>
+        <ul id="cart-items"></ul>
+        <p><strong>Total: R$ <span id="cart-total">0,00</span></strong></p>
+    </section>
+
+        <script src="../Conexoes/detalhes.js"></script>
+</body>
+</html>

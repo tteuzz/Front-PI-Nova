@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOVA | Carrinho</title>
+    <link rel="stylesheet" href="../Estilos/TelaCarrinho.css">
+</head>
+<body>
+    <header class="container-header">
+        <div class="logo">
+            <img src="../img/LOGO NOVA.jpg" alt="Logo NOVA">
+            <h2>N O V A</h2>
+        </div>
+        <nav class="navegacao">
+            <ul>
+                <li><a href="TelaHome.html">Home</a></li>
+                <li><a href="TelaProdutos.html">Produtos</a></li>
+                <li><a href="TelaSobre.html">Sobre</a></li>
+                <li><a href="TelaContato.html">Contato</a></li>
+            </ul>
+        </nav>
+        <div class="nav-icon-container">
+            <a href="TelaCadastroUsuario.html"><img class="icone" src="../img/icone.png" alt="icone de uma pessoa"></a>
+            <a href="TelaCarrinho.html"><img class="carrinho-button" src="../img/carrinho.png" alt="icone de carrinho de compras"></a>
+        </div>
+    </header>
+
+    <main>
+        <h2 class="titulo-carrinho">Carrinho de compras</h2>
+        <div class="carrinho-resumo-container">
+            <div class="tabela-container">
+                <table class="tabela">
+                    <thead>
+                        <tr>
+                            <th>Imagem do Produto</th>
+                            <th>Produto</th>
+                            <th>Preço</th>
+                            <th>Quantidade</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody id="product-table-body"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="resumo-container">
+            <div class="resumo-card">
+                <h3>Resumo do Pedido</h3>
+                <p id="resumo-valor">Valor dos Produtos: R$0,00</p>
+                <label for="cep">CEP:</label>
+                <div class="cep-container">
+                    <input type="text" id="cep" name="cep" placeholder="Digite seu CEP" required>
+                    <input type="button" value="Validar CEP" id="validarCep">
+                </div>
+                <div id="frete-resultado"></div>
+                <button id="finalizar-pedido" class="botao">Finalizar pedido</button>
+                <button class="botao">Continuar comprando</button>
+            </div>
+        </div>
+
+        <!-- Adicione a modal aqui -->
+        <div id="modal-verificacao" class="modal">
+            <div class="modal-conteudo">
+                <span class="fechar" id="fechar-modal">&times;</span>
+                <h3>Você já tem uma conta?</h3>
+                <div class="modal-botoes">
+                    <button id="sim-conta" class="botao">Sim</button>
+                    <button id="nao-conta" class="botao">Não</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../Conexoes/TelaCarrinho.js"></script>
+    <script src="../Conexoes/verifica.js"></script>
+</body>
+</html>
