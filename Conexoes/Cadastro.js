@@ -35,16 +35,22 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
                 if (usuario == "Administrador") {
                     localStorage.setItem("grupoUsuario", "administrador");
+                    await pushDeInfoDoBanco(email);
                     window.location.href = 'TelaBackoffice.html';
                 } else if (usuario == "Estoquista") {
                     localStorage.setItem("grupoUsuario", "estoquista");
+                    await pushDeInfoDoBanco(email);
                     window.location.href = 'TelaBackofficeEstoquista.html';
-                } else {
+                } else if (usuario == "usuario"){
                     localStorage.setItem("grupoUsuario", "usuario");
+                    await pushDeInfoDoBanco(email);
                     window.location.href = 'TelaHome.html';   
+                }else{
+                    alert("erro de login")
+                    window.location.reload()
                 }
 
-                await pushDeInfoDoBanco(email);
+              
 
             } catch (error) {
                 console.error('Erro:', error); 
@@ -73,8 +79,6 @@ async function pushDeInfoDoBanco(email) {
         }
 
         sessionStorage.setItem("usuarioLogado", JSON.stringify(data)); 
-
-        alert("Informações do usuário obtidas com sucesso");
     } catch (error) {
         console.error("Erro ao buscar informações do banco:", error);
         alert("Ocorreu um erro ao resgatar os dados do login");

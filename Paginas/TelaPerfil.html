@@ -34,20 +34,19 @@
     <main>
         <h2>Dados do usuário</h2>
         <div id="user-info">
-            <p><strong>Nome:</strong> <input type="text" id="user-name" disabled></p>
-            <p><strong>Email:</strong> <span id="user-email"></span></p>
-            <p><strong>Senha:</strong> <input type="password" id="user-password" disabled></p>
-            <p><strong>CPF:</strong> <span id="user-cpf"></span></p>
+            <p><strong>Nome:</strong> <input type="text" id="user-name"></p>
+            <p><strong>Email:</strong> <input type="email" id="user-email" readonly></p>
+            <p><strong>Senha:</strong> <input type="password" id="user-password"></p>
+            <p><strong>CPF:</strong> <input type="text" id="user-cpf" readonly></span></p>
             <p><strong>Gênero:</strong> 
-                <select id="user-gender" disabled>
+                <select id="user-gender">
                     <option value="">Selecione</option>
                     <option value="Masculino">Masculino</option>
                     <option value="Feminino">Feminino</option>
-                    <option value="Outro">Outro</option>
                 </select>
             </p>
-            <p><strong>Data de Nascimento:</strong> <input type="date" id="user-dob" disabled></p>
-            <button id="edit-btn">Editar</button>
+            <p><strong>Data de Nascimento:</strong> <input type="date" id="user-dob" ></p>
+            <button id="edit-btn"onclick=editarUsuario()>Editar</button>
             <button id="save-btn" style="display:none;">Salvar</button>
         </div>
         <br>
