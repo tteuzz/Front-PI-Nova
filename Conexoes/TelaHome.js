@@ -50,6 +50,11 @@ function verPerfil(){
     window.location.href = "TelaPerfil.html";
 }
 
+function logout() {
+    alert("Você saiu da sessão");
+    localStorage.clear();
+    window.location.href = 'Telainicial.html';
+}
 
 function fetchProducts() {
     fetch('http://localhost:8015/produto/list') 
