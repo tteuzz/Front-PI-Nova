@@ -15,16 +15,28 @@ body {
     font-family: "Sora", sans-serif;
 }
 
-form {
-    width: 100%;
-    max-width: 400px;
-    padding: 20px;
-    margin: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 800px;
     background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.form-section {
+    flex: 1;
+    min-width: 300px;
+    padding: 20px;
 }
 
 form h2 {
@@ -43,7 +55,9 @@ form label {
 
 form input[type="text"],
 form input[type="email"],
-form input[type="password"] {
+form input[type="password"],
+form input[type="date"],
+form select {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
@@ -67,16 +81,16 @@ form input[type="submit"]:hover {
 }
 
 @media (max-width: 600px) {
-    form {
+    .form-section {
+        min-width: 100%;
         padding: 15px;
     }
 
     form input[type="text"],
     form input[type="email"],
-    form input[type="password"] {
-        padding: 8px;
-    }
-
+    form input[type="password"],
+    form input[type="date"],
+    form select,
     form input[type="submit"] {
         padding: 8px;
     }
