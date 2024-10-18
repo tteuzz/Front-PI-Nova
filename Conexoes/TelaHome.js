@@ -1,22 +1,21 @@
 document.addEventListener('DOMContentLoaded', (event) => {
     const icone = document.querySelector('.icone');
     const cardLoginCadastro = document.getElementById('card-login-cadastro');
-    const userLogado = sessionStorage.getItem("UserLogado")
-
+    const userLogado = sessionStorage.getItem("usuarioLogado")
     fetchProducts();
     icone.addEventListener('click', (event) => {
         event.stopPropagation(); 
         if (cardLoginCadastro.style.display === 'none' || cardLoginCadastro.style.display === '') {
 
-            if(userLogado){
+            if(userLogado != null){
                 cardLoginCadastro.innerHTML = `
                 <button onclick="verPerfil()">Ver Perfil</button>
                 <button onclick="logout()">Logout</button>
             `;
             } else{
                 cardLoginCadastro.innerHTML = `
-                <button onclick="verPerfil()">Ver Perfil</button>
-                <button onclick="logout()">Logout</button>
+                <button onclick="login()">Logar</button>
+
             `;
             }
             cardLoginCadastro.style.display = 'block';
@@ -46,6 +45,11 @@ function login() {
 function cadastro() {
     window.location.href = 'TelaCadastroUsuario.html';
 }
+
+function verPerfil(){
+    window.location.href = "TelaPerfil.html";
+}
+
 
 function fetchProducts() {
     fetch('http://localhost:8015/produto/list') 

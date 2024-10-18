@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', (event) => {
     const form = document.getElementById('cadastro');
-    
+
     form.addEventListener('submit', function(event) {
         event.preventDefault(); 
 
@@ -22,7 +22,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
             usuaDataNascimento: dataNascimento
         };
 
-     
         fetch('http://localhost:8015/user', {
             method: 'POST',
             headers: {
@@ -30,17 +29,21 @@ document.addEventListener('DOMContentLoaded', (event) => {
             },
             body: JSON.stringify(dados)
         })
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                return response.json().then(err => { throw err });
+            }
+            return response.json();
+        })
         .then(data => {
-            window.location.href = 'TelaHome.html';
+            window.location.href = 'Telainicial.html';
         })
         .catch(error => {
-            //deadCOde nao funciona
-           if(error.response && error.response.status === 409){
-            alert(error.response.data.message)
-           }else{
-            console.log("error de cadastro", error)
-           }
+            if (error.status === 409) {
+                alert(error.message);
+            } else {
+                console.log("Erro de cadastro:", error);
+            }
         });
     });
 });
