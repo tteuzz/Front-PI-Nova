@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Produtos</title>
+    <link rel="shortcut icon" href="../img/LOGO NOVA.jpg" type="image">
+    <link rel="stylesheet" href="../Estilos/ListaProdutos.css">
+    <script src="../ListaProdutos.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container-header">
+            <img src="../img/LOGO NOVA.jpg" alt="Logo">
+            <h2 class="nome-loja">N O V A</h2>
+            <img class="icone" src="../img/perfil.png" alt="icone de uma pessoa">
+        </div>
+    </header>
+
+    <div class="espaco-body">
+        <p>""</p>
+    </div>
+
+    <div class="header-body">
+        <h1 class="titulo">Lista de produtos</h1>
+        <div class="botao-add">
+            <a href="CadastrarProduto.html"><button class="botao">Adicionar produto</button></a>
+        </div>
+
+        <div class="caixa-pesquisa">
+            <input type="text" class="pesquisa" id="searchInput" placeholder="Pesquisar produto" onkeyup="searchProduct()">
+
+            <button class="botao-pesquisa" onclick="searchProduct()">Pesquisar</button>
+        </div>        
+
+            <a href="TelaBackoffice.html"><button class="botao-voltar">Voltar</button></a>
+        </div>      
+
+    </div>
+
+    <div class="tabela-container">
+        <table class="tabela">
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Nome</th>
+                    <th>Avaliação</th>
+                    <th>Descrição Detalhada</th>
+                    <th>Preço</th>
+                    <th>Qtd em Estoque</th>
+                    <th>Status</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="product-table-body"></tbody>
+        </table>
+        <div id="editModal" class="modal" style="display:none;">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2>Editar Produto</h2>
+                <input type="hidden" id="idProduto" />
+                <label for="qtdEstoqueProduto">Quantidade em Estoque:</label>
+                <input type="number" id="qtdEstoqueProduto" />
+                <button onclick="saveQuantity()">Salvar</button>
+            </div>
+        </div>
+
+        <div id="product-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeModal()">×</span>
+                <h2 id="modal-nome"></h2>
+                <div class="carousel-container">
+                    <button class="carousel-button prev" onclick="prevImage()">&#10094;</button>
+                    <div class="carousel-images" id="carousel-images"></div>
+                    <button class="carousel-button next" onclick="nextImage()">&#10095;</button>
+                </div>
+    
+                <p><strong>Nome:</strong> <span id="modal-name"></span></p>
+                <p><strong>Avaliação:</strong> <span id="modal-avaliacao"></span></p>
+                <p><strong>Descrição:</strong> <span id="modal-descricao"></span></p>
+                <p><strong>Preço:</strong> <span id="modal-preco"></span></p>
+                <p><strong>Quantidade em Estoque:</strong> <span id="modal-qtd"></span></p>
+                <button class="botao-addCarrinho">Adicionar ao carrinho</button>
+            </div>
+        </div>
+
+        <div class="pagination-container">
+            <button id="prev-page" onclick="prevPage()">Anterior</button>
+            <span id="page-info"></span>
+            <button id="next-page" onclick="nextPage()">Próxima</button>
+        </div>
+    </div>
+
+    <script src="../Conexoes/ListaProdutos.js"></script>
+    <script src="../Conexoes/PesquisaInteligente.js"></script>
+</body>
+</html>
+

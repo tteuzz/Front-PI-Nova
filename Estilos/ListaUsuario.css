@@ -134,7 +134,7 @@ img {
     box-shadow: 0 0 5px rgba(25, 19, 64, 0.5);
 }
 
-.botao-pesquisa {
+.botao-voltar {
     background-color: #fff;
     color: #191340;
     border: 1px solid #191340;
@@ -154,24 +154,25 @@ img {
     color: #fff;
 }
 
-.tabela {
-    width: 100%;
-    background-color: #ccc;
-    border: 1px solid #000;
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: auto;
-    gap: 10px;
-    padding: 10px;
+.tabela-container {
+    display: flex;
+    justify-content: center;
+    margin: 0px;
 }
 
-.tabela-item {
+.tabela {
+    width: 100%;
+    max-width: 100vw;
+    border-collapse: collapse;
     background-color: #fff;
-    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.tabela th, .tabela td {
     padding: 10px;
-    text-align: center;
-    font-family: "Inter", sans-serif;
-    font-size: 16px;
+    border: 1px solid #ccc;
+    text-align: left;
+    font-family: 'Inter', sans-serif;
 }
 
 .switch {
@@ -217,4 +218,64 @@ input:checked + .slider {
 
 input:checked + .slider:before {
     transform: translateX(14px);
+}
+@media (max-width: 1200px) {
+    .nome-loja {
+        margin-right: 800px;
+    }
+}
+
+@media (max-width: 768px) {
+    header, .header-body {
+        flex-direction: column;
+        height: auto;
+        align-items: center;
+    }
+
+    .container-header {
+        flex-direction: column;
+    }
+
+    .nome-loja {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    img {
+        margin: 0 auto;
+    }
+
+    .tabela-container {
+        padding: 0 10px;
+    }
+
+    .tabela {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 18px;
+    }
+
+    .pesquisa, .botao-pesquisa {
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+
+    .botao-add a button {
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+
+    .tabela th, .tabela td {
+        padding: 5px;
+        font-size: 12px;
+    }
+
+    .pagination-container button {
+        font-size: 14px;
+        padding: 8px 10px;
+    }
 }
