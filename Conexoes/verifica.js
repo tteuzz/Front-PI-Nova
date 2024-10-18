@@ -6,7 +6,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const naoBtn = document.getElementById('nao-conta');
 
     finalizarBtn.addEventListener('click', function() {
-        modal.style.display = 'block';
+        const user = localStorage.getItem('user');
+        const grupoUsuario = localStorage.getItem('grupoUsuario');
+        if (!user && !grupoUsuario) {
+            modal.style.display = 'block';
+        } else {
+            localStorage.removeItem('produtos');
+            alert('Pedido finalizado com sucesso.');
+            window.location.href = "TelaHome.html";
+        }
     });
 
     fecharModal.addEventListener('click', function() {
@@ -16,13 +24,13 @@ document.addEventListener('DOMContentLoaded', function() {
     simBtn.addEventListener('click', function() {
         modal.style.display = 'none';
         alert("Ótimo! você será redirecionado para a tela de login.");
-        window.location.href = "Telainicial.html";	
+        window.location.href = "Telainicial.html";
     });
 
     naoBtn.addEventListener('click', function() {
         modal.style.display = 'none';
-        alert("você será redirecionado para a tela de cadastro de usuário.");
-        window.location.href = "TelaCadastroUsuario.html";
+        alert("Você será redirecionado para a tela de cadastro de usuário.");
+        window.location.href = "TelaCadastroUsuario.html"; 
     });
 
     window.addEventListener('click', function(event) {

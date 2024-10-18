@@ -114,10 +114,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 body: JSON.stringify(dados)
             })
             .then(response => {
+                localStorage.setItem('user', JSON.stringify(response));
                 return response.json();
             })
             .then(data => {
-                window.location.href = 'ListaUsuario.html';
+                window.location.href = 'TelaHome.html';
             })
             .catch(error => {
                 alert('Erro:', error);
