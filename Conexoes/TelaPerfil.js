@@ -1,16 +1,12 @@
     document.addEventListener('DOMContentLoaded', () => {
         let user = sessionStorage.getItem("usuarioLogado")
-        user = JSON.parse(user)
-       
-
-
-       
-     document.getElementById("user-name").value = user.usuaNmUsuario;
-   document.getElementById("user-email").value = user.usuaDsEmail;
-     document.getElementById("user-cpf").value = user.usuaDsCPF;
+        user = JSON.parse(user)       
+        document.getElementById("user-name").value = user.usuaNmUsuario;
+        document.getElementById("user-email").value = user.usuaDsEmail;
+        document.getElementById("user-cpf").value = user.usuaDsCPF;
         document.getElementById("user-password").value = user.usuaDsPassword;
-       document.getElementById("user-gender").value = user.usuaGenero;
-       document.getElementById("user-dob").value = user.usuaDataNascimento;
+        document.getElementById("user-gender").value = user.usuaGenero;
+        document.getElementById("user-dob").value = user.usuaDataNascimento;
 
 });
 
@@ -51,11 +47,11 @@ async function editarUsuario() {
         let data;
         if (contentType && contentType.indexOf("application/json") !== -1) {
             data = await response.json(); 
-            sessionStorage.setItem("usuarioLogado",data)
+            sessionStorage.setItem("usuarioLogado",JSON.stringify(data))
             window.location.reload();
         } else {
             data = await response.text();
-            sessionStorage.setItem("usuarioLogado",data)
+            sessionStorage.setItem("usuarioLogado",JSON.stringify(data))
             window.location.reload();
         }
     }catch(error){
