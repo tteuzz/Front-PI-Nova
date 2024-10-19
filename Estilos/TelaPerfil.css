@@ -184,7 +184,7 @@ main {
   padding: 20px;
   background-color: white;
   margin: 20px auto;
-  max-width: 500px; /* Ajustei o tamanho para compactação */
+  max-width: 1000px; /* Ajustei o tamanho para compactação */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
 }
@@ -245,6 +245,35 @@ button:hover {
   font-size: 14px;
 }
 
+.address-flex-container {
+  display: flex;
+  gap: 20px;
+}
+
+#added-addresses-container {
+  flex: 1;
+  margin-top: 20px;
+}
+
+.address-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.address-item p {
+  margin: 0;
+}
+
+.address-item .default-label {
+  color: green;
+  font-weight: bold;
+}
+
 /* Media queries para responsividade */
 @media (max-width: 768px) {
   .container-header {
@@ -269,6 +298,10 @@ button:hover {
 
   .button {
       margin-left: 0; /* Centralizar botão em telas menores */
+  }
+
+  .address-flex-container {
+      flex-direction: column;
   }
 }
 
@@ -321,4 +354,24 @@ label input {
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 14px;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px; /* Aumentei o espaçamento entre os elementos */
+}
+
+.user-data, .address-data, .added-addresses {
+  flex: 1;
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  .flex-container {
+      flex-direction: column;
+  }
 }
