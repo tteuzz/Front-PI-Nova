@@ -46,32 +46,65 @@
                 <input type="date" name="dataNascimento" id="dataNascimento">
             </div>
 
-            <div class="form-section">
-                <h2>Endereço</h2>
-                <p>Defina seu endereço de Faturamento</p>
 
-                <label for="cep">CEP</label>
-                <input type="text" id="cep" placeholder="Digite o CEP">
+            <div class="form-section" id="endereco-faturamento">
+                <h2>Endereço de Faturamento</h2>
 
-                <label for="logradouro">Logradouro</label>
-                <input type="text" id="logradouro" disabled>
+                <label for="cep-faturamento">CEP</label>
+                <input type="text" id="cep-faturamento" placeholder="Digite o CEP" required>
 
-                <label for="numero">Número</label>
-                <input type="text" id="numero">
+                <label for="logradouro-faturamento">Logradouro</label>
+                <input type="text" id="logradouro-faturamento" placeholder="Logradouro" required>
 
-                <label for="complemento">Complemento</label>
-                <input type="text" id="complemento">
+                <label for="numero-faturamento">Número</label>
+                <input type="text" id="numero-faturamento" placeholder="Número" required>
 
-                <label for="bairro">Bairro</label>
-                <input type="text" id="bairro" disabled>
+                <label for="complemento-faturamento">Complemento</label>
+                <input type="text" id="complemento-faturamento" placeholder="Complemento">
 
-                <label for="cidade">Cidade</label>
-                <input type="text" id="cidade" disabled>
+                <label for="bairro-faturamento">Bairro</label>
+                <input type="text" id="bairro-faturamento" placeholder="Bairro" required>
 
-                <label for="uf">UF</label>
-                <input type="text" id="uf" disabled>
+                <label for="cidade-faturamento">Cidade</label>
+                <input type="text" id="cidade-faturamento" placeholder="Cidade" required>
+
+                <label for="uf-faturamento">UF</label>
+                <input type="text" id="uf-faturamento" placeholder="UF" required>
             </div>
 
+            <div class="form-section" id="enderecos-container">
+                <h2>Endereço</h2>
+            
+                <div class="endereco">
+                    <label for="cep">CEP</label>
+                    <input type="text" placeholder="Digite o CEP">
+            
+                    <label for="logradouro">Logradouro</label>
+                    <input type="text" disabled>
+            
+                    <label for="numero">Número</label>
+                    <input type="text">
+            
+                    <label for="complemento">Complemento</label>
+                    <input type="text">
+            
+                    <label for="bairro">Bairro</label>
+                    <input type="text" disabled>
+            
+                    <label for="cidade">Cidade</label>
+                    <input type="text" disabled>
+            
+                    <label for="uf">UF</label>
+                    <input type="text" disabled>
+
+                    <label>
+                        <input type="radio" name="enderecoPrincipal" value="0"> Principal
+                    </label>
+                </div>
+            
+                <button type="button" id="addEndereco">Adicionar outro endereço</button>
+            </div>
+            
             <input type="submit" value="Cadastrar">
         </form>
     </div>
