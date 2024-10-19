@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOVA | Perfil</title>
+    <link rel="stylesheet" href="../Estilos/TelaPerfil.css">
+</head>
+
+<body>
+    <header class="container-header">
+        <div class="logo">
+            <a href="TelaHome.html"><img src="../img/LOGO NOVA.jpg" alt="Logo NOVA"></a>
+            <h2>N O V A</h2>
+        </div>
+        <nav class="navegacao">
+            <ul>
+                <li><a href="TelaHome.html">Home</a></li>
+                <li><a href="TelaProdutos.html">Produtos</a></li>
+                <li><a href="TelaSobre.html">Sobre</a></li>
+                <li><a href="TelaContato.html">Contato</a></li>
+            </ul>
+        </nav>
+
+        <div class="nav-icon-container">
+            <img src="../img/icone.png" class="icone" alt="Ícone">
+            <a href="TelaCarrinho.html"><img class="carrinho-button"
+                    src="../img/carrinho-de-compras.png"
+                    alt="icone de carrinho de compras"></a>
+        </div>
+    </header>
+
+    <main>
+        <h2>Dados do usuário</h2>
+        <div id="user-info">
+            <p><strong>Nome:</strong> <input type="text" id="user-name"></p>
+            <p><strong>Email:</strong> <input type="email" id="user-email" readonly></p>
+            <p><strong>Senha:</strong> <input type="password" id="user-password"></p>
+            <p><strong>CPF:</strong> <input type="text" id="user-cpf" readonly></span></p>
+            <p><strong>Gênero:</strong> 
+                <select id="user-gender">
+                    <option value="">Selecione</option>
+                    <option value="Masculino">Masculino</option>
+                    <option value="Feminino">Feminino</option>
+                </select>
+            </p>
+            <p><strong>Data de Nascimento:</strong> <input type="date" id="user-dob" ></p>
+            <button id="edit-btn"onclick=editarUsuario()>Editar</button>
+            <button id="save-btn" style="display:none;">Salvar</button>
+        </div>
+        <br>
+        <h2>Endereços</h2>
+        <div id="address-container"></div>
+    
+        <div id="new-address-container">
+            <h3>Adicionar novo endereço</h3>
+            <label>CEP: <input type="text" id="cep" placeholder="Digite o CEP"></label><br>
+            <label>Logradouro: <input type="text" id="logradouro" disabled></label><br>
+            <label>Número: <input type="text" id="numero"></label><br>
+            <label>Complemento: <input type="text" id="complemento"></label><br>
+            <label>Bairro: <input type="text" id="bairro" disabled></label><br>
+            <label>Cidade: <input type="text" id="cidade" disabled></label><br>
+            <label>UF: <input type="text" id="uf" disabled></label><br>
+            <button id="add-address-btn" class="button">Adicionar mais um</button>
+        </div>
+    </main>
+    
+    <div class="card-login-cadastro" id="card-login-cadastro"></div>
+
+    <script src="../Conexoes/TelaPerfil.js"></script>
+</body>
+
+</html>

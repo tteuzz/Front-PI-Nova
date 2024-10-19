@@ -1,0 +1,216 @@
+/* Estilo Geral */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f5; /* Fundo suave */
+    margin: 0;
+    padding: 0;
+    font-size: 20px; /* Tamanho padrão da fonte */
+}
+
+header {
+    background-color: #191340; /* Cor do cabeçalho */
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px; /* Ajuste a altura da logo */
+    margin-right: 10px; /* Espaço entre a logo e o texto */
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px; /* Tamanho dos links de navegação */
+}
+
+.nav-menu a:hover {
+    text-decoration: underline; /* Efeito ao passar o mouse */
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 1200px; /* Largura máxima do container */
+}
+
+/* Seção do Produto */
+.product-section {
+    width: 60%; /* Largura da seção do produto */
+}
+
+.details-section {
+    width: 35%; /* Largura da seção de detalhes */
+    margin-left: 20px; /* Espaço à esquerda */
+    background-color: white; /* Fundo branco */
+    padding: 20px;
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Estilos do Carrossel */
+.carousel-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-bottom: 30px; /* Espaço abaixo do carrossel */
+}
+
+.carousel-images {
+    display: flex;
+    width: 100%; /* Ajusta a largura do carrossel */
+    height: 400px; /* Ajuste a altura do carrossel */
+    overflow: hidden; /* Oculta imagens fora do contêiner */
+    justify-content: center;
+}
+
+.carousel-images img {
+    width: 100%; /* Imagens ocupam toda a largura */
+    height: auto; /* Altura automática */
+    object-fit: contain; /* Ajusta a imagem ao contêiner */
+    display: none; /* Ocultar imagens inicialmente */
+    transition: opacity 0.5s ease; /* Transição suave */
+}
+
+.carousel-images img.active {
+    display: block; /* Exibir apenas a imagem ativa */
+}
+
+.carousel-button {
+    background-color: rgba(0, 0, 0, 0.5); /* Botões do carrossel */
+    border: none;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 20px; /* Tamanho da fonte dos botões */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); /* Centraliza verticalmente */
+}
+
+.carousel-button.prev {
+    left: 10px; /* Espaço à esquerda */
+}
+
+.carousel-button.next {
+    right: 10px; /* Espaço à direita */
+}
+
+/* Detalhes do Produto */
+.product-details ul {
+    list-style: none; /* Remove marcadores da lista */
+    padding: 0;
+    font-size: 22px; /* Tamanho da fonte dos detalhes */
+}
+
+.product-details li {
+    padding: 10px 0; /* Espaçamento vertical entre itens */
+}
+
+.product-details p {
+    font-size: 22px; /* Tamanho da fonte do preço */
+    font-weight: bold; /* Negrito */
+    color: #191340; /* Cor do texto do preço */
+    text-align: center; /* Centraliza o texto */
+    margin-top: 20px; /* Espaço acima do preço */
+}
+
+button#add-to-cart {
+    background-color: #191340; /* Cor do botão */
+    color: white; /* Cor do texto do botão */
+    padding: 10px 20px; /* Espaçamento interno do botão */
+    border: none;
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer; /* Cursor de mão ao passar sobre o botão */
+    font-size: 18px; /* Tamanho da fonte do botão */
+    width: 100%; /* Largura total do botão */
+    margin-top: 15px; /* Espaço acima do botão */
+}
+
+button#add-to-cart:hover {
+    background-color: #2b2b90; /* Cor do botão ao passar o mouse */
+}
+
+/* Avaliação fixa do usuário */
+.user-review {
+    margin-top: 20px; /* Espaço acima da avaliação */
+}
+
+.fixed-review .stars {
+    font-size: 25px; /* Tamanho das estrelas */
+    color: gold; /* Cor das estrelas */
+}
+
+.fixed-review p {
+    font-size: 20px; /* Tamanho da fonte da avaliação */
+    color: #666; /* Cor do texto da avaliação */
+}
+
+/* Estilos do Carrinho */
+.cart {
+    background-color: #fff; /* Fundo do carrinho */
+    padding: 20px; /* Espaçamento interno do carrinho */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    margin-top: 20px; /* Espaço acima do carrinho */
+}
+
+.cart h2 {
+    margin: 0; /* Remove margens */
+    font-size: 24px; /* Tamanho do título do carrinho */
+}
+
+.cart ul {
+    list-style: none; /* Remove marcadores da lista */
+    padding: 0; /* Remove preenchimento */
+}
+
+.cart ul li {
+    padding: 5px 0; /* Espaçamento vertical entre itens do carrinho */
+    font-size: 16px; /* Tamanho da fonte dos itens do carrinho */
+}
+
+.cart p {
+    font-size: 20px; /* Tamanho da fonte do total */
+    font-weight: bold; /* Negrito */
+}
+
+/* Ajustes Responsivos */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Altera para coluna em telas menores */
+        align-items: center; /* Centraliza os itens */
+    }
+
+    .product-section, .details-section {
+        width: 100%; /* Largura total em telas pequenas */
+    }
+
+    .carousel-container {
+        margin-bottom: 20px; /* Espaçamento reduzido em telas pequenas */
+    }
+
+    .cart {
+        width: 100%; /* Largura total do carrinho */
+    }
+}
+
+

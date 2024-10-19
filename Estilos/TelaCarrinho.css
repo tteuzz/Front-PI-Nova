@@ -1,0 +1,303 @@
+body {
+    margin: 0;
+    font-family: "Inter", sans-serif;
+}
+
+.container-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    padding: 0 20px; 
+    background-color: #191340;
+    height: 8vh;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 50px; 
+    height: 50px; 
+    margin-right: 10px; 
+}
+
+.logo h2{
+    color: #fff;
+}
+
+.navegacao {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.navegacao ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navegacao li {
+    margin-right: 20px;
+}
+
+.navegacao a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.nav-icon-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.icone, .carrinho-button {
+    width: 50px;
+    height: 50px;
+    margin-left: 20px;
+}
+
+.navegacao ul li a:hover {
+    color: #FFD700;
+}
+
+
+.titulo-carrinho{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    font-size: 30px;
+}
+
+.tabela-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+
+.tabela {
+    width: 55%;
+    border-collapse: collapse;
+    margin-left: 3%;
+    margin-top: 2%;
+    font-size: 1em;
+    font-family: 'Inter', sans-serif;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border-collapse: collapse;
+}
+
+.tabela th, .tabela td {
+    padding: 12px 15px;
+    text-align: left;
+}
+
+.tabela th {
+    background-color: #191340; /* Cabeçalho com cor de destaque */
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.tabela td {
+    color: #333;
+    border-bottom: 1px solid #ddd; /* Linha divisória suave */
+}
+
+.tabela tr:hover {
+    background-color: #f1f1f1; /* Destaque ao passar o mouse sobre uma linha */
+}
+
+.tabela img {
+    border-radius: 8px;
+    max-width: 80px;
+    max-height: 80px;
+}
+
+.tabela .preço, .tabela .quantidade, .tabela .total {
+    text-align: center;
+    font-weight: bold;
+    color: #4a4a4a;
+}
+
+.tabela .total {
+    color: #191340; /* Destaque para a coluna de total */
+}
+
+@media (max-width: 768px) {
+    .tabela {
+        font-size: 0.9em;
+    }
+
+    .tabela img {
+        max-width: 50px;
+        max-height: 50px;
+    }
+
+    .tabela th, .tabela td {
+        padding: 8px 10px;
+    }
+}
+
+.resumo-container {
+    position: fixed;   
+    width: 23%;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    font-family: 'Inter', sans-serif;
+    font-size: 1em;
+    margin-left: 20px; 
+    right: 7%;
+    top: 20%;
+}
+
+.resumo-card h3 {
+     margin-top: 0;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #191340; /* Título com cor de destaque */
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.resumo-card p {
+    font-size: 1em;
+    color: #333;
+    margin: 10px 0;
+}
+
+.resumo-card label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    color: #333;
+    font-weight: bold;
+}
+
+.cep-container {
+    display: flex;
+    gap: 10px; /* Espaço entre o input e o botão */
+    margin-bottom: 10px;
+}
+
+.cep-container input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 0.9em;
+    background-color: #f9f9f9;
+}
+
+.cep-container input[type="button"] {
+    padding: 10px;
+    background-color: #191340; /* Botão com cor de destaque */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.cep-container input[type="button"]:hover {
+    background-color: #14112c; /* Efeito hover no botão */
+}
+
+#frete-resultado {
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #333;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.botao {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    background-color: #191340;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.botao:hover {
+    background-color: #14112c;
+}
+
+.botao:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(25, 19, 64, 0.5);
+}
+
+@media (max-width: 768px) {
+    .resumo-container {
+        width: 100%;
+        margin: 0;
+        box-shadow: none;
+        border: none;
+        position: static;
+    }
+
+    .botao {
+        font-size: 0.9em;
+    }
+}
+.modal {
+    display: none; /* Oculta a modal por padrão */
+    position: fixed; /* Fica fixa na tela */
+    z-index: 1; /* Fica acima de outros elementos */
+    left: 0;
+    top: 0;
+    width: 100%; /* Largura total da tela */
+    height: 100%; /* Altura total da tela */
+    overflow: auto; /* Adiciona scroll se necessário */
+    background-color: rgb(0,0,0); /* Cor de fundo */
+    background-color: rgba(0,0,0,0.4); /* Cor de fundo com opacidade */
+}
+
+.modal-conteudo {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% do topo e centralizado */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Largura da modal */
+    max-width: 400px; /* Largura máxima */
+    text-align: center;
+    border-radius: 8px; /* Bordas arredondadas */
+}
+
+.fechar {
+    color: #aaa;
+    float: right; /* Alinha o botão de fechar à direita */
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.fechar:hover,
+.fechar:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-botoes {
+    margin-top: 20px; /* Espaçamento acima dos botões */
+}
