@@ -50,6 +50,14 @@ function verPerfil(){
     window.location.href = "TelaPerfil.html";
 }
 
+<<<<<<< Updated upstream
+=======
+function logout() {
+    alert("Você saiu da sessão");
+    sessionStorage.clear();
+    window.location.href = 'TelaHome.html';
+}
+>>>>>>> Stashed changes
 
 function fetchProducts() {
     fetch('http://localhost:8015/produto/list') 
