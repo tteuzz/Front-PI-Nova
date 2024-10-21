@@ -232,3 +232,13 @@ body {
     margin-left: 0;
   }
 }
+.cart-quantity {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+}
