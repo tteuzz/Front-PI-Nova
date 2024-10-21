@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
         formCadastrarUser.addEventListener('submit', handleSubmit);
     }
 
-    // Listener para o CEP do endereço de faturamento
     const cepFaturamentoInput = document.getElementById("cep-faturamento");
     cepFaturamentoInput.addEventListener('blur', () => {
         const cep = cepFaturamentoInput.value.replace(/\D/g, '');
@@ -16,7 +15,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
         }
     });
 
-    // Listener para adicionar um novo endereço
     document.getElementById('addEndereco').addEventListener('click', function() {
         const novoEndereco = document.createElement('div');
         novoEndereco.className = 'endereco novo-endereco'; 
@@ -50,7 +48,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
         document.getElementById('enderecos-container').appendChild(novoEndereco);
 
-        // Adicionando listener para o campo de CEP
         const cepInput = novoEndereco.querySelector('.cep');
         cepInput.addEventListener('blur', () => {
             const cep = cepInput.value.replace(/\D/g, '');
@@ -70,7 +67,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 alert("CEP inválido");
                 return;
             }
-            // Preenchendo os campos de endereço
             if (enderecoDiv === 'faturamento') {
                 document.getElementById('logradouro-faturamento').value = data.logradouro;
                 document.getElementById('bairro-faturamento').value = data.bairro;
@@ -99,10 +95,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
         let dataNascimento = document.getElementById("dataNascimento").value;
         let grupo = "usuario";
 
-        // Captura os endereços
         const enderecos = [];
 
-        // Adiciona o endereço de faturamento
         enderecos.push({
             cep: document.getElementById("cep-faturamento").value,
             logradouro: document.getElementById("logradouro-faturamento").value,
@@ -115,7 +109,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
             grupo: "faturamento"
         });
 
-        // Captura endereços adicionais
         const enderecosAdicionais = Array.from(document.querySelectorAll('.novo-endereco')).map((endereco) => {
             return {
                 cep: endereco.querySelector('.cep').value,
@@ -132,7 +125,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
         enderecos.push(...enderecosAdicionais);
 
-        // Verifica se há mais de um endereço marcado como principal
         const principalCount = enderecos.filter(endereco => endereco.principal).length;
         if (principalCount > 1) {
             alert("Apenas um endereço pode ser marcado como principal.");
@@ -149,7 +141,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
             usuaDataNascimento: dataNascimento
         };
 
-        // Chamada para criar o usuário
         fetch('http://localhost:8015/user', {
             method: 'POST',
             headers: {
@@ -171,17 +162,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
             window.location.href = 'Telainicial.html'; 
         })
         .catch(error => {
-            if (error && error.status === 409) {
-                error.json().then(errData => {
-                    alert(errData.message); 
-                });
-            } else {
-                console.log("Erro de cadastro:", error); 
-            }
+            alert("CPF OU EMAIL JÁ EXISTENTE NA BASE DE DADOS")
         });
     }
 
-    // Função para adicionar endereços ao banco
     async function addBanco(id, enderecosParaOback) {
         const url = `http://localhost:8015/Endereco/${id}`;
         try {

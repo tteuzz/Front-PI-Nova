@@ -8,7 +8,16 @@
         document.getElementById("user-password").value = user.usuaDsPassword;
         document.getElementById("user-gender").value = user.usuaGenero;
         document.getElementById("user-dob").value = user.usuaDataNascimento;
-
+        const cepInput = document.getElementById('cep');
+    
+        cepInput.addEventListener('blur', async () => {
+        const cep = cepInput.value.replace(/\D/g, '');
+        if (cep.length === 8) {
+            await buscarEnderecoFaturamento(cep);
+        } else {
+            alert("CEP deve ter 8 dígitos.");
+        }
+    });
 });
 
 async function listarEndereco() {
@@ -140,64 +149,72 @@ async function editarUsuario() {
         alert("error")
     }   
 }
-document.getElementById('add-address-btn').addEventListener('click', addAddress);
 
-function addAddress() {
-    const cep = document.getElementById('cep').value;
+async function cadastrarNovoEndereco() {
+    let user = sessionStorage.getItem("usuarioLogado")
+    user = JSON.parse(user);
+    
+    const cep = document.getElementById('cep').value
     const logradouro = document.getElementById('logradouro').value;
-    const numero = document.getElementById('numero').value;
-    const complemento = document.getElementById('complemento').value;
     const bairro = document.getElementById('bairro').value;
     const cidade = document.getElementById('cidade').value;
+    const complemento = document.getElementById('complemento').value;
     const uf = document.getElementById('uf').value;
+    const numero = document.getElementById("numero").value;
 
-    const address = `${logradouro}, ${numero} ${complemento}, ${bairro}, ${cidade} - ${uf}, ${cep}`;
+    const endereco = {
+        cep: cep,
+        logradouro: logradouro,
+        numero: numero,
+        complemento: complemento,
+        bairro: bairro,
+        cidade: cidade,
+        uf: uf,
+        enderecoPrincipal: false,
+        grupo: "envio",
+    };
 
-    const addressContainer = document.getElementById('added-addresses-container');
-    const addressItem = document.createElement('div');
-    addressItem.className = 'address-item';
-    addressItem.innerHTML = `
-        <p>${address}</p>
-        <button class="button" onclick="setDefaultAddress(this)">Definir como padrão</button>
-    `;
-
-    addressContainer.appendChild(addressItem);
-
-    document.getElementById('cep').value = '';
-    document.getElementById('logradouro').value = '';
-    document.getElementById('numero').value = '';
-    document.getElementById('complemento').value = '';
-    document.getElementById('bairro').value = '';
-    document.getElementById('cidade').value = '';
-    document.getElementById('uf').value = '';
+    const url = `http://localhost:8015/Endereco/adicionarMaisUm/${user.idUsuario}`
+    try {
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(endereco)
+        });
+        if (!response.ok) {
+            alert("Erro ao cadastrar endereços");
+        }
+    } catch (error) {
+        console.log("Erro no add:", error);
+    }
+    alert("endereço adicionando com sucesso")
+    document.getElementById('cep').value = "";
+    document.getElementById('complemento').value = "";
+    document.getElementById('numero').value = "";
+    document.getElementById('logradouro').value = "";
+    document.getElementById('bairro').value = "";
+    document.getElementById('cidade').value = "";
+    document.getElementById('uf').value = ""; 
+    listarEndereco()
+   
 }
 
-function setDefaultAddress(button) {
-    const addressContainer = document.getElementById('added-addresses-container');
-    const addressItems = addressContainer.getElementsByClassName('address-item');
-
-    if (addressItems.length < 2) {
-        alert('Você precisa ter pelo menos dois endereços cadastrados para definir um como padrão.');
-        return;
-    }
-
-    for (let item of addressItems) {
-        const defaultLabel = item.querySelector('.default-label');
-        if (defaultLabel) {
-            defaultLabel.remove();
+async function buscarEnderecoFaturamento(cep) {
+    try {
+        const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+        const data = await response.json();
+        if (data.erro) {
+            alert("CEP inválido");
+            return;
         }
-        const button = item.querySelector('button');
-        if (button) {
-            button.style.display = 'inline-block';
-        }
+        document.getElementById('logradouro').value = data.logradouro;
+        document.getElementById('bairro').value = data.bairro;
+        document.getElementById('cidade').value = data.localidade;
+        document.getElementById('uf').value = data.uf;    
+    } catch (error) {
+        console.error('Erro ao buscar endereço:', error);
+        alert("Erro ao buscar endereço. Tente novamente.");
     }
-
-    const addressItem = button.parentElement;
-    button.style.display = 'none';
-    const defaultLabel = document.createElement('span');
-    defaultLabel.className = 'default-label';
-    defaultLabel.textContent = 'Endereço Padrão';
-    addressItem.appendChild(defaultLabel);
-
-    addressContainer.insertBefore(addressItem, addressContainer.firstChild);
 }

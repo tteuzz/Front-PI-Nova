@@ -1,7 +1,6 @@
 const form = document.getElementById('cadastro');
 let enderecosParaOback = [];
 
-// Listener para adicionar um novo endereço
 document.getElementById('addEndereco').addEventListener('click', function() {
     const novoEndereco = document.createElement('div');
     novoEndereco.className = 'endereco novo-endereco'; 
@@ -36,7 +35,6 @@ document.getElementById('addEndereco').addEventListener('click', function() {
     document.getElementById('enderecos-container').appendChild(novoEndereco);
 });
 
-// Listener para o envio do formulário
 form.addEventListener('submit', function(event) {
     event.preventDefault(); 
 
@@ -48,7 +46,6 @@ form.addEventListener('submit', function(event) {
     let dataNascimento = document.getElementById("dataNascimento").value;
     let grupo = "usuario"; 
 
-    // Captura os endereços
     enderecosParaOback = Array.from(document.querySelectorAll('.novo-endereco')).map((endereco) => {
         return {
             cep: endereco.querySelector('.cep').value,
@@ -64,7 +61,6 @@ form.addEventListener('submit', function(event) {
 
     console.log("Endereços capturados:", enderecosParaOback); // Debugging
 
-    // Verifica se há mais de um endereço marcado como principal
     const principalCount = enderecosParaOback.filter(endereco => endereco.principal).length;
     if (principalCount > 1) {
         alert("Apenas um endereço pode ser marcado como principal.");
@@ -81,7 +77,6 @@ form.addEventListener('submit', function(event) {
         usuaDataNascimento: dataNascimento
     };
 
-    // Chamada para criar o usuário
     fetch('http://localhost:8015/user', {
         method: 'POST',
         headers: {
@@ -96,13 +91,13 @@ form.addEventListener('submit', function(event) {
         return response.json();
     })
     .then(data => {
-        const id = data.idUsuario; // Aqui você pega o ID
+        const id = data.idUsuario; 
         console.log("ID do usuário:", id);
         console.log("Endereços para enviar:", enderecosParaOback);
-        return addBanco(id, enderecosParaOback); // Chama a função para adicionar os endereços
+        return addBanco(id, enderecosParaOback); 
     })
     .then(() => {
-        // Redireciona após salvar os endereços
+     
         window.location.href = 'Telainicial.html'; 
     })
     .catch(error => {
@@ -116,7 +111,6 @@ form.addEventListener('submit', function(event) {
     });
 });
 
-// Função para adicionar endereços ao banco
 async function addBanco(id, enderecosParaOback) {
     const url = `http://localhost:8015/Endereco/${id}`;
     try {
