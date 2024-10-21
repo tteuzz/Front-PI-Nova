@@ -18,36 +18,36 @@ document.addEventListener('DOMContentLoaded', (event) => {
     document.getElementById('addEndereco').addEventListener('click', function() {
         const novoEndereco = document.createElement('div');
         novoEndereco.className = 'endereco novo-endereco'; 
-
+    
         novoEndereco.innerHTML = `
             <label for="cep">CEP</label>
             <input type="text" placeholder="Digite o CEP" class="cep" required>
-
+    
             <label for="logradouro">Logradouro</label>
             <input type="text" class="logradouro" disabled>
-
+    
             <label for="numero">Número</label>
             <input type="text" class="numero" required>
-
+    
             <label for="complemento">Complemento</label>
             <input type="text" class="complemento">
-
+    
             <label for="bairro">Bairro</label>
             <input type="text" class="bairro" disabled>
-
+    
             <label for="cidade">Cidade</label>
             <input type="text" class="cidade" disabled>
-
+    
             <label for="uf">UF</label>
             <input type="text" class="uf" disabled>
-
+    
             <label>
                 <input type="radio" name="enderecoPrincipal" value="0"> Principal
             </label>
         `;
-
+    
         document.getElementById('enderecos-container').appendChild(novoEndereco);
-
+    
         const cepInput = novoEndereco.querySelector('.cep');
         cepInput.addEventListener('blur', () => {
             const cep = cepInput.value.replace(/\D/g, '');
@@ -56,6 +56,15 @@ document.addEventListener('DOMContentLoaded', (event) => {
             } else {
                 alert("CEP deve ter 8 dígitos.");
             }
+        });
+    
+        novoEndereco.querySelector('input[type="radio"]').addEventListener('change', function() {
+            const radios = document.querySelectorAll('input[name="enderecoPrincipal"]');
+            radios.forEach(radio => {
+                if (radio !== this) {
+                    radio.checked = false;
+                }
+            });
         });
     });
 
@@ -105,7 +114,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             bairro: document.getElementById("bairro-faturamento").value,
             cidade: document.getElementById("cidade-faturamento").value,
             uf: document.getElementById("uf-faturamento").value,
-            principal: document.querySelector(`input[name="enderecoPrincipal"]:checked`) ? true : false,
+            enderecoPrincipal: document.querySelector(`input[name="enderecoPrincipal"]:checked`) ? true : false,
             grupo: "faturamento"
         });
 
@@ -118,18 +127,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 bairro: endereco.querySelector('.bairro').value,
                 cidade: endereco.querySelector('.cidade').value,
                 uf: endereco.querySelector('.uf').value,
-                principal: endereco.querySelector(`input[name="enderecoPrincipal"]:checked`) ? true : false,
+                enderecoPrincipal: endereco.querySelector(`input[name="enderecoPrincipal"]:checked`) ? true : false,
                 grupo: "envio"
             };
         });
 
         enderecos.push(...enderecosAdicionais);
 
-        const principalCount = enderecos.filter(endereco => endereco.principal).length;
-        if (principalCount > 1) {
-            alert("Apenas um endereço pode ser marcado como principal.");
-            return;
-        }
 
         const dadosUsuario = {
             usuaNmUsuario: nome,

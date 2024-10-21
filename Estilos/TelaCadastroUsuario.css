@@ -15,6 +15,31 @@ body {
     font-family: "Sora", sans-serif;
 }
 
+#addEndereco {
+    background-color: #4CAF50; /* Verde */
+    color: white; /* Texto branco */
+    border: none; /* Sem borda */
+    padding: 10px 20px; /* Espaçamento interno */
+    text-align: center; /* Centraliza o texto */
+    text-decoration: none; /* Remove sublinhado */
+    display: inline-block; /* Permite definir largura e altura */
+    font-size: 16px; /* Tamanho da fonte */
+    margin: 10px 0; /* Margem acima e abaixo */
+    cursor: pointer; /* Muda o cursor ao passar o mouse */
+    border-radius: 5px; /* Bordas arredondadas */
+    transition: background-color 0.3s, transform 0.2s; /* Transições suaves */
+}
+
+#addEndereco:hover {
+    background-color: #45a049; /* Verde mais escuro ao passar o mouse */
+    transform: scale(1.05); /* Aumenta levemente o botão ao passar o mouse */
+}
+
+#addEndereco:active {
+    transform: scale(0.95); /* Diminui levemente o botão ao clicar */
+}
+
+
 .container {
     display: flex;
     flex-wrap: wrap;
