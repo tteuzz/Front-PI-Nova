@@ -8,8 +8,108 @@
         document.getElementById("user-password").value = user.usuaDsPassword;
         document.getElementById("user-gender").value = user.usuaGenero;
         document.getElementById("user-dob").value = user.usuaDataNascimento;
-
+        const cepInput = document.getElementById('cep');
+    
+        cepInput.addEventListener('blur', async () => {
+        const cep = cepInput.value.replace(/\D/g, '');
+        if (cep.length === 8) {
+            await buscarEnderecoFaturamento(cep);
+        } else {
+            alert("CEP deve ter 8 dígitos.");
+        }
+    });
 });
+
+async function listarEndereco() {
+    let user = sessionStorage.getItem("usuarioLogado");
+    user = JSON.parse(user);
+
+    const url = `http://localhost:8015/Endereco/ListarEndereco/${user.idUsuario}`;
+
+
+    try {
+        const response = await fetch(url);
+
+        if (!response.ok) {
+            throw new Error("Não foi possível listar os endereços.");
+        }
+
+        const enderecos = await response.json();
+        const addressContainer = document.getElementById('added-addresses-container');
+        addressContainer.innerHTML = '';
+
+        enderecos.forEach(endereco => {
+            const addressItem = document.createElement('div');
+            addressItem.className = 'address-item';
+            addressItem.id = `address-item-${endereco.id}`;
+            addressItem.innerHTML = `
+                <div>
+                    <input type="text" value="${endereco.logradouro}" data-field="logradouro" />
+                    <input type="text" value="${endereco.numero}" data-field="numero" />
+                    <input type="text" value="${endereco.complemento}" data-field="complemento" />
+                    <input type="text" value="${endereco.bairro}" data-field="bairro" />
+                    <input type="text" value="${endereco.cidade}" data-field="cidade" />
+                    <input type="text" value="${endereco.uf}" data-field="uf" />
+                    <input type="text" value="${endereco.cep}" data-field="cep" />
+                      <select id="grupoEndereco">
+                        <option value="envio" ${endereco.grupo === 'envio' ? 'selected' : ''}>Envio</option>
+                        <option value="faturamento" ${endereco.grupo === 'faturamento' ? 'selected' : ''}>Faturamento</option>
+                    </select>
+                           <select id="enderecoPrincipal">
+            <option value="principal" ${endereco.enderecoPrincipal ? 'selected' : ''}>Principal</option>
+            <option value="nao-principal" ${!endereco.enderecoPrincipal ? 'selected' : ''}>Não Principal</option>
+        </select>
+                    
+                    <button class="button" onclick="editarEndereco(${endereco.id})">Salvar</button>
+                    </div>
+            `;
+            addressContainer.appendChild(addressItem);
+        });
+    } catch (error) {
+        console.error(error);
+        alert("Erro ao listar endereços: " + error.message);
+    }
+}
+
+async function editarEndereco(idEndereco) {
+    const addressItem = document.getElementById(`address-item-${idEndereco}`);
+    const inputs = addressItem.querySelectorAll('input');
+    const grupoEndereco = addressItem.querySelector('select#grupoEndereco').value; 
+    const isPrincipal = addressItem.querySelector('select#enderecoPrincipal').value === "principal"; 
+    const endereco = {
+        id: idEndereco,
+        logradouro: inputs[0].value,
+        numero: inputs[1].value,
+        complemento: inputs[2].value,
+        bairro: inputs[3].value,
+        cidade: inputs[4].value,
+        uf: inputs[5].value,
+        cep: inputs[6].value,
+        grupo: grupoEndereco,
+        enderecoPrincipal: isPrincipal
+    };
+
+    console.log(endereco);
+
+    const url = `http://localhost:8015/Endereco/editarEndereco`;
+
+    try {
+        const response = await fetch(url, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(endereco)
+        });
+
+        if (!response.ok) {
+            throw new Error("Erro ao editar o endereço.");
+        }
+        listarEndereco();
+    } catch (error) {
+        alert(error.message);
+    }
+}
 
 async function listarEndereco() {
     let user = sessionStorage.getItem("usuarioLogado");
@@ -140,6 +240,7 @@ async function editarUsuario() {
         alert("error")
     }   
 }
+
 document.getElementById('add-address-btn').addEventListener('click', addAddress);
 
 function addAddress() {
@@ -200,4 +301,74 @@ function setDefaultAddress(button) {
     addressItem.appendChild(defaultLabel);
 
     addressContainer.insertBefore(addressItem, addressContainer.firstChild);
+=======
+
+async function cadastrarNovoEndereco() {
+    let user = sessionStorage.getItem("usuarioLogado")
+    user = JSON.parse(user);
+    
+    const cep = document.getElementById('cep').value
+    const logradouro = document.getElementById('logradouro').value;
+    const bairro = document.getElementById('bairro').value;
+    const cidade = document.getElementById('cidade').value;
+    const complemento = document.getElementById('complemento').value;
+    const uf = document.getElementById('uf').value;
+    const numero = document.getElementById("numero").value;
+
+    const endereco = {
+        cep: cep,
+        logradouro: logradouro,
+        numero: numero,
+        complemento: complemento,
+        bairro: bairro,
+        cidade: cidade,
+        uf: uf,
+        enderecoPrincipal: false,
+        grupo: "envio",
+    };
+
+    const url = `http://localhost:8015/Endereco/adicionarMaisUm/${user.idUsuario}`
+    try {
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(endereco)
+        });
+        if (!response.ok) {
+            alert("Erro ao cadastrar endereços");
+        }
+    } catch (error) {
+        console.log("Erro no add:", error);
+    }
+    alert("endereço adicionando com sucesso")
+    document.getElementById('cep').value = "";
+    document.getElementById('complemento').value = "";
+    document.getElementById('numero').value = "";
+    document.getElementById('logradouro').value = "";
+    document.getElementById('bairro').value = "";
+    document.getElementById('cidade').value = "";
+    document.getElementById('uf').value = ""; 
+    listarEndereco()
+   
+}
+
+async function buscarEnderecoFaturamento(cep) {
+    try {
+        const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+        const data = await response.json();
+        if (data.erro) {
+            alert("CEP inválido");
+            return;
+        }
+        document.getElementById('logradouro').value = data.logradouro;
+        document.getElementById('bairro').value = data.bairro;
+        document.getElementById('cidade').value = data.localidade;
+        document.getElementById('uf').value = data.uf;    
+    } catch (error) {
+        console.error('Erro ao buscar endereço:', error);
+        alert("Erro ao buscar endereço. Tente novamente.");
+    }
+
 }

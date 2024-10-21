@@ -1,8 +1,12 @@
-<<<<<<< HEAD
+
 const form = document.getElementById('cadastro');
 let enderecosParaOback = [];
 
-// Listener para adicionar um novo endereço
+
+
+const form = document.getElementById('cadastro');
+let enderecosParaOback = [];
+
 document.getElementById('addEndereco').addEventListener('click', function() {
     const novoEndereco = document.createElement('div');
     novoEndereco.className = 'endereco novo-endereco'; 
@@ -37,9 +41,7 @@ document.getElementById('addEndereco').addEventListener('click', function() {
     document.getElementById('enderecos-container').appendChild(novoEndereco);
 });
 
-// Listener para o envio do formulário
-=======
->>>>>>> 81a2317 (Update Register)
+
 form.addEventListener('submit', function(event) {
     event.preventDefault(); 
 
@@ -51,8 +53,6 @@ form.addEventListener('submit', function(event) {
     let dataNascimento = document.getElementById("dataNascimento").value;
     let grupo = "usuario"; 
 
-<<<<<<< HEAD
-    // Captura os endereços
     enderecosParaOback = Array.from(document.querySelectorAll('.novo-endereco')).map((endereco) => {
         return {
             cep: endereco.querySelector('.cep').value,
@@ -68,13 +68,13 @@ form.addEventListener('submit', function(event) {
 
     console.log("Endereços capturados:", enderecosParaOback); // Debugging
 
-    // Verifica se há mais de um endereço marcado como principal
+
     const principalCount = enderecosParaOback.filter(endereco => endereco.principal).length;
     if (principalCount > 1) {
         alert("Apenas um endereço pode ser marcado como principal.");
         return;
     }
-=======
+
     let cep = document.getElementById("cep").value;
     let logradouro = document.getElementById("logradouro").value;
     let numero = document.getElementById("numero").value;
@@ -82,7 +82,7 @@ form.addEventListener('submit', function(event) {
     let bairro = document.getElementById("bairro").value;
     let cidade = document.getElementById("cidade").value;
     let uf = document.getElementById("uf").value;
->>>>>>> 81a2317 (Update Register)
+
 
     const dadosUsuario = {
         usuaNmUsuario: nome,
@@ -94,9 +94,7 @@ form.addEventListener('submit', function(event) {
         usuaDataNascimento: dataNascimento
     };
 
-<<<<<<< HEAD
-    // Chamada para criar o usuário
-=======
+
     const dadosEndereco = {
         cep: cep,
         logradouro: logradouro,
@@ -107,7 +105,18 @@ form.addEventListener('submit', function(event) {
         uf: uf
     };
 
->>>>>>> 81a2317 (Update Register)
+
+
+    const dadosUsuario = {
+        usuaNmUsuario: nome,
+        usuaDsEmail: email,
+        usuaDsPassword: senha,
+        usuaDsCPF: cpf,
+        usuaCdGrupo: grupo,
+        usuaGenero: genero,
+        usuaDataNascimento: dataNascimento
+    };
+
     fetch('http://localhost:8015/user', {
         method: 'POST',
         headers: {
@@ -122,23 +131,50 @@ form.addEventListener('submit', function(event) {
         return response.json();
     })
     .then(data => {
-<<<<<<< HEAD
-        const id = data.idUsuario; // Aqui você pega o ID
+
+        const id = data.idUsuario; 
         console.log("ID do usuário:", id);
         console.log("Endereços para enviar:", enderecosParaOback);
-        return addBanco(id, enderecosParaOback); // Chama a função para adicionar os endereços
+        return addBanco(id, enderecosParaOback); 
     })
     .then(() => {
-        // Redireciona após salvar os endereços
+        
         window.location.href = 'Telainicial.html'; 
     })
     .catch(error => {
-=======
+
         return fetch('http://localhost:8015/Endereco', {
+
+        const id = data.idUsuario; 
+        console.log("ID do usuário:", id);
+        console.log("Endereços para enviar:", enderecosParaOback);
+        return addBanco(id, enderecosParaOback); 
+    })
+    .then(() => {
+     
+        window.location.href = 'Telainicial.html'; 
+    })
+    .catch(error => {
+        if (error && error.status === 409) {
+            error.json().then(errData => {
+                alert(errData.message); 
+            });
+        } else {
+            console.log("Erro de cadastro:", error); 
+        }
+    });
+});
+
+async function addBanco(id, enderecosParaOback) {
+    const url = `http://localhost:8015/Endereco/${id}`;
+    try {
+        const response = await fetch(url, {
+
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
+
             body: JSON.stringify(dadosEndereco)
         });
     })
@@ -153,7 +189,7 @@ form.addEventListener('submit', function(event) {
     })
     .catch(error => {
         
->>>>>>> 81a2317 (Update Register)
+
         if (error && error.status === 409) {
             error.json().then(errData => {
                 alert(errData.message); 
@@ -162,7 +198,7 @@ form.addEventListener('submit', function(event) {
             console.log("Erro de cadastro:", error); 
         }
     });
-<<<<<<< HEAD
+
 });
 
 // Função para adicionar endereços ao banco
@@ -176,6 +212,10 @@ async function addBanco(id, enderecosParaOback) {
             },
             body: JSON.stringify(enderecosParaOback)
         });
+
+            body: JSON.stringify(enderecosParaOback)
+        });
+
         if (!response.ok) {
             alert("Erro ao cadastrar endereços");
         }
@@ -183,6 +223,6 @@ async function addBanco(id, enderecosParaOback) {
         console.log("Erro no add:", error);
     }
 }
-=======
+
 });
->>>>>>> 81a2317 (Update Register)
+
