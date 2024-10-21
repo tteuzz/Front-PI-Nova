@@ -15,15 +15,37 @@ document.addEventListener('DOMContentLoaded', (event) => {
         }
     });
 
+    // Listener para adicionar um novo endereço
+    document.getElementById('addEndereco').addEventListener('click', function() {
+        const novoEndereco = document.createElement('div');
+        novoEndereco.className = 'endereco novo-endereco'; 
+
     document.getElementById('addEndereco').addEventListener('click', function() {
         const novoEndereco = document.createElement('div');
         novoEndereco.className = 'endereco novo-endereco'; 
         const enderecoIndex = document.querySelectorAll('.novo-endereco').length;
 
+
         novoEndereco.innerHTML = `
             <label for="cep">CEP</label>
             <input type="text" placeholder="Digite o CEP" class="cep" required>
-    
+
+            <label for="logradouro">Logradouro</label>
+            <input type="text" class="logradouro" disabled>
+
+            <label for="numero">Número</label>
+            <input type="text" class="numero" required>
+
+            <label for="complemento">Complemento</label>
+            <input type="text" class="complemento">
+
+            <label for="bairro">Bairro</label>
+            <input type="text" class="bairro" disabled>
+
+            <label for="cidade">Cidade</label>
+            <input type="text" class="cidade" disabled>
+
+
             <label for="logradouro">Logradouro</label>
             <input type="text" class="logradouro" disabled>
     
@@ -39,10 +61,18 @@ document.addEventListener('DOMContentLoaded', (event) => {
             <label for="cidade">Cidade</label>
             <input type="text" class="cidade" disabled>
     
+
             <label for="uf">UF</label>
             <input type="text" class="uf" disabled>
 
             <label>
+                <input type="radio" name="enderecoPrincipal" value="0"> Principal
+            </label>
+        `;
+
+        document.getElementById('enderecos-container').appendChild(novoEndereco);
+
+
             <input type="radio" name="enderecoPrincipal_${enderecoIndex}" value="0"> Principal
             </label>
         `;
@@ -58,7 +88,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 alert("CEP deve ter 8 dígitos.");
             }
         });
-    
+
     });
 
     async function buscarEnderecoFaturamento(cep, enderecoDiv) {
@@ -69,6 +99,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 alert("CEP inválido");
                 return;
             }
+
             if (enderecoDiv === 'faturamento') {
                 document.getElementById('logradouro-faturamento').value = data.logradouro;
                 document.getElementById('bairro-faturamento').value = data.bairro;
@@ -97,6 +128,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
         let dataNascimento = document.getElementById("dataNascimento").value;
         let grupo = "usuario";
 
+
+        const enderecos = [];
+
+
         const enderecos = [];
 
         enderecos.push({
@@ -107,8 +142,16 @@ document.addEventListener('DOMContentLoaded', (event) => {
             bairro: document.getElementById("bairro-faturamento").value,
             cidade: document.getElementById("cidade-faturamento").value,
             uf: document.getElementById("uf-faturamento").value,
+
+            principal: document.querySelector(`input[name="enderecoPrincipal"]:checked`) ? true : false,
+            grupo: "faturamento"
+        });
+
+        // Captura endereços adicionais
+
     enderecoPrincipal: document.querySelector(`input[name^="enderecoPrincipal_"]:checked`) ? true : false, 
         });
+
 
         const enderecosAdicionais = Array.from(document.querySelectorAll('.novo-endereco')).map((endereco) => {
             return {
@@ -119,12 +162,24 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 bairro: endereco.querySelector('.bairro').value,
                 cidade: endereco.querySelector('.cidade').value,
                 uf: endereco.querySelector('.uf').value,
+
+                principal: endereco.querySelector(`input[name="enderecoPrincipal"]:checked`) ? true : false,
+
                 enderecoPrincipal: endereco.querySelector(`input[name="${endereco.querySelector('input[type=radio]').name}"]:checked`) ? true : false, 
+
                 grupo: "envio"
             };
         });
 
         enderecos.push(...enderecosAdicionais);
+
+
+        // Verifica se há mais de um endereço marcado como principal
+        const principalCount = enderecos.filter(endereco => endereco.principal).length;
+        if (principalCount > 1) {
+            alert("Apenas um endereço pode ser marcado como principal.");
+            return;
+        }
 
 
         const dadosUsuario = {
@@ -136,6 +191,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             usuaGenero: genero,
             usuaDataNascimento: dataNascimento
         };
+
 
         fetch('http://localhost:8015/user', {
             method: 'POST',
@@ -158,9 +214,22 @@ document.addEventListener('DOMContentLoaded', (event) => {
             window.location.href = 'Telainicial.html'; 
         })
         .catch(error => {
+
+            if (error && error.status === 409) {
+                error.json().then(errData => {
+                    alert(errData.message); 
+                });
+            } else {
+                console.log("Erro de cadastro:", error); 
+            }
+        });
+    }
+
+
             alert("CPF OU EMAIL JÁ EXISTENTE NA BASE DE DADOS")
         });
     }
+
 
     async function addBanco(id, enderecosParaOback) {
         const url = `http://localhost:8015/Endereco/${id}`;
