@@ -70,45 +70,20 @@
 
                 <label for="uf-faturamento">UF</label>
                 <input type="text" id="uf-faturamento" placeholder="UF" required>
-            </div>
 
-            <div class="form-section" id="enderecos-container">
-                <h2>Endereço</h2>
-            
-                <div class="endereco">
-                    <label for="cep">CEP</label>
-                    <input type="text" placeholder="Digite o CEP">
-            
-                    <label for="logradouro">Logradouro</label>
-                    <input type="text" disabled>
-            
-                    <label for="numero">Número</label>
-                    <input type="text">
-            
-                    <label for="complemento">Complemento</label>
-                    <input type="text">
-            
-                    <label for="bairro">Bairro</label>
-                    <input type="text" disabled>
-            
-                    <label for="cidade">Cidade</label>
-                    <input type="text" disabled>
-            
-                    <label for="uf">UF</label>
-                    <input type="text" disabled>
+                <label>
+                    <input type="radio" name="enderecoPrincipal" value="0"> Principal
+                </label>
 
-                    <label>
-                        <input type="radio" name="enderecoPrincipal" value="0"> Principal
-                    </label>
-                </div>
-            
-                <button type="button" id="addEndereco">Adicionar outro endereço</button>
+
+            <div id="enderecos-container"></div>
+            <button type="button" id="addEndereco">Adicionar Endereço</button>
+
             </div>
-            
             <input type="submit" value="Cadastrar">
         </form>
     </div>
 
-    <script src="../Conexoes/CadastroCliente.js"></script>
+    <script src="../Conexoes/CadastroClienteComEndereco.js"></script>
 </body>
 </html>
