@@ -40,6 +40,7 @@ async function listarEndereco() {
         enderecos.forEach(endereco => {
             const addressItem = document.createElement('div');
             addressItem.className = 'address-item';
+            addressItem.id = `address-item-${endereco.id}`;
             addressItem.innerHTML = `
                 <div>
                     <input type="text" value="${endereco.logradouro}" data-field="logradouro" />
@@ -53,8 +54,13 @@ async function listarEndereco() {
                         <option value="envio" ${endereco.grupo === 'envio' ? 'selected' : ''}>Envio</option>
                         <option value="faturamento" ${endereco.grupo === 'faturamento' ? 'selected' : ''}>Faturamento</option>
                     </select>
+                           <select id="enderecoPrincipal">
+            <option value="principal" ${endereco.enderecoPrincipal ? 'selected' : ''}>Principal</option>
+            <option value="nao-principal" ${!endereco.enderecoPrincipal ? 'selected' : ''}>Não Principal</option>
+        </select>
+                    
                     <button class="button" onclick="editarEndereco(${endereco.id})">Salvar</button>
-                </div>
+                    </div>
             `;
             addressContainer.appendChild(addressItem);
         });
@@ -65,10 +71,10 @@ async function listarEndereco() {
 }
 
 async function editarEndereco(idEndereco) {
-   
-    const addressItem = document.querySelector(`.address-item div`);
+    const addressItem = document.getElementById(`address-item-${idEndereco}`);
     const inputs = addressItem.querySelectorAll('input');
-
+    const grupoEndereco = addressItem.querySelector('select#grupoEndereco').value; 
+    const isPrincipal = addressItem.querySelector('select#enderecoPrincipal').value === "principal"; 
     const endereco = {
         id: idEndereco,
         logradouro: inputs[0].value,
@@ -78,8 +84,11 @@ async function editarEndereco(idEndereco) {
         cidade: inputs[4].value,
         uf: inputs[5].value,
         cep: inputs[6].value,
-        grupo: grupoEndereco 
+        grupo: grupoEndereco,
+        enderecoPrincipal: isPrincipal
     };
+
+    console.log(endereco);
 
     const url = `http://localhost:8015/Endereco/editarEndereco`;
 

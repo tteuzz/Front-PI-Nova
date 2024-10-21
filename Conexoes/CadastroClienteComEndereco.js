@@ -18,7 +18,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
     document.getElementById('addEndereco').addEventListener('click', function() {
         const novoEndereco = document.createElement('div');
         novoEndereco.className = 'endereco novo-endereco'; 
-    
+        const enderecoIndex = document.querySelectorAll('.novo-endereco').length;
+
         novoEndereco.innerHTML = `
             <label for="cep">CEP</label>
             <input type="text" placeholder="Digite o CEP" class="cep" required>
@@ -40,9 +41,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
     
             <label for="uf">UF</label>
             <input type="text" class="uf" disabled>
-    
+
             <label>
-                <input type="radio" name="enderecoPrincipal" value="0"> Principal
+            <input type="radio" name="enderecoPrincipal_${enderecoIndex}" value="0"> Principal
             </label>
         `;
     
@@ -58,14 +59,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
             }
         });
     
-        novoEndereco.querySelector('input[type="radio"]').addEventListener('change', function() {
-            const radios = document.querySelectorAll('input[name="enderecoPrincipal"]');
-            radios.forEach(radio => {
-                if (radio !== this) {
-                    radio.checked = false;
-                }
-            });
-        });
     });
 
     async function buscarEnderecoFaturamento(cep, enderecoDiv) {
@@ -114,8 +107,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             bairro: document.getElementById("bairro-faturamento").value,
             cidade: document.getElementById("cidade-faturamento").value,
             uf: document.getElementById("uf-faturamento").value,
-            enderecoPrincipal: document.querySelector(`input[name="enderecoPrincipal"]:checked`) ? true : false,
-            grupo: "faturamento"
+    enderecoPrincipal: document.querySelector(`input[name^="enderecoPrincipal_"]:checked`) ? true : false, 
         });
 
         const enderecosAdicionais = Array.from(document.querySelectorAll('.novo-endereco')).map((endereco) => {
@@ -127,7 +119,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 bairro: endereco.querySelector('.bairro').value,
                 cidade: endereco.querySelector('.cidade').value,
                 uf: endereco.querySelector('.uf').value,
-                enderecoPrincipal: endereco.querySelector(`input[name="enderecoPrincipal"]:checked`) ? true : false,
+                enderecoPrincipal: endereco.querySelector(`input[name="${endereco.querySelector('input[type=radio]').name}"]:checked`) ? true : false, 
                 grupo: "envio"
             };
         });
