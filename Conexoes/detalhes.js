@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         alert('Produto não encontrado.');
     }
+    updateCartQuantity(); // Atualiza a quantidade de itens no carrinho ao carregar a página
 });
 
 function getProductIdFromUrl() {
@@ -120,6 +121,7 @@ function addToCart(product) {
     localStorage.setItem('produtos', JSON.stringify(cart));
     
     updateCartDisplay();
+    updateCartQuantity(); // Atualiza a quantidade de itens no carrinho
     
     alert("1 produto foi adicionado ao carrinho! Você será redirecionado à página principal para continuar comprando.");
     
@@ -143,4 +145,10 @@ function updateCartDisplay() {
     });
 
     cartTotalElement.textContent = `Total: R$ ${total.toFixed(2)}`;
+}
+
+function updateCartQuantity() {
+    const cartQuantityElement = document.getElementById("cart-quantity");
+    const totalQuantity = cart.reduce((sum, item) => sum + item.quantidade, 0);
+    cartQuantityElement.textContent = totalQuantity;
 }

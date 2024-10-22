@@ -126,7 +126,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
         enderecos.push(...enderecosAdicionais);
 
-
         const dadosUsuario = {
             usuaNmUsuario: nome,
             usuaDsEmail: email,

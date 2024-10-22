@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
     icone.addEventListener('click', (event) => {
         event.stopPropagation(); 
         if (cardLoginCadastro.style.display === 'none' || cardLoginCadastro.style.display === '') {
-
             if(userLogado != null){
                 cardLoginCadastro.innerHTML = `
                 <button onclick="verPerfil()">Ver Perfil</button>
