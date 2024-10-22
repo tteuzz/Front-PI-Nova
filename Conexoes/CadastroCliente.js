@@ -1,3 +1,9 @@
+
+const form = document.getElementById('cadastro');
+let enderecosParaOback = [];
+
+
+
 const form = document.getElementById('cadastro');
 let enderecosParaOback = [];
 
@@ -35,6 +41,7 @@ document.getElementById('addEndereco').addEventListener('click', function() {
     document.getElementById('enderecos-container').appendChild(novoEndereco);
 });
 
+
 form.addEventListener('submit', function(event) {
     event.preventDefault(); 
 
@@ -61,11 +68,44 @@ form.addEventListener('submit', function(event) {
 
     console.log("Endereços capturados:", enderecosParaOback); // Debugging
 
+
     const principalCount = enderecosParaOback.filter(endereco => endereco.principal).length;
     if (principalCount > 1) {
         alert("Apenas um endereço pode ser marcado como principal.");
         return;
     }
+
+    let cep = document.getElementById("cep").value;
+    let logradouro = document.getElementById("logradouro").value;
+    let numero = document.getElementById("numero").value;
+    let complemento = document.getElementById("complemento").value;
+    let bairro = document.getElementById("bairro").value;
+    let cidade = document.getElementById("cidade").value;
+    let uf = document.getElementById("uf").value;
+
+
+    const dadosUsuario = {
+        usuaNmUsuario: nome,
+        usuaDsEmail: email,
+        usuaDsPassword: senha,
+        usuaDsCPF: cpf,
+        usuaCdGrupo: grupo,
+        usuaGenero: genero,
+        usuaDataNascimento: dataNascimento
+    };
+
+
+    const dadosEndereco = {
+        cep: cep,
+        logradouro: logradouro,
+        numero: numero,
+        complemento: complemento,
+        bairro: bairro,
+        cidade: cidade,
+        uf: uf
+    };
+
+
 
     const dadosUsuario = {
         usuaNmUsuario: nome,
@@ -91,6 +131,20 @@ form.addEventListener('submit', function(event) {
         return response.json();
     })
     .then(data => {
+
+        const id = data.idUsuario; 
+        console.log("ID do usuário:", id);
+        console.log("Endereços para enviar:", enderecosParaOback);
+        return addBanco(id, enderecosParaOback); 
+    })
+    .then(() => {
+        
+        window.location.href = 'Telainicial.html'; 
+    })
+    .catch(error => {
+
+        return fetch('http://localhost:8015/Endereco', {
+
         const id = data.idUsuario; 
         console.log("ID do usuário:", id);
         console.log("Endereços para enviar:", enderecosParaOback);
@@ -115,12 +169,53 @@ async function addBanco(id, enderecosParaOback) {
     const url = `http://localhost:8015/Endereco/${id}`;
     try {
         const response = await fetch(url, {
+
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+
+            body: JSON.stringify(dadosEndereco)
+        });
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw response; 
+        }
+        return response.json();
+    })
+    .then(data => {
+        window.location.href = 'TelaHome.html';
+    })
+    .catch(error => {
+        
+
+        if (error && error.status === 409) {
+            error.json().then(errData => {
+                alert(errData.message); 
+            });
+        } else {
+            console.log("Erro de cadastro:", error); 
+        }
+    });
+
+});
+
+// Função para adicionar endereços ao banco
+async function addBanco(id, enderecosParaOback) {
+    const url = `http://localhost:8015/Endereco/${id}`;
+    try {
+        const response = await fetch(url, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(enderecosParaOback)
         });
+
+            body: JSON.stringify(enderecosParaOback)
+        });
+
         if (!response.ok) {
             alert("Erro ao cadastrar endereços");
         }
@@ -128,3 +223,6 @@ async function addBanco(id, enderecosParaOback) {
         console.log("Erro no add:", error);
     }
 }
+
+});
+
