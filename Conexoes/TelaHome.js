@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
     icone.addEventListener('click', (event) => {
         event.stopPropagation(); 
         if (cardLoginCadastro.style.display === 'none' || cardLoginCadastro.style.display === '') {
-
             if(userLogado != null){
                 cardLoginCadastro.innerHTML = `
                 <button onclick="verPerfil()">Ver Perfil</button>
@@ -50,14 +49,11 @@ function verPerfil(){
     window.location.href = "TelaPerfil.html";
 }
 
-<<<<<<< Updated upstream
-=======
 function logout() {
     alert("Você saiu da sessão");
-    sessionStorage.clear();
-    window.location.href = 'TelaHome.html';
+    localStorage.clear();
+    window.location.href = 'Telainicial.html';
 }
->>>>>>> Stashed changes
 
 function fetchProducts() {
     fetch('http://localhost:8015/produto/list') 
