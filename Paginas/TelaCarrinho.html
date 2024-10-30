@@ -46,21 +46,18 @@
         </div>
 
         <div class="resumo-container">
-            <div class="resumo-card">
+            <div class="resumo-card" id="resumo-card">
                 <h3>Resumo do Pedido</h3>
                 <p id="resumo-valor">Valor dos Produtos: R$0,00</p>
-                <label for="cep">CEP:</label>
-                <div class="cep-container">
-                    <input type="text" id="cep" name="cep" placeholder="Digite seu CEP" required>
-                    <input type="button" value="Validar CEP" id="validarCep">
-                </div>
-                <div id="frete-resultado"></div>
+                <div id="endereco-principal"></div>
+                <button type="button" id="addEndereco">Adicionar Endereço</button>
                 <button id="finalizar-pedido" class="botao">Finalizar pedido</button>
                 <button class="botao">Continuar comprando</button>
             </div>
         </div>
 
-        <!-- Adicione a modal aqui -->
+        <div id="enderecos-container"></div>
+
         <div id="modal-verificacao" class="modal">
             <div class="modal-conteudo">
                 <span class="fechar" id="fechar-modal">&times;</span>
