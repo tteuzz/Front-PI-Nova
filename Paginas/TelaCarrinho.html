@@ -49,14 +49,19 @@
             <div class="resumo-card" id="resumo-card">
                 <h3>Resumo do Pedido</h3>
                 <p id="resumo-valor">Valor dos Produtos: R$0,00</p>
+                <p id="resumo-total">Valor Total: R$0,00</p>
                 <div id="endereco-principal"></div>
                 <button type="button" id="addEndereco">Adicionar Endereço</button>
+                <div class="added-addresses">
+                    <div id="added-addresses-container"></div>
+                </div>
+                <div id="frete-opcoes" style="display: none;">
+                    <p>Fretes disponíveis</p>
+                </div>
                 <button id="finalizar-pedido" class="botao">Finalizar pedido</button>
                 <button class="botao">Continuar comprando</button>
             </div>
         </div>
-
-        <div id="enderecos-container"></div>
 
         <div id="modal-verificacao" class="modal">
             <div class="modal-conteudo">
