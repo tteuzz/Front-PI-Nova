@@ -413,7 +413,7 @@ body {
     color: #666;
 }
 .botao-desabilitado {
-    background-color: red;
+    background-color: #4a4a4a;
     cursor: not-allowed;
 }
 
