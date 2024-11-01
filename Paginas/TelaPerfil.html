@@ -36,20 +36,20 @@
             <div class="user-data">
                 <h2>Dados do usuário</h2>
                 <div id="user-info">
-                    <p><strong>Nome:</strong> <input type="text" id="user-name"></p>
+                    <p><strong>Nome:</strong> <input type="text" id="user-name" readonly></p>
                     <p><strong>Email:</strong> <input type="email" id="user-email" readonly></p>
-                    <p><strong>Senha:</strong> <input type="password" id="user-password"></p>
+                    <p><strong>Senha:</strong> <input type="password" id="user-password" readonly></p>
                     <p><strong>CPF:</strong> <input type="text" id="user-cpf" readonly></span></p>
                     <p><strong>Gênero:</strong> 
-                        <select id="user-gender">
+                        <select id="user-gender" disabled>
                             <option value="">Selecione</option>
                             <option value="Masculino">Masculino</option>
                             <option value="Feminino">Feminino</option>
                         </select>
                     </p>
-                    <p><strong>Data de Nascimento:</strong> <input type="date" id="user-dob" ></p>
-                    <button id="edit-btn"onclick=editarUsuario()>Editar</button>
-                    <button id="save-btn" style="display:none;">Salvar</button>
+                    <p><strong>Data de Nascimento:</strong> <input type="date" id="user-dob" readonly></p>
+                    <button id="edit-user-btn" onclick="toggleEditMode()">Editar</button>
+                    <button id="save-user-btn" onclick="editarUsuario()" style="display:none;">Salvar</button>
                 </div>
             </div>
             <div class="address-data">
@@ -65,9 +65,7 @@
                     <label>Bairro: <input type="text" id="bairro" disabled></label><br>
                     <label>Cidade: <input type="text" id="cidade" disabled></label><br>
                     <label>UF: <input type="text" id="uf" disabled></label><br>
-
                     <button id="add-address-btn" class="button" onclick="cadastrarNovoEndereco()">Adicionar mais um</button>
-
                 </div>
             </div>
             <div class="added-addresses">

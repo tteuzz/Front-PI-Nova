@@ -51,7 +51,7 @@ function verPerfil(){
 
 function logout() {
     alert("Você saiu da sessão");
-    localStorage.clear();
+    sessionStorage.clear();
     window.location.href = 'Telainicial.html';
 }
 

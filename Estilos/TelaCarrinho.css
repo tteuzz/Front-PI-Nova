@@ -23,7 +23,7 @@ body {
     margin-right: 10px; 
 }
 
-.logo h2{
+.logo h2 {
     color: #fff;
 }
 
@@ -65,8 +65,7 @@ body {
     color: #FFD700;
 }
 
-
-.titulo-carrinho{
+.titulo-carrinho {
     display: flex;
     justify-content: center;
     margin-top: 20px;
@@ -78,7 +77,6 @@ body {
     justify-content: space-between;
     align-items: flex-start;
 }
-
 
 .tabela {
     width: 55%;
@@ -100,7 +98,7 @@ body {
 }
 
 .tabela th {
-    background-color: #191340; /* Cabeçalho com cor de destaque */
+    background-color: #191340;
     color: #ffffff;
     font-weight: bold;
     font-size: 1.1em;
@@ -108,11 +106,11 @@ body {
 
 .tabela td {
     color: #333;
-    border-bottom: 1px solid #ddd; /* Linha divisória suave */
+    border-bottom: 1px solid #ddd;
 }
 
 .tabela tr:hover {
-    background-color: #f1f1f1; /* Destaque ao passar o mouse sobre uma linha */
+    background-color: #f1f1f1;
 }
 
 .tabela img {
@@ -128,7 +126,7 @@ body {
 }
 
 .tabela .total {
-    color: #191340; /* Destaque para a coluna de total */
+    color: #191340;
 }
 
 @media (max-width: 768px) {
@@ -162,10 +160,10 @@ body {
 }
 
 .resumo-card h3 {
-     margin-top: 0;
+    margin-top: 0;
     font-size: 1.2em;
     font-weight: bold;
-    color: #191340; /* Título com cor de destaque */
+    color: #191340;
     border-bottom: 1px solid #ddd;
     padding-bottom: 10px;
 }
@@ -186,7 +184,7 @@ body {
 
 .cep-container {
     display: flex;
-    gap: 10px; /* Espaço entre o input e o botão */
+    gap: 10px;
     margin-bottom: 10px;
 }
 
@@ -201,7 +199,7 @@ body {
 
 .cep-container input[type="button"] {
     padding: 10px;
-    background-color: #191340; /* Botão com cor de destaque */
+    background-color: #191340;
     color: white;
     border: none;
     border-radius: 8px;
@@ -210,7 +208,7 @@ body {
 }
 
 .cep-container input[type="button"]:hover {
-    background-color: #14112c; /* Efeito hover no botão */
+    background-color: #14112c;
 }
 
 #frete-resultado {
@@ -260,33 +258,34 @@ body {
         font-size: 0.9em;
     }
 }
+
 .modal {
-    display: none; /* Oculta a modal por padrão */
-    position: fixed; /* Fica fixa na tela */
-    z-index: 1; /* Fica acima de outros elementos */
+    display: none;
+    position: fixed;
+    z-index: 1;
     left: 0;
     top: 0;
-    width: 100%; /* Largura total da tela */
-    height: 100%; /* Altura total da tela */
-    overflow: auto; /* Adiciona scroll se necessário */
-    background-color: rgb(0,0,0); /* Cor de fundo */
-    background-color: rgba(0,0,0,0.4); /* Cor de fundo com opacidade */
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
 }
 
 .modal-conteudo {
     background-color: #fefefe;
-    margin: 15% auto; /* 15% do topo e centralizado */
+    margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; /* Largura da modal */
-    max-width: 400px; /* Largura máxima */
+    width: 80%;
+    max-width: 400px;
     text-align: center;
-    border-radius: 8px; /* Bordas arredondadas */
+    border-radius: 8px;
 }
 
 .fechar {
     color: #aaa;
-    float: right; /* Alinha o botão de fechar à direita */
+    float: right;
     font-size: 28px;
     font-weight: bold;
 }
@@ -299,5 +298,130 @@ body {
 }
 
 .modal-botoes {
-    margin-top: 20px; /* Espaçamento acima dos botões */
+    margin-top: 20px;
+}
+
+#addEndereco {
+    background-color: #191340;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 4px 10px 0;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#addEndereco:hover {
+    background-color:#4434ad;
+    transform: scale(1.05);
+}
+
+#addEndereco:active {
+    transform: scale(0.95);
+}
+
+#salvarEndereco {
+    background-color: #191340;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 4px 10px 0;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#salvarEndereco:hover {
+    background-color: #4434ad;
+    transform: scale(1.05);
+}
+
+#salvarEndereco:active {
+    transform: scale(0.95);
+}
+
+.endereco input {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+/* Estilos para a seção de endereços adicionados */
+.added-addresses {
+    margin-top: 20px;
+}
+
+.added-addresses h2 {
+    font-size: 1.5em;
+    color: #191340;
+    margin-bottom: 10px;
+}
+
+.address-item {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.address-item p {
+    margin: 5px 0;
+    color: #333;
+}
+
+.address-item .button {
+    background-color: #191340;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.address-item .button:hover {
+    background-color: #4434ad;
+    transform: scale(1.05);
+}
+
+.address-item .button:active {
+    transform: scale(0.95);
+}
+
+.default-label, .billing-label {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.9em;
+    color: #666;
+}
+.botao-desabilitado {
+    background-color: #4a4a4a;
+    cursor: not-allowed;
+}
+
+.botao-habilitado {
+    background-color: #191340;
+    cursor: pointer;
+}
+
+.botao-habilitado:hover {
+    background-color: #14112c;
 }
