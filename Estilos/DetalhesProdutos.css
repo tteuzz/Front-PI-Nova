@@ -1,4 +1,6 @@
 /* Estilo Geral */
+/* pra main */
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f5; /* Fundo suave */
@@ -212,3 +214,5 @@ button#add-to-cart:hover {
         width: 100%; /* Largura total do carrinho */
     }
 }
+
+

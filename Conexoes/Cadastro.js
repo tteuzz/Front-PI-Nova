@@ -1,3 +1,5 @@
+//comentando pra main
+
 document.addEventListener('DOMContentLoaded', (event) => {
     const form = document.getElementById('cadastroForm');
     if (form) {

@@ -1,3 +1,5 @@
+//comentando pra main
+
 function searchProduct() {
     const input = document.getElementById('searchInput');
     const filter = input.value.toLowerCase();

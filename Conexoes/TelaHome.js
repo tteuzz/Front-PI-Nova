@@ -1,3 +1,5 @@
+
+//comentando pra main
 document.addEventListener('DOMContentLoaded', (event) => {
     const icone = document.querySelector('.icone');
     const cardLoginCadastro = document.getElementById('card-login-cadastro');
@@ -14,7 +16,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
             } else{
                 cardLoginCadastro.innerHTML = `
                 <button onclick="login()">Logar</button>
-
             `;
             }
             cardLoginCadastro.style.display = 'block';

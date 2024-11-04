@@ -1,3 +1,5 @@
+//comentando pra main
+
 var imgsDto = [];
 
 function previewImages(event) {

@@ -1,154 +1,165 @@
-let currentImageIndex = 0;
-const images = []; 
+//comentando pra main
+
+var imgsDto = [];
+let produtoEdit = JSON.parse(localStorage.getItem('produtoEdit'));
+console.log('Dados do localStorage:', localStorage.getItem('imagesEdit'));
+
+let imagesEdit = JSON.parse(localStorage.getItem('imagesEdit'));
+
+function previewImages(event) {
+    const files = event.target.files;
+    const previewsContainer = document.getElementById('image-previews');
+    previewsContainer.innerHTML = ''; 
+    imgsDto = [];
+
+    
+
+    Array.from(files).forEach((file) => {
+        const img = document.createElement('img');
+        img.src = URL.createObjectURL(file); 
+        img.className = 'image-preview';
+
+        const blobObject = { 
+            blobImg: file,
+            imgPrincipal: false,
+            imgElement: img 
+        };
+        imgsDto.push(blobObject);
+
+    
+        img.onclick = function () {
+            imgsDto.forEach(imgObj => {
+                imgObj.imgPrincipal = false; 
+                imgObj.imgElement.classList.remove('principal'); 
+            });
+            blobObject.imgPrincipal = true; 
+            img.classList.add('principal'); 
+        };
+
+        previewsContainer.appendChild(img);
+
+        const removeButton = document.createElement('button');
+        removeButton.innerText = 'x';
+        removeButton.className = 'remove-button';
+        removeButton.onclick = function () {
+            previewsContainer.removeChild(img);
+            previewsContainer.removeChild(removeButton);
+            imgsDto = imgsDto.filter(i => i !== blobObject); 
+            if (blobObject.imgPrincipal) {
+                if (imgsDto.length > 0) {
+                    imgsDto[0].imgPrincipal = true;
+                    imgsDto[0].imgElement.classList.add('principal');
+                }
+            }
+        };
+        previewsContainer.appendChild(removeButton);
+    });
+}
 
 document.addEventListener('DOMContentLoaded', () => {
-    const productId = getProductIdFromUrl();
-    if (productId) {
-        fetchProductDetails(productId);
-    } else {
-        alert('Produto não encontrado.');
+
+
+    
+
+    if (produtoEdit) {
+
+        document.getElementById('nomeProduto').value = produtoEdit.nomeProduto || '';
+        document.getElementById('avalProduto').value = produtoEdit.avalProduto || '1'; 
+        document.getElementById('descDetalhadaProduto').value = produtoEdit.descDetalhadaProduto || '';
+        document.getElementById('precoProduto').value = produtoEdit.precoProduto || '';
+        document.getElementById('qtdEstoqueProduto').value = produtoEdit.qtdEstoqueProduto || '';
     }
-    updateCartQuantity(); // Atualiza a quantidade de itens no carrinho ao carregar a página
+
+    if (imagesEdit) {
+        const previewsContainer = document.getElementById('image-previews');
+        previewsContainer.innerHTML = ''; 
+
+        imagesEdit.forEach(src => {
+            const img = document.createElement('img');
+            img.src = src.imgBlob;
+            img.className = 'image-preview';
+            previewsContainer.appendChild(img);
+        });
+    }
 });
 
-function getProductIdFromUrl() {
-    const params = new URLSearchParams(window.location.search);
-    return params.get('id'); 
-}
+document.querySelector('.form-cadastro').onsubmit = function (event) {
+    event.preventDefault();
 
-function fetchProductDetails(productId) {
-    fetch(`http://localhost:8015/produto/${productId}/acharProduto`) 
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Erro ao buscar detalhes do produto');
-            }
-            return response.json();
-        })
-        .then(product => {
-            displayProductDetails(product);
-            fetchProductImages(productId);
-        })
-        .catch(error => {
-            console.error('Erro:', error);
-            alert('Erro ao carregar detalhes do produto.');
-        });
-}
+    const nomeProduto = document.getElementById('nomeProduto').value;
+    const avalProduto = parseFloat(document.getElementById('avalProduto').value);
+    const descDetalhadaProduto = document.getElementById('descDetalhadaProduto').value;
+    const precoProduto = parseFloat(document.getElementById('precoProduto').value.replace(',', '.'));
+    const qtdEstoqueProduto = parseInt(document.getElementById('qtdEstoqueProduto').value);
 
-function displayProductDetails(product) {
-    const productDetailsDiv = document.getElementById('product-details');
-    productDetailsDiv.innerHTML = `
-        <h2>${product.nomeProduto}</h2>
-        <p><strong>Preço:</strong> R$ ${product.precoProduto.toFixed(2)}</p>
-        <p><strong>Descrição:</strong> ${product.descDetalhadaProduto}</p>
-        <p><strong>Avaliação dos usuarios:</strong> ${product.avalProduto ? product.avalProduto.toFixed(1) : 'Nenhuma avaliação disponível'}</p>
-        <button id="add-to-cart">Adicionar ao Carrinho</button>
-    `;
-
-    document.getElementById("add-to-cart").addEventListener("click", function() {
-        addToCart(product);
-    });
-}
-
-function fetchProductImages(productId) {
-    fetch(`http://localhost:8015/imgProduto/${productId}`)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Erro ao buscar imagens do produto');
-            }
-            return response.json();
-        })
-        .then(imagesData => {
-            displayProductImages(imagesData);
-        })
-        .catch(error => {
-            console.error('Erro:', error);
-            alert('Erro ao carregar as imagens do produto.');
-        });
-}
-
-function displayProductImages(imagesData) {
-    const carouselImages = document.getElementById('carousel-images');
-    carouselImages.innerHTML = '';
-
-    imagesData.forEach(image => {
-        const imgElement = document.createElement('img');
-        imgElement.src = `data:image/jpeg;base64,${image.imgBlob}`;
-        imgElement.alt = image.nomeArquivos; 
-        imgElement.classList.add('carousel-image');
-        carouselImages.appendChild(imgElement);
-        images.push(imgElement.src);
-    });
-
-    if (images.length > 0) {
-        showImage(currentImageIndex); 
-    }
-}
-
-function showImage(index) {
-    const carouselImages = document.querySelectorAll('.carousel-images img');
-    carouselImages.forEach((img, i) => {
-        img.style.display = i === index ? 'block' : 'none';
-    });
-}
-
-function nextImage() {
-    currentImageIndex = (currentImageIndex + 1) % images.length;
-    showImage(currentImageIndex);
-}
-
-function prevImage() {
-    currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
-    showImage(currentImageIndex);
-}
-
-let cart = JSON.parse(localStorage.getItem('produtos')) || [];
-
-function addToCart(product) {
-    const existingProduct = cart.find(item => item.nome === product.nomeProduto);
-    const imageUrl = images[0];  
-
-    if (existingProduct) {
-        existingProduct.quantidade += 1;
-    } else {
-        cart.push({ 
-            nome: product.nomeProduto, 
-            preco: product.precoProduto, 
-            quantidade: 1,  
-            imagem: imageUrl 
-        });
-    }
-
-    localStorage.setItem('produtos', JSON.stringify(cart));
+    const produtoData = {
+        nomeProduto,
+        avalProduto,
+        descDetalhadaProduto,
+        precoProduto,
+        qtdEstoqueProduto,
+    };
+  
+    fetch(`http://localhost:8015/produto/update/${produtoEdit.idProduto}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(produtoData)
+    })
+    .then(response => response.json())
+    .then(produto => {
     
-    updateCartDisplay();
-    updateCartQuantity(); // Atualiza a quantidade de itens no carrinho
-    
-    alert("1 produto foi adicionado ao carrinho! Você será redirecionado à página principal para continuar comprando.");
-    
-    window.location.href = 'TelaHome.html';
-}
+        updateImg(produtoEdit.idProduto); 
+    })
+    .catch(error => {
+        console.error('Erro:', error);
+        alert('Erro ao cadastrar produto.');
+    });
+};
 
-function updateCartDisplay() {
-    const cartItemsElement = document.getElementById("cart-items");
-    const cartTotalElement = document.getElementById("cart-total");
-    cartItemsElement.innerHTML = "";
-    let total = 0;
+function updateImg(id) {
+    const formData = new FormData();
 
-    cart.forEach(item => {
-        const listItem = document.createElement("li");
-        listItem.innerHTML = `
-            <img src="${item.imagem}" alt="${item.nome}" style="width:50px; height:50px;"/> 
-            ${item.nome} - R$ ${item.preco.toFixed(2)} (x${item.quantidade})
-        `;
-        cartItemsElement.appendChild(listItem);
-        total += item.preco * item.quantidade;
+    imgsDto.forEach(img => {
+        formData.append('imgBlob', img.blobImg); 
+        formData.append('imgPrincipal', img.imgPrincipal); 
     });
 
-    cartTotalElement.textContent = `Total: R$ ${total.toFixed(2)}`;
+
+const imagesEdit = JSON.parse(localStorage.getItem('imagesEdit')) || [];
+const ids = imagesEdit.map(image => image.id || 0); 
+
+    imagesEdit.forEach(image => {
+
+        const imageId = Number(image.id); 
+        if (!isNaN(imageId)) {
+            ids.push(imageId); 
+        } else {
+            console.warn('ID inválido encontrado:', image.id); 
+        }
+    });
+
+
+    ids.forEach(imageId => {
+        formData.append('id', imageId); 
+    });
+
+    console.log('IDs das imagens:', ids); 
+
+    fetch(`http://localhost:8015/imgProduto/update/${id}`, {
+        method: 'PUT',
+        body: formData 
+    })
+    .then(response => response.json())
+    .then(() => {
+        window.location.href = 'ListaProdutos.html';
+    })
+    .catch(error => {
+        console.error('Erro:', error);
+        alert('Erro ao atualizar imagens.');
+    });
 }
 
-function updateCartQuantity() {
-    const cartQuantityElement = document.getElementById("cart-quantity");
-    const totalQuantity = cart.reduce((sum, item) => sum + item.quantidade, 0);
-    cartQuantityElement.textContent = totalQuantity;
-}
+
+

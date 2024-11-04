@@ -1,3 +1,5 @@
+
+//comentando pra main
 document.addEventListener('DOMContentLoaded', function() {
     const finalizarBtn = document.getElementById('finalizar-pedido');
     const modal = document.getElementById('modal-verificacao');

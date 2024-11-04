@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const itemsPerPage = 10;
     let currentPage = 1;
 
+    
     const finalizarPedidoBtn = document.getElementById('finalizar-pedido');
     finalizarPedidoBtn.disabled = true; // Desabilita o botão inicialmente
     finalizarPedidoBtn.classList.add('botao-desabilitado'); // Adiciona a classe de botão desabilitado
@@ -262,3 +263,4 @@ document.addEventListener('DOMContentLoaded', function() {
     displayProducts();
     displayEnderecoPrincipal();
 });
+//comentando pra main

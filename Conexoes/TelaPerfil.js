@@ -1,3 +1,5 @@
+
+//comentando pra main
 document.addEventListener('DOMContentLoaded', () => {
     let user = sessionStorage.getItem("usuarioLogado");
     listarEndereco();
