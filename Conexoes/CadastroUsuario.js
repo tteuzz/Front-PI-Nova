@@ -1,3 +1,5 @@
+//comentando pra main
+
 let cepInput = document.getElementById('cep-faturamento');
 let logradouroInput = document.getElementById('logradouro-faturamento');
 let bairroInput = document.getElementById('bairro-faturamento');
