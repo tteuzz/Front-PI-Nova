@@ -1,3 +1,5 @@
+//comentando pra main
+//comentando pra main
 function previewImages(event) {
     const files = event.target.files;
     const previewsContainer = document.getElementById('image-previews');
