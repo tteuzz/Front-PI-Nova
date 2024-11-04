@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOVA - Resumo do pedido</title>
+    <link rel="stylesheet" href="../Estilos/TelaResumoPedido.css">
+</head>
+<body>
+    <header class="container-header">
+        <div class="logo">
+            <img src="../img/LOGO NOVA.jpg" alt="Logo NOVA">
+            <h2>N O V A</h2>
+        </div>
+        <nav class="navegacao">
+            <ul>
+                <li><a href="TelaHome.html">Home</a></li>
+                <li><a href="TelaProdutos.html">Produtos</a></li>
+                <li><a href="TelaSobre.html">Sobre</a></li>
+                <li><a href="TelaContato.html">Contato</a></li>
+            </ul>
+        </nav>
+        <div class="nav-icon-container">
+            <a href="TelaCadastroUsuario.html"><img class="icone" src="../img/icone.png" alt="icone de uma pessoa"></a>
+            <a href="TelaCarrinho.html"><img class="carrinho-button" src="../img/carrinho.png" alt="icone de carrinho de compras"></a>
+        </div>
+    </header>
+
+    <main>
+        <h2>Resumo do pedido</h2>
+
+        <div class="dados-pessoais">
+            <h3>Dados pessoais</h3>
+            <p>Informações pessoais que estarão na nota fiscal do pedido.</p>
+        
+            <div class="conteudo-dados">
+                <div class="esquerda">
+                    <p>Nome: <span id="nome"></span></p>
+                    <p>Email: <span id="email"></span></p>
+                    <p>Telefone: <span id="telefone"></span></p>
+                    <p>Endereço de entrega: <span id="endereco-entrega"></span></p>
+                </div>
+                <div class="direita">
+                    <p>Endereço: <span id="endereco"></span></p>
+                    <p>CPF: <span id="cpf"></span></P>
+                </div>
+            </div>
+        </div>
+
+        <div class="lista-pedido">
+            <h3>Lista de produtos</h3>
+            <p>Confira os produtos que você está comprando.</p>
+
+            <div class="conteudo-resumo" id="conteudo-resumo">
+                
+            </div>
+        </div>
+        
+        <div class="forma-pagamento">
+            <h3>Forma de pagamento selecionada: </h3>
+        </div>
+
+        <div class="resumo-pedido">
+            <h3>Resumo do Pedido</h3>
+            <p>Valor dos produtos: R$<span id="total"></span></p>
+            <p>Valor do frete: R$<span id="frete-total"></span></p>
+            <button class="botao" onclick="finalizarPedido()">Finalizar Pedido</button>
+            <button class="botao" onclick="voltar()">Voltar</button>
+        </div>
+
+    </main>
+    
+
+    <script src="../Conexoes/TelaResumoPedido.js"></script>
+</body>
+</html>
