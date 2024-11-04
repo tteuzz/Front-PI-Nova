@@ -1,3 +1,5 @@
+//comentando pra main
+
 var imgsDto = [];
 let produtoEdit = JSON.parse(localStorage.getItem('produtoEdit'));
 console.log('Dados do localStorage:', localStorage.getItem('imagesEdit'));
