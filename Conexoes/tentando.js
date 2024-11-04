@@ -1,3 +1,4 @@
+//comentando pra main
 document.addEventListener('DOMContentLoaded', (event) => {
     const formCadastrarUser = document.getElementById('cadastro');
 
