@@ -1,3 +1,5 @@
+//comentando pra main
+
 let products = [];
 const itemsPorPagina = 10;
 let paginaAtual = 1;
