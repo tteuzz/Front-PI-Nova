@@ -1,3 +1,5 @@
+//comentando pra main
+
 let currentImageIndex = 0;
 const images = []; 
 
