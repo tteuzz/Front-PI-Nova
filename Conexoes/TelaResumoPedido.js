@@ -1,28 +1,88 @@
-
-
 document.addEventListener('DOMContentLoaded', function() {
+
+    // Obtém os dados do usuário logado
+    const user = JSON.parse(sessionStorage.getItem("usuarioLogado")); 
     const conteudoResumo = document.getElementById('conteudo-resumo');
     const totalElement = document.getElementById('total');
-    const produtos = JSON.parse(localStorage.getItem('produtos')) || [];
-    let total = 0;
+    const freteTotalElement = document.getElementById('frete-total');
+    const nomeElement = document.getElementById('nome');
+    const emailElement = document.getElementById('email');
+    const telefoneElement = document.getElementById('telefone');
+    const enderecoEntregaElement = document.getElementById('endereco-entrega');
+    const enderecoElement = document.getElementById('endereco');
+    const cpfElement = document.getElementById('cpf');
+    const formaPagamentoElement = document.getElementById('forma-pagamento'); // Adiciona o elemento da forma de pagamento
 
+    let total = 0;  // Variável para armazenar o total dos produtos
+    let frete = 0;  // Variável para armazenar o valor do frete
+
+    // Preenche os dados do usuário
+    nomeElement.textContent = user.usuaNmUsuario;
+    emailElement.textContent = user.usuaDsEmail;
+
+    // Verifica se há endereço de entrega selecionado
+    const enderecoEntrega = JSON.parse(sessionStorage.getItem("enderecoPrincipal"));
+    if (enderecoEntrega) {
+        enderecoEntregaElement.textContent = `${enderecoEntrega.logradouro}, ${enderecoEntrega.numero}, ${enderecoEntrega.bairro}, ${enderecoEntrega.cidade}, ${enderecoEntrega.uf}, ${enderecoEntrega.cep}`;
+    } else {
+        enderecoEntregaElement.textContent = "Endereço de entrega não selecionado.";
+    }
+
+    // Preenche o CPF
+    cpfElement.textContent = user.usuaDsCPF;
+
+    // Exibe os produtos no resumo
+    const produtos = JSON.parse(localStorage.getItem('produtos')) || [];
+    
     produtos.forEach(produto => {
         const produtoDiv = document.createElement('div');
         produtoDiv.className = 'produto';
+
+        // Calcula o total do produto (preço * quantidade)
+        const totalProduto = parseFloat(produto.preco) * produto.quantidade;
+
+        // Exibe as informações do produto
         produtoDiv.innerHTML = `
             <img src="${produto.imagem}" alt="Imagem do produto">
             <div class="detalhes-produto">
                 <p>Nome: <span>${produto.nome}</span></p>
-                <p>Preço: R$${produto.preco.toFixed(2)}</p>
+                <p>Preço: R$ ${parseFloat(produto.preco).toFixed(2)}</p>
                 <p>Quantidade: ${produto.quantidade}</p>
-                <p>Total: R$${produto.total.toFixed(2)}</p>
+                <p>Total: R$ ${totalProduto.toFixed(2)}</p>
             </div>
         `;
         conteudoResumo.appendChild(produtoDiv);
-        total += produto.total;
+
+        // Soma o total dos produtos
+        total += totalProduto;
     });
 
-    totalElement.textContent = total.toFixed(2);
+    // Verifica se há um valor de frete selecionado (substitua isso pelo valor real do frete)
+    const freteSelecionado = sessionStorage.getItem("freteSelecionado") || 0;  // Exemplo, pegue o valor de onde ele foi armazenado
+    frete = parseFloat(freteSelecionado) || 0;  // Caso não tenha valor, assume 0
+
+    // Atualiza o total do frete
+    freteTotalElement.textContent = `R$ ${frete.toFixed(2)}`;
+
+    // Calcula o total final (produtos + frete)
+    const totalFinal = total + frete;
+    totalElement.textContent = `R$ ${totalFinal.toFixed(2)}`;
+
+    // Função para finalizar o pedido
+    window.finalizarPedido = function() {
+        alert("Pedido finalizado com sucesso!");
+        //man aqui bota os bglh pra finalização
+        window.location.href = "TelaSucessoPedido.html";    
+    };
+
+    const formaPagamento = sessionStorage.getItem('formaPagamento'); // Recupera a forma de pagamento do sessionStorage
+    if (formaPagamento) {
+        formaPagamentoElement.textContent = formaPagamento; // Exibe a forma de pagamento
+    } else {
+        formaPagamentoElement.textContent = "Forma de pagamento não selecionada."; // Caso não tenha forma de pagamento
+    }
+    // Função para voltar à página anterior
+    window.voltar = function() {
+        window.history.back();
+    };
 });
-
-
