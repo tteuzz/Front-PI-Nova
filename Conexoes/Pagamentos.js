@@ -1,12 +1,14 @@
 function pagarPix() {
     alert("Pagamento via Pix iniciado.");
     substituirBotaoPorTexto('Pix');
+    sessionStorage.setItem('formaPagamento', 'Pix'); // Armazenar forma de pagamento no sessionStorage
     mostrarBotaoFinalizar();
 }
 
 function pagarBoleto() {
     alert("Boleto gerado.");
     substituirBotaoPorTexto('Boleto');
+    sessionStorage.setItem('formaPagamento', 'Boleto'); // Armazenar forma de pagamento no sessionStorage
     mostrarBotaoFinalizar();
 }
 
@@ -15,6 +17,7 @@ document.getElementById('cartaoForm').addEventListener('submit', function(event)
     alert("Pagamento com cartão de crédito iniciado.");
     mostrarParcelas();
     substituirBotaoPorTexto('Cartão de Crédito');
+    sessionStorage.setItem('formaPagamento', 'Cartão de Crédito'); // Armazenar forma de pagamento no sessionStorage
     mostrarBotaoFinalizar();
 });
 
@@ -58,7 +61,7 @@ function mostrarBotaoFinalizar(botaoAlterar) {
         botaoFinalizar.id = 'finalizarCompra';
         botaoFinalizar.textContent = 'Finalizar compra';
         botaoFinalizar.onclick = function() {
-            alert('Compra finalizada!');
+            window.location.href = 'TelaResumoPedido.html'; 
         };
         botaoAlterar.insertAdjacentElement('afterend', botaoFinalizar);
     }

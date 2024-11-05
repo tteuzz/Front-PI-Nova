@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     let products = JSON.parse(localStorage.getItem('produtos')) || [];
-   // let enderecoPrincipal = JSON.parse(sessionStorage.getItem('enderecoPrincipal')) || null;
+    let enderecoPrincipal = JSON.parse(sessionStorage.getItem('enderecoPrincipal')) || null;
     let freteSelecionado = 0;
 
     const itemsPerPage = 10;
@@ -11,39 +11,39 @@ document.addEventListener('DOMContentLoaded', function() {
     finalizarPedidoBtn.disabled = true; // Desabilita o botão inicialmente
     finalizarPedidoBtn.classList.add('botao-desabilitado'); // Adiciona a classe de botão desabilitado
 
-    // window.definirEnderecoPrincipal = async function(index) {
-    //     const enderecos = JSON.parse(sessionStorage.getItem('enderecos')) || [];
-    //     const endereco = enderecos[index];
+    window.definirEnderecoPrincipal = async function(index) {
+        const enderecos = JSON.parse(sessionStorage.getItem('enderecos')) || [];
+        const endereco = enderecos[index];
 
-    //     sessionStorage.setItem('enderecoPrincipal', JSON.stringify(endereco));
-    //     enderecoPrincipal = endereco;
+        sessionStorage.setItem('enderecoPrincipal', JSON.stringify(endereco));
+        enderecoPrincipal = endereco;
 
-    //     displayEnderecoPrincipal();
-    //     exibirFretesDisponiveis(endereco.cep);
-    //     alert("Endereço de entrega definido");
+        displayEnderecoPrincipal();
+        exibirFretesDisponiveis(endereco.cep);
+        alert("Endereço de entrega definido");
 
-    //     const addressItems = document.querySelectorAll('.address-item');
-    //     addressItems.forEach(item => {
-    //         const defaultLabel = item.querySelector('.default-label');
-    //         const button = item.querySelector('button');
-    //         if (defaultLabel) {
-    //             defaultLabel.textContent = '';
-    //         }
-    //         if (button) {
-    //             button.style.display = 'block';
-    //         }
-    //     });
+        const addressItems = document.querySelectorAll('.address-item');
+        addressItems.forEach(item => {
+            const defaultLabel = item.querySelector('.default-label');
+            const button = item.querySelector('button');
+            if (defaultLabel) {
+                defaultLabel.textContent = '';
+            }
+            if (button) {
+                button.style.display = 'block';
+            }
+        });
 
-    //     const addressItem = document.getElementById(`address-item-${index}`);
-    //     const defaultLabel = addressItem.querySelector('.default-label');
-    //     const button = addressItem.querySelector('button');
-    //     if (defaultLabel) {
-    //         defaultLabel.textContent = 'Endereço De Entrega';
-    //     }
-    //     if (button) {
-    //         button.style.display = 'none';
-    //     }
-    // };
+        const addressItem = document.getElementById(`address-item-${index}`);
+        const defaultLabel = addressItem.querySelector('.default-label');
+        const button = addressItem.querySelector('button');
+        if (defaultLabel) {
+            defaultLabel.textContent = 'Endereço De Entrega';
+        }
+        if (button) {
+            button.style.display = 'none';
+        }
+    };
 
     function displayProducts() {
         const tableBody = document.getElementById('product-table-body');
@@ -193,9 +193,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return Math.random() * (50 - 20) + 20;
     }
 
-  
     
-
     displayProducts();
-    
+    displayEnderecoPrincipal();
 });
