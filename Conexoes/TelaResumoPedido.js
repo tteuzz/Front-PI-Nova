@@ -1,7 +1,7 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
 
     // Obtém os dados do usuário logado
-    const user = JSON.parse(sessionStorage.getItem("usuarioLogado")); 
+    let user = JSON.parse(sessionStorage.getItem("usuarioLogado"));
     const conteudoResumo = document.getElementById('conteudo-resumo');
     const totalElement = document.getElementById('total');
     const freteTotalElement = document.getElementById('frete-total');
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Exibe os produtos no resumo
     const produtos = JSON.parse(localStorage.getItem('produtos')) || [];
-    
+
     produtos.forEach(produto => {
         const produtoDiv = document.createElement('div');
         produtoDiv.className = 'produto';
@@ -69,11 +69,55 @@ document.addEventListener('DOMContentLoaded', function() {
     totalElement.textContent = `R$ ${totalFinal.toFixed(2)}`;
 
     // Função para finalizar o pedido
-    window.finalizarPedido = function() {
-        alert("Pedido finalizado com sucesso!");
-        //man aqui bota os bglh pra finalização
-        window.location.href = "TelaSucessoPedido.html";    
+    window.finalizarPedido = async function () {
+        // Chama a função para finalizar o pedido e aguarda a resposta
+        let pedidoResponse = await finalizarPedido();
+
+        if (pedidoResponse.ok) {
+            let resposta = await pedidoResponse.json();
+            alert("Pedido finalizado com sucesso!");
+            console.log(resposta);
+            // Redireciona para a tela de sucesso após finalizar o pedido
+            window.location.href = "TelaSucessoPedido.html";
+        } else {
+            alert("Erro ao finalizar pedido!");
+        }
+
     };
+
+    async function finalizarPedido() {
+        // Recupera os produtos armazenados no sessionStorage
+        const produtos = JSON.parse(sessionStorage.getItem('produtos'));  // Ajuste conforme o nome correto
+
+        // Verifique se a lista de produtos existe e não está vazia
+        if (!produtos || produtos.length === 0) {
+            alert("Nenhum produto no carrinho!");
+            return;
+        }
+
+        // Mapeia os produtos para o formato esperado pelo backend
+        const produtosEnviados = produtos.map(produto => ({
+            nomeProduto: produto.nome,
+            precoProduto: produto.preco,
+            qtdEstoqueProduto: produto.quantidade
+        }));
+
+        // Envia o pedido para o backend
+
+        let pedidoResponse = await fetch(`http://localhost:8015/pedido/${user.idUsuario}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(produtosEnviados)  // Envia o array de produtos com os campos corretos
+        });
+
+        return pedidoResponse;
+
+    }
+
+
+
 
     const formaPagamento = sessionStorage.getItem('formaPagamento'); // Recupera a forma de pagamento do sessionStorage
     if (formaPagamento) {
@@ -82,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function() {
         formaPagamentoElement.textContent = "Forma de pagamento não selecionada."; // Caso não tenha forma de pagamento
     }
     // Função para voltar à página anterior
-    window.voltar = function() {
+    window.voltar = function () {
         window.history.back();
     };
 });
