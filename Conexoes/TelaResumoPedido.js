@@ -77,8 +77,10 @@ document.addEventListener('DOMContentLoaded', function () {
             let resposta = await pedidoResponse.json();
             alert("Pedido finalizado com sucesso!");
             console.log(resposta);
-            // Redireciona para a tela de sucesso após finalizar o pedido
-            window.location.href = "TelaSucessoPedido.html";
+            const pedido = resposta[0];
+            console.log(pedido)
+            alert("esse é o seu numero de pedido "+pedido.numeroPedido)
+            window.location.href = "MeusPedidos.html";
         } else {
             alert("Erro ao finalizar pedido!");
         }
