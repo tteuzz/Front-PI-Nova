@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             if(userLogado != null){
                 cardLoginCadastro.innerHTML = `
                 <button onclick="verPerfil()">Ver Perfil</button>
+                <button onclick="verPedidos()">Ver pedidos</button>
                 <button onclick="logout()">Logout</button>
             `;
             } else{
@@ -48,6 +49,10 @@ function cadastro() {
 
 function verPerfil(){
     window.location.href = "TelaPerfil.html";
+}
+
+function verPedidos(){
+    window.location.href = "MeusPedidos.html";
 }
 
 function logout() {

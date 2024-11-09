@@ -1,3 +1,21 @@
+
+function verPerfil(){
+    window.location.href = "TelaPerfil.html";
+}
+
+function verPedidos(){
+    window.location.href = "MeusPedidos.html";
+}
+
+function logout() {
+    alert("Você saiu da sessão");
+    sessionStorage.clear();
+    window.location.href = 'Telainicial.html';
+}
+
+
+
+
 document.addEventListener('DOMContentLoaded', function() {
     let products = JSON.parse(localStorage.getItem('produtos')) || [];
     let freteSelecionado = 0;
@@ -8,6 +26,34 @@ document.addEventListener('DOMContentLoaded', function() {
     const finalizarPedidoBtn = document.getElementById('finalizar-pedido');
     finalizarPedidoBtn.disabled = true; // Desabilita o botão inicialmente
     finalizarPedidoBtn.classList.add('botao-desabilitado'); // Adiciona a classe de botão desabilitado
+
+
+
+    const icone = document.querySelector('.icone');
+    const cardLoginCadastro = document.getElementById('card-login-cadastro');
+    const userLogado = sessionStorage.getItem("usuarioLogado")
+    icone.addEventListener('click', (event) => {
+        event.stopPropagation(); 
+        if (cardLoginCadastro.style.display === 'none' || cardLoginCadastro.style.display === '') {
+            if(userLogado != null){
+                cardLoginCadastro.innerHTML = `
+                <button onclick="verPerfil()">Ver Perfil</button>
+                <button onclick="verPedidos()">Ver pedidos</button>
+                <button onclick="logout()">Logout</button>
+            `;
+            } else{
+                cardLoginCadastro.innerHTML = `
+                <button onclick="login()">Logar</button>
+            `;
+            }
+            cardLoginCadastro.style.display = 'block';
+        } else {
+            cardLoginCadastro.style.display = 'none';
+        }
+    });
+
+
+
 
     // Função para exibir os produtos
     function displayProducts() {
