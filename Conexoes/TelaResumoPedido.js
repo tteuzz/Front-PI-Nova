@@ -7,9 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const freteTotalElement = document.getElementById('frete-total');
     const nomeElement = document.getElementById('nome');
     const emailElement = document.getElementById('email');
-    const telefoneElement = document.getElementById('telefone');
     const enderecoEntregaElement = document.getElementById('endereco-entrega');
-    const enderecoElement = document.getElementById('endereco');
     const cpfElement = document.getElementById('cpf');
     const formaPagamentoElement = document.getElementById('forma-pagamento'); // Adiciona o elemento da forma de pagamento
 
@@ -88,16 +86,12 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     async function finalizarPedido() {
-        // Recupera os produtos armazenados no sessionStorage
-        const produtos = JSON.parse(sessionStorage.getItem('produtos'));  // Ajuste conforme o nome correto
+        const freteSelecionado = sessionStorage.getItem("freteSelecionado") || 0;  // Exemplo, pegue o valor de onde ele foi armazenado
+        frete = parseFloat(freteSelecionado) || 0; 
+     
+        const produtos = JSON.parse(sessionStorage.getItem('produtos'));  
 
-        // Verifique se a lista de produtos existe e não está vazia
-        if (!produtos || produtos.length === 0) {
-            alert("Nenhum produto no carrinho!");
-            return;
-        }
-
-        // Mapeia os produtos para o formato esperado pelo backend
+    
         const produtosEnviados = produtos.map(produto => ({
             nomeProduto: produto.nome,
             precoProduto: produto.preco,
@@ -106,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Envia o pedido para o backend
 
-        let pedidoResponse = await fetch(`http://localhost:8015/pedido/${user.idUsuario}`, {
+        let pedidoResponse = await fetch(`http://localhost:8015/pedido/${user.idUsuario}?frete=${frete}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -127,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function () {
     } else {
         formaPagamentoElement.textContent = "Forma de pagamento não selecionada."; // Caso não tenha forma de pagamento
     }
-    // Função para voltar à página anterior
+  
     window.voltar = function () {
         window.history.back();
     };
