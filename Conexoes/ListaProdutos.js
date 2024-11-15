@@ -178,10 +178,10 @@ function prevImage() {
     }
 }
 
-function close(){
-     document.getElementById('product-modal').style.display = 'none';
+function closeModal() {
+    console.log('closeModal called');
+    document.getElementById('product-modal').style.display = 'none';
 }
-
 
 
 function nextPage() {
@@ -204,7 +204,7 @@ function openModal(id, quantidade) {
     document.getElementById('editModal').style.display = 'flex';
 }
 
-function closeModal() {
+function closeEditModal() {
     document.getElementById('editModal').style.display = 'none';
 }
 
@@ -236,7 +236,7 @@ function atualizarQuantidade(idProduto, novaQuantidade) {
     .then(response => {
         if (response.ok) {
             alert('Quantidade atualizada com sucesso!');
-            closeModal();
+            closeEditModal();
             const produto = products.find(p => p.idProduto === idProduto);
             if (produto) {
                 produto.qtdEstoqueProduto = novaQuantidade;
