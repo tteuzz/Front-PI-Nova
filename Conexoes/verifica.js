@@ -13,9 +13,8 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!user && !grupoUsuario) {
             modal.style.display = 'block';
         } else {
-            localStorage.removeItem('produtos');
-            alert('Pedido finalizado com sucesso.');
-            window.location.href = "TelaHome.html";
+            sessionStorage.setItem('produtos', JSON.stringify(products));
+            window.location.href = 'Pagamentos.html'; 
         }
     });
 

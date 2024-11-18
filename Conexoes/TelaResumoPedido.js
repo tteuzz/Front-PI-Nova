@@ -99,8 +99,11 @@ document.addEventListener('DOMContentLoaded', function () {
         }));
 
         // Envia o pedido para o backend
+        const enderecoEntrega = JSON.parse(sessionStorage.getItem("enderecoPrincipal"));
+        const endereco = enderecoEntrega.id;
 
-        let pedidoResponse = await fetch(`http://localhost:8015/pedido/${user.idUsuario}?frete=${frete}`, {
+
+        let pedidoResponse = await fetch(`http://localhost:8015/pedido/${user.idUsuario}?frete=${frete}&endereco=${endereco}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
