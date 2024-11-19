@@ -12,13 +12,8 @@ function logout() {
     window.location.href = 'Telainicial.html';
 }
 
-
-
 document.addEventListener('DOMContentLoaded', function () {
     listarPedidos()
-    
-    
-    
     
     const icone = document.querySelector('.icone');
     const cardLoginCadastro = document.getElementById('card-login-cadastro');
@@ -42,11 +37,6 @@ document.addEventListener('DOMContentLoaded', function () {
             cardLoginCadastro.style.display = 'none';
         }
     });
-
-
-
-    
-    
     
     async function listarPedidos() {
         let user = sessionStorage.getItem("usuarioLogado");
@@ -60,7 +50,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 return
             }
             
-         
             const pedidos = await response.json();
             renderizarPedidos(pedidos)
         }catch(error){
@@ -99,6 +88,9 @@ document.addEventListener('DOMContentLoaded', function () {
             const tdAcoes = document.createElement('td');
             const botaoDetalhes = document.createElement('button');
             botaoDetalhes.textContent = 'Ver Detalhes';
+            botaoDetalhes.addEventListener('click', () => {
+                window.location.href = `DetalhesPedido.html?pedidoId=${pedido.idPedido}`;
+            });
             tdAcoes.appendChild(botaoDetalhes);
             tr.appendChild(tdAcoes);
 
@@ -107,4 +99,3 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
-
