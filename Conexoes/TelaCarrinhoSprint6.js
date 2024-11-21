@@ -210,7 +210,7 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log(sessionStorage.getItem("freteSelecionado"))
         } else {
             sessionStorage.setItem('produtos', JSON.stringify(products));
-            window.location.href = 'TelaEndereco.html'; 
+            window.location.href = 'Endereco.html'; 
         }
     });
 
@@ -266,6 +266,5 @@ document.addEventListener('DOMContentLoaded', function() {
     // Inicialização
     displayProducts();
     atualizarResumo();
-
     
 });
