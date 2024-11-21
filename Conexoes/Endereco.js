@@ -1,3 +1,4 @@
+//comentando pra main
 document.addEventListener('DOMContentLoaded', () => {
     listarEndereco();
 
@@ -74,6 +75,31 @@ async function definirEnderecoPrincipal(idEndereco) {
 
     await editarEndereco(idEndereco);
     alert("Endereço de entrega definido");
+
+    // Salvar endereço de entrega no sessionStorage
+    const enderecoEntrega = {
+        logradouro: addressItem.querySelector('p').textContent,
+        id: idEndereco
+    };
+    sessionStorage.setItem('enderecoEntrega', JSON.stringify(enderecoEntrega));
+
+    // Exibir botão "Avançar para próxima etapa"
+    criarBotaoAvancar();
+}
+
+function criarBotaoAvancar() {
+    let avancarButton = document.getElementById('avancar-pagamento-btn');
+    if (!avancarButton) {
+        avancarButton = document.createElement('button');
+        avancarButton.id = 'avancar-pagamento-btn';
+        avancarButton.className = 'button';
+        avancarButton.textContent = 'Avançar para próxima etapa';
+        avancarButton.onclick = () => {
+            window.location.href = 'ProximaEtapa.html';
+        };
+        document.querySelector('main').appendChild(avancarButton);
+    }
+    avancarButton.style.display = 'block';
 }
 
 async function editarEndereco(idEndereco) {
