@@ -141,9 +141,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Atualiza o resumo de valores (produtos + frete)
     function atualizarResumo() {
         const valorTotalProdutos = products.reduce((acc, product) => acc + (parseFloat(product.preco) * product.quantidade), 0);
+        freteSelecionado = parseFloat(sessionStorage.getItem('freteSelecionado')) || 0;
         const valorTotal = valorTotalProdutos + freteSelecionado;
         document.getElementById('resumo-valor').textContent = `Valor dos Produtos: R$ ${valorTotalProdutos.toFixed(2).replace('.', ',')}`;
-        document.getElementById('resumo-total').textContent = `Valor Total: R$ ${valorTotal.toFixed(2).replace('.', ',')}`;
+        document.getElementById('resumo-total').textContent = `Valor Total (com frete): R$ ${valorTotal.toFixed(2).replace('.', ',')}`;
     }
 
 
@@ -264,7 +265,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Inicialização
     displayProducts();
-
+    atualizarResumo();
 
     
 });
