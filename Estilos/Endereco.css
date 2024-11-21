@@ -1,0 +1,195 @@
+body {
+    margin: 0;
+    font-family: "Inter", sans-serif;
+}
+
+.container-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    padding: 0 20px; 
+    background-color: #191340;
+    height: 8vh;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 50px; 
+    height: 50px; 
+    margin-right: 10px; 
+}
+
+.logo h2{
+    color: #fff;
+}
+
+.navegacao {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.navegacao ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navegacao li {
+    margin-right: 20px;
+}
+
+.navegacao a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.nav-icon-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.icone, .carrinho-button {
+    width: 50px;
+    height: 50px;
+    margin-left: 20px;
+}
+
+.navegacao ul li a:hover {
+    color: #FFD700;
+}
+
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: calc(100% - 70px); /* Ajuste a altura conforme necessário */
+    overflow: auto;
+    margin-top: 70px; /* Ajuste conforme a altura do seu header */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 0.5px solid #dedede;
+    width: 80%;
+    max-width: 500px;
+    height: 90%;
+    text-align: center;
+}
+
+.enderecos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    margin: auto;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 800px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-endereco {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.form-endereco form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+}
+
+.form-section {
+    flex: 1;
+    min-width: 300px;
+    padding: 20px;
+}
+
+form h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+form label {
+    display: block;
+    text-align: left;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form input[type="date"],
+form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #3203ef;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.botao {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.botao:hover {
+    background-color: #0056b3;
+}

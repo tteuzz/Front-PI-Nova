@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela de endereços | NOVA</title>
+    <link rel="stylesheet" href="../Estilos/Endereco.css">
+</head>
+<body>
+    <header class="container-header">
+        <div class="logo">
+            <img src="../img/LOGO NOVA.jpg" alt="Logo NOVA">
+            <h2>N O V A</h2>
+        </div>
+        <nav class="navegacao">
+            <ul>    
+                <li><a href="TelaHome.html">Home</a></li>
+                <li><a href="TelaProdutos.html">Produtos</a></li>
+                <li><a href="TelaSobre.html">Sobre</a></li>
+                <li><a href="TelaContato.html">Contato</a></li>
+            </ul>
+        </nav>
+        <div class="nav-icon-container">
+            <a href="TelaCadastroUsuario.html"><img class="icone" src="../img/icone.png" alt="icone de uma pessoa"></a>
+            <a href="TelaCarrinho.html"><img class="carrinho-button" src="../img/carrinho.png"
+                    alt="icone de carrinho de compras"></a>
+        </div>
+    </header>
+
+    <main>
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <div class="enderecos">
+                    <h2 class="titulo-entrega">Entrega</h2>
+                    <select id="combo-enderecos">
+                        <!-- Endereços serão adicionados aqui via JavaScript -->
+                    </select>
+                </div>
+    
+                <div class="form-endereco">
+                    <form id="cadastro">
+                        <label for="cep-faturamento">CEP</label>
+                        <input type="text" id="cep-faturamento" placeholder="Digite o CEP" required>
+    
+                        <label for="logradouro-faturamento">Logradouro</label>
+                        <input type="text" id="logradouro-faturamento" placeholder="Logradouro" required>
+    
+                        <label for="numero-faturamento">Número</label>
+                        <input type="text" id="numero-faturamento" placeholder="Número" required>
+    
+                        <label for="complemento-faturamento">Complemento</label>
+                        <input type="text" id="complemento-faturamento" placeholder="Complemento">
+    
+                        <label for="bairro-faturamento">Bairro</label>
+                        <input type="text" id="bairro-faturamento" placeholder="Bairro" required>
+    
+                        <label for="cidade-faturamento">Cidade</label>
+                        <input type="text" id="cidade-faturamento" placeholder="Cidade" required>
+    
+                        <label for="uf-faturamento">UF</label>
+                        <input type="text" id="uf-faturamento" placeholder="UF" required>
+    
+                        <label>
+                            <input type="radio" name="enderecoPrincipal" value="0"> Principal
+                        </label>
+                    </form>
+                </div>
+    
+                <button class="botao" onclick="adicionarEndereco()">Adicionar Endereço</button>
+                <div class="botoes-container">
+                    <button class="botao" onclick="avancar()">Avançar</button>
+                    <button class="botao" onclick="voltar()">Voltar</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+</body>
+</html>
+
