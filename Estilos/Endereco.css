@@ -1,0 +1,282 @@
+body {
+    margin: 0;
+    font-family: "Inter", sans-serif;
+  }
+  
+  .container-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    padding: 0 20px; 
+    background-color: #191340;
+    height: 8vh;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo img {
+    width: 50px; 
+    height: 50px; 
+    margin-right: 10px; 
+  }
+  
+  .logo h2 {
+    color: #fff;
+  }
+  
+  .navegacao {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .navegacao ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .navegacao li {
+    margin-right: 15px;
+  }
+  
+  .navegacao a {
+    text-decoration: none;
+    color: #fff;
+  }
+  
+  .navegacao ul li a:hover {
+    color: #FFD700;
+  }
+  
+  .nav-icon-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .icone, .carrinho-button {
+    width: 30px;
+    height: 30px;
+    margin-left: 15px;
+  }
+  
+  .card-login-cadastro {
+    background-color: #000;
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    padding: 10px;
+    border: 1px solid #000000;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+  
+  .card-login-cadastro button {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    margin-top: 8px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+  }
+  
+  .card-login-cadastro button:hover {
+    background-color: #0056b3;
+  }
+  
+  main {
+    padding: 20px;
+    background-color: white;
+    margin: 20px auto;
+    max-width: 1000px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  h2 {
+    margin-top: 0;
+    color: #333;
+  }
+  
+  input, select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  input[disabled], select[disabled], span {
+    background-color: #f0f0f0;
+    color: #666;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  #new-address-container {
+    margin-top: 10px;
+  }
+  
+  #new-address-input {
+    width: calc(100% - 20px);
+    padding: 8px;
+    margin-bottom: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .address-flex-container {
+    display: flex;
+    gap: 20px;
+  }
+  
+  #added-addresses-container {
+    flex: 1;
+    margin-top: 20px;
+  }
+  
+  .address-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+  
+  .address-item p {
+    margin: 0;
+  }
+  
+  .address-item .default-label {
+    color: green;
+    font-weight: bold;
+  }
+  
+  /* Media queries para responsividade */
+  @media (max-width: 768px) {
+    .container-header {
+      flex-direction: column;
+      height: auto;
+      padding: 10px;
+    }
+  
+    .navegacao ul {
+      flex-direction: column;
+    }
+  
+    .navegacao li {
+      margin-bottom: 10px;
+      margin-right: 0;
+    }
+  
+    .icone, .carrinho-button {
+      width: 30px;
+      height: 30px;
+    }
+  
+    .button {
+      margin-left: 0;
+    }
+  
+    .address-flex-container {
+      flex-direction: column;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .container-header {
+      padding: 10px;
+    }
+  
+    .navegacao ul {
+      padding-left: 0;
+    }
+  
+    .navegacao li {
+      margin-bottom: 5px;
+    }
+  
+    .icone, .carrinho-button {
+      width: 25px;
+      height: 25px;
+    }
+  
+    .carousel {
+      height: 250px;
+    }
+  
+    .c-card {
+      width: 100%;
+      padding: 15px;
+    }
+  
+    .button {
+      padding: 0.6em 1.2em;
+      margin-left: 0;
+    }
+  }
+  
+  label {
+    display: block;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  label input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .flex-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+  }
+  
+  .user-data, .address-data, .added-addresses {
+    flex: 1;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  @media (max-width: 768px) {
+    .flex-container {
+      flex-direction: column;
+    }
+  }
