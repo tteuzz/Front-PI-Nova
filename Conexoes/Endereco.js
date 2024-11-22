@@ -80,6 +80,7 @@ async function definirEnderecoPrincipal(idEndereco) {
     const enderecoText = addressItem.querySelector('p').textContent;
     const enderecoParts = enderecoText.split(', ');
 
+    
     const enderecoEntrega = {
         logradouro: enderecoParts[0],
         numero: enderecoParts[1],

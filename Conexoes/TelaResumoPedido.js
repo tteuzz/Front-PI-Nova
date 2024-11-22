@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
     nomeElement.textContent = user.usuaNmUsuario;
     emailElement.textContent = user.usuaDsEmail;
 
+    
     // Verifica se há endereço de entrega selecionado
     const enderecoEntrega = JSON.parse(sessionStorage.getItem("enderecoEntrega"));
     if (enderecoEntrega) {
