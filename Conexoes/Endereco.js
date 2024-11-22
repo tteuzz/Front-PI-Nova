@@ -37,7 +37,7 @@ async function listarEndereco() {
             addressItem.innerHTML = `
                 <div>
                     <p>${endereco.logradouro}, ${endereco.numero}, ${endereco.complemento}, ${endereco.bairro}, ${endereco.cidade}, ${endereco.uf}, ${endereco.cep}</p>
-                    <button class="button" onclick="definirEnderecoPrincipal(${endereco.id})">Definir como Principal</button>
+                    <button class="button" onclick="definirEnderecoPrincipal(${endereco.id})">Definir como entrega</button>
                     <span class="default-label">${endereco.enderecoPrincipal ? 'Endereço Padrão' : ''}</span>
                     <span class="billing-label">${endereco.grupo === 'faturamento' ? 'Endereço de Faturamento' : ''}</span>
                 </div>
@@ -73,10 +73,7 @@ async function definirEnderecoPrincipal(idEndereco) {
         button.style.display = 'none';
     }
 
-    await editarEndereco(idEndereco);
-    alert("Endereço de entrega definido");
-
-    // Salvar endereço de entrega no sessionStorage
+    
     const enderecoText = addressItem.querySelector('p').textContent;
     const enderecoParts = enderecoText.split(', ');
 
@@ -95,7 +92,7 @@ async function definirEnderecoPrincipal(idEndereco) {
     console.log("Endereço de entrega:", enderecoEntrega); // Log para depuração
     sessionStorage.setItem('enderecoEntrega', JSON.stringify(enderecoEntrega));
 
-    // Exibir botão "Avançar para próxima etapa"
+  
     criarBotaoAvancar();
 }
 

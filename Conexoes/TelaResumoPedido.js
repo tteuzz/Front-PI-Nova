@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
     // Verifica se há endereço de entrega selecionado
     const enderecoEntrega = JSON.parse(sessionStorage.getItem("enderecoEntrega"));
+  
     if (enderecoEntrega) {
         enderecoEntregaElement.textContent = `${enderecoEntrega.logradouro}, ${enderecoEntrega.numero}, ${enderecoEntrega.complemento}, ${enderecoEntrega.bairro}, ${enderecoEntrega.cidade}, ${enderecoEntrega.uf}, ${enderecoEntrega.cep}`;
     } else {
@@ -101,10 +102,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Envia o pedido para o backend
         const enderecoEntrega = JSON.parse(sessionStorage.getItem("enderecoEntrega"));
-        const endereco = enderecoEntrega.id;
+
+        const formaPagamento = sessionStorage.getItem('formaPagamento'); // Recupera a forma de pagamento do sessionStorage
+        if (formaPagamento) {
+            formaPagamentoElement.textContent = formaPagamento; // Exibe a forma de pagamento
+        } else {
+            formaPagamentoElement.textContent = "Forma de pagamento não selecionada."; // Caso não tenha forma de pagamento
+        }
+      
 
 
-        let pedidoResponse = await fetch(`http://localhost:8015/pedido/${user.idUsuario}?frete=${frete}&endereco=${endereco}`, {
+        let pedidoResponse = await fetch(`http://localhost:8015/pedido/${user.idUsuario}?frete=${frete}&endereco=${enderecoEntrega.id}&pagamento=${formaPagamento}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -116,13 +124,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     }
 
-    const formaPagamento = sessionStorage.getItem('formaPagamento'); // Recupera a forma de pagamento do sessionStorage
-    if (formaPagamento) {
-        formaPagamentoElement.textContent = formaPagamento; // Exibe a forma de pagamento
-    } else {
-        formaPagamentoElement.textContent = "Forma de pagamento não selecionada."; // Caso não tenha forma de pagamento
-    }
-  
+
     window.voltar = function () {
         window.history.back();
     };
