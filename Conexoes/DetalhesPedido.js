@@ -52,4 +52,29 @@ document.addEventListener('DOMContentLoaded', function () {
         const formaPagamento = pedido.formaDePagamento;        
         formaPagamentoElement.textContent = formaPagamento ? formaPagamento : "Forma de pagamento não selecionada.";
     }
+
+
+    
 });
+
+function saveStatus() {
+    const numeroPedido = document.getElementById('idProduto').value;  // Obtém o numeroPedido do campo oculto
+    const selectedStatus = document.querySelector('input[name="statusPedido"]:checked').value;  // Status selecionado
+
+    const product = products.find(p => p.numeroPedido == numeroPedido);  // Busca o produto pelo numeroPedido
+    if (product) {
+        // Atualiza o status do produto
+        product.statusPedido = selectedStatus;
+        
+        // Aqui, você pode fazer uma chamada para a API para atualizar o status no backend, se necessário
+        // Por exemplo, pode ser algo como:
+        // fetch(`http://localhost:8015/produto/${numeroPedido}/alterarStatus`, { method: 'PUT', body: JSON.stringify({ statusPedido: selectedStatus }) })
+
+        // Fecha o modal e atualiza a tabela
+        closeEditModal();
+        displayProducts();
+        alert('Status atualizado com sucesso!');
+    } else {
+        alert('Erro ao atualizar status.');
+    }
+}
