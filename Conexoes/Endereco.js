@@ -77,10 +77,21 @@ async function definirEnderecoPrincipal(idEndereco) {
     alert("Endereço de entrega definido");
 
     // Salvar endereço de entrega no sessionStorage
+    const enderecoText = addressItem.querySelector('p').textContent;
+    const enderecoParts = enderecoText.split(', ');
+
     const enderecoEntrega = {
-        logradouro: addressItem.querySelector('p').textContent,
+        logradouro: enderecoParts[0],
+        numero: enderecoParts[1],
+        complemento: enderecoParts[2],
+        bairro: enderecoParts[3],
+        cidade: enderecoParts[4],
+        uf: enderecoParts[5],
+        cep: enderecoParts[6],
         id: idEndereco
     };
+
+    console.log("Endereço de entrega:", enderecoEntrega); // Log para depuração
     sessionStorage.setItem('enderecoEntrega', JSON.stringify(enderecoEntrega));
 
     // Exibir botão "Avançar para próxima etapa"
@@ -95,7 +106,7 @@ function criarBotaoAvancar() {
         avancarButton.className = 'button';
         avancarButton.textContent = 'Avançar para próxima etapa';
         avancarButton.onclick = () => {
-            window.location.href = 'ProximaEtapa.html';
+            window.location.href = 'pagamentos.html';
         };
         document.querySelector('main').appendChild(avancarButton);
     }

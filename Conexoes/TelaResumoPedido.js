@@ -19,9 +19,9 @@ document.addEventListener('DOMContentLoaded', function () {
     emailElement.textContent = user.usuaDsEmail;
 
     // Verifica se há endereço de entrega selecionado
-    const enderecoEntrega = JSON.parse(sessionStorage.getItem("enderecoPrincipal"));
+    const enderecoEntrega = JSON.parse(sessionStorage.getItem("enderecoEntrega"));
     if (enderecoEntrega) {
-        enderecoEntregaElement.textContent = `${enderecoEntrega.logradouro}, ${enderecoEntrega.numero}, ${enderecoEntrega.bairro}, ${enderecoEntrega.cidade}, ${enderecoEntrega.uf}, ${enderecoEntrega.cep}`;
+        enderecoEntregaElement.textContent = `${enderecoEntrega.logradouro}, ${enderecoEntrega.numero}, ${enderecoEntrega.complemento}, ${enderecoEntrega.bairro}, ${enderecoEntrega.cidade}, ${enderecoEntrega.uf}, ${enderecoEntrega.cep}`;
     } else {
         enderecoEntregaElement.textContent = "Endereço de entrega não selecionado.";
     }
@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }));
 
         // Envia o pedido para o backend
-        const enderecoEntrega = JSON.parse(sessionStorage.getItem("enderecoPrincipal"));
+        const enderecoEntrega = JSON.parse(sessionStorage.getItem("enderecoEntrega"));
         const endereco = enderecoEntrega.id;
 
 
@@ -114,9 +114,6 @@ document.addEventListener('DOMContentLoaded', function () {
         return pedidoResponse;
 
     }
-
-
-
 
     const formaPagamento = sessionStorage.getItem('formaPagamento'); // Recupera a forma de pagamento do sessionStorage
     if (formaPagamento) {
