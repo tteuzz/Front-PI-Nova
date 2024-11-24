@@ -18,10 +18,17 @@ document.addEventListener('DOMContentLoaded', function () {
     nomeElement.textContent = user.usuaNmUsuario;
     emailElement.textContent = user.usuaDsEmail;
 
-    
+
+    const formaPagamento = sessionStorage.getItem('formaPagamento'); // Recupera a forma de pagamento do sessionStorage
+    if (formaPagamento) {
+        formaPagamentoElement.textContent = formaPagamento; // Exibe a forma de pagamento
+    } else {
+        formaPagamentoElement.textContent = "Forma de pagamento não selecionada."; // Caso não tenha forma de pagamento
+    }
+
     // Verifica se há endereço de entrega selecionado
     const enderecoEntrega = JSON.parse(sessionStorage.getItem("enderecoEntrega"));
-  
+
     if (enderecoEntrega) {
         enderecoEntregaElement.textContent = `${enderecoEntrega.logradouro}, ${enderecoEntrega.numero}, ${enderecoEntrega.complemento}, ${enderecoEntrega.bairro}, ${enderecoEntrega.cidade}, ${enderecoEntrega.uf}, ${enderecoEntrega.cep}`;
     } else {
@@ -79,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function () {
             console.log(resposta);
             const pedido = resposta[0];
             console.log(pedido)
-            alert("esse é o seu numero de pedido "+pedido.numeroPedido)
+            alert("esse é o seu numero de pedido " + pedido.numeroPedido)
             window.location.href = "MeusPedidos.html";
         } else {
             alert("Erro ao finalizar pedido!");
@@ -89,11 +96,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     async function finalizarPedido() {
         const freteSelecionado = sessionStorage.getItem("freteSelecionado") || 0;  // Exemplo, pegue o valor de onde ele foi armazenado
-        frete = parseFloat(freteSelecionado) || 0; 
-     
-        const produtos = JSON.parse(sessionStorage.getItem('produtos'));  
+        frete = parseFloat(freteSelecionado) || 0;
 
-    
+        const produtos = JSON.parse(sessionStorage.getItem('produtos'));
+
+
         const produtosEnviados = produtos.map(produto => ({
             nomeProduto: produto.nome,
             precoProduto: produto.preco,
@@ -109,7 +116,7 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
             formaPagamentoElement.textContent = "Forma de pagamento não selecionada."; // Caso não tenha forma de pagamento
         }
-      
+
 
 
         let pedidoResponse = await fetch(`http://localhost:8015/pedido/${user.idUsuario}?frete=${frete}&endereco=${enderecoEntrega.id}&pagamento=${formaPagamento}`, {
