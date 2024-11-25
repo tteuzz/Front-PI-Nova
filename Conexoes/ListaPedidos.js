@@ -99,6 +99,7 @@ function saveStatus() {
 
 
 async function alterarStatus(newStatus,product){
+    console.log(product.idPedido)
     try {
         console.log(newStatus)
         const url = `http://localhost:8015/pedido/altStatus/${product.idPedido}`;
@@ -109,7 +110,7 @@ async function alterarStatus(newStatus,product){
             headers: {
                 'Content-Type': 'application/json', 
             },
-            body: newStatus
+            body:newStatus
         });
 
     

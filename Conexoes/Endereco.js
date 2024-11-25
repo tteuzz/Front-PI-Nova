@@ -104,7 +104,7 @@ function criarBotaoAvancar() {
         avancarButton.className = 'button';
         avancarButton.textContent = 'Avançar para próxima etapa';
         avancarButton.onclick = () => {
-            window.location.href = 'pagamentos.html';
+            window.location.href = 'Pagamentos.html';
         };
         document.querySelector('main').appendChild(avancarButton);
     }
