@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
 /* pra main */
 
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -16,7 +15,6 @@ body {
     background-color: #2b036b;
     font-family: "Sora", sans-serif;
 }
-
 
 #addEndereco {
     background-color: #4CAF50; /* Verde */
@@ -42,29 +40,31 @@ body {
     transform: scale(0.95); /* Diminui levemente o botão ao clicar */
 }
 
-
 .container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: flex-start;
-    max-width: 800px;
+    width: 65%; /* Define o tamanho do container como 65% da largura da tela */
+    max-width: 800px; /* Define um limite máximo para telas grandes */
     background-color: #fff;
-    padding: 20px;
+    padding: 15px;
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto; /* Centraliza o container horizontalmente */
 }
 
 form {
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
+    width: 100%; /* Os elementos do formulário ocupam 100% da largura do container */
+    justify-content: space-between; /* Distribui espaço entre os elementos */
 }
 
 .form-section {
-    flex: 1;
-    min-width: 300px;
-    padding: 20px;
+    flex: 1 1 48%; /* As seções ocupam 48% para ficarem lado a lado */
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 form h2 {
@@ -86,12 +86,14 @@ form input[type="email"],
 form input[type="password"],
 form input[type="date"],
 form select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
+    width: 100%; /* Inputs ocupam a largura total da seção */
+    padding: 8px; /* Reduzido para ajustar ao novo tamanho */
+    margin-bottom: 10px; /* Espaçamento menor */
     border: 1px solid #ccc;
     border-radius: 4px;
+    font-size: 14px; /* Reduzido para manter o equilíbrio visual */
 }
+
 select {
     width: 100%;
     padding: 10px;
@@ -101,6 +103,7 @@ select {
     box-sizing: border-box;
     font-size: 16px;
 }
+
 label[for="genero"] {
     margin-top: 10px;
     font-size: 14px;
@@ -123,9 +126,14 @@ form input[type="submit"]:hover {
 }
 
 @media (max-width: 600px) {
+    .container {
+        width: 90%; /* Ajusta o container para telas pequenas */
+        padding: 10px;
+    }
+
     .form-section {
-        min-width: 100%;
-        padding: 15px;
+        flex: 1 1 100%; /* As seções ocupam 100% para telas menores */
+        padding: 10px;
     }
 
     form input[type="text"],
@@ -134,6 +142,6 @@ form input[type="submit"]:hover {
     form input[type="date"],
     form select,
     form input[type="submit"] {
-        padding: 8px;
+        padding: 8px; /* Mantém conforto para telas menores */
     }
 }

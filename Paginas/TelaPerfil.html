@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NOVA | Perfil</title>
     <link rel="stylesheet" href="../Estilos/TelaPerfil.css">
 </head>
-<!-- pra ter certinho na main -->
- <!-- pra ter certinho na main -->
 <body>
     <header class="container-header">
         <div class="logo">
@@ -23,15 +20,11 @@
                 <li><a href="TelaContato.html">Contato</a></li>
             </ul>
         </nav>
-
         <div class="nav-icon-container">
             <img src="../img/icone.png" class="icone" alt="Ícone">
-            <a href="TelaCarrinho.html"><img class="carrinho-button"
-                    src="../img/carrinho-de-compras.png"
-                    alt="icone de carrinho de compras"></a>
+            <a href="TelaCarrinho.html"><img class="carrinho-button" src="../img/carrinho-de-compras.png" alt="icone de carrinho de compras"></a>
         </div>
     </header>
-
     <main>
         <div class="flex-container">
             <div class="user-data">
@@ -40,7 +33,7 @@
                     <p><strong>Nome:</strong> <input type="text" id="user-name" readonly></p>
                     <p><strong>Email:</strong> <input type="email" id="user-email" readonly></p>
                     <p><strong>Senha:</strong> <input type="password" id="user-password" readonly></p>
-                    <p><strong>CPF:</strong> <input type="text" id="user-cpf" readonly></span></p>
+                    <p><strong>CPF:</strong> <input type="text" id="user-cpf" readonly></p>
                     <p><strong>Gênero:</strong> 
                         <select id="user-gender" disabled>
                             <option value="">Selecione</option>
@@ -56,16 +49,15 @@
             <div class="address-data">
                 <h2>Endereços</h2>
                 <div id="address-container"></div>
-            
                 <div id="new-address-container">
                     <h3>Adicionar novo endereço</h3>
-                    <label>CEP: <input type="text" id="cep" placeholder="Digite o CEP"></label><br>
-                    <label>Logradouro: <input type="text" id="logradouro" disabled></label><br>
-                    <label>Número: <input type="text" id="numero"></label><br>
-                    <label>Complemento: <input type="text" id="complemento"></label><br>
-                    <label>Bairro: <input type="text" id="bairro" disabled></label><br>
-                    <label>Cidade: <input type="text" id="cidade" disabled></label><br>
-                    <label>UF: <input type="text" id="uf" disabled></label><br>
+                    <label>CEP: <input type="text" id="cep" placeholder="Digite o CEP"></label>
+                    <label>Logradouro: <input type="text" id="logradouro" disabled></label>
+                    <label>Número: <input type="text" id="numero"></label>
+                    <label>Complemento: <input type="text" id="complemento"></label>
+                    <label>Bairro: <input type="text" id="bairro" disabled></label>
+                    <label>Cidade: <input type="text" id="cidade" disabled></label>
+                    <label>UF: <input type="text" id="uf" disabled></label>
                     <button id="add-address-btn" class="button" onclick="cadastrarNovoEndereco()">Adicionar mais um</button>
                 </div>
             </div>
@@ -75,9 +67,7 @@
             </div>
         </div>
     </main>
-
     <div class="card-login-cadastro" id="card-login-cadastro"></div>
-
     <script src="../Conexoes/TelaPerfil.js"></script>
 </body>
 </html>
