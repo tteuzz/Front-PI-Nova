@@ -326,3 +326,27 @@ img {
 .carousel-button:hover {
     background-color: rgba(0, 0, 0, 0.8);
 }
+.botao {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #007bff; /* Cor padrão do botão */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Suaviza as mudanças no hover */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra leve */
+}
+
+.botao:hover {
+    background-color: #0056b3; /* Cor mais escura no hover */
+    transform: translateY(-2px); /* Efeito de "levantar" */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Sombra mais intensa */
+}
+
+.botao:active {
+    background-color: #003d80; /* Cor ainda mais escura ao clicar */
+    transform: translateY(0); /* Remove o efeito de levantar */
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); /* Sombra reduzida */
+}

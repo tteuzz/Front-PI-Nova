@@ -1,4 +1,6 @@
-//comentando pra main
+function Deslogar(){
+    window.location.href = 'Telainicial.html';
+}//comentando pra main
 
 let products = [];
 const itemsPorPagina = 10;

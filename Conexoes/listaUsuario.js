@@ -16,6 +16,12 @@ function fetchUsers() {
             alert('erro ao buscar users');
         });
 }
+
+
+function Deslogar(){
+    window.location.href = 'Telainicial.html';
+}
+
 function displayUsers() {
     const tableBody = document.getElementById('product-table-body')
     tableBody.innerHTML = '';

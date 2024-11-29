@@ -2,6 +2,12 @@ let products = [];  // A lista de produtos (ou pedidos)
 const itemsPorPagina = 10;
 let paginaAtual = 1;
 
+
+
+function Deslogar(){
+    window.location.href = 'Telainicial.html';
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     fetchProducts();
 });
