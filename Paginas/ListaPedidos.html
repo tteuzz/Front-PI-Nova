@@ -14,29 +14,21 @@
         <h2 class="nome-loja">N O V A</h2>
         <img class="icone" src="../img/perfil.png" alt="icone de uma pessoa">
     </div>
-
-
-    <button type="button" onclick="Deslogar()" class="botao">Deslogar</button>
 </header>
-<div class="espaco-body">
-    <p>""</p>
-</div>
 
 <div class="header-body">
     <h1 class="titulo">Lista de pedidos</h1>
     <div class="botao-add">
         <a href="CadastrarProduto.html"><button class="botao">Adicionar pedido</button></a>
+        <button type="button" onclick="Deslogar()" class="botao-deslogar">Deslogar</button>
     </div>
 
     <div class="caixa-pesquisa">
         <input type="text" class="pesquisa" id="searchInput" placeholder="Pesquisar pedido" onkeyup="searchProduct()">
-
         <button class="botao-pesquisa" onclick="searchProduct()">Pesquisar</button>
     </div>        
 
-        <a href="TelaBackoffice.html"><button class="botao-voltar">Voltar</button></a>
-    </div>      
-
+    <a href="TelaBackoffice.html"><button class="botao-voltar">Voltar</button></a>
 </div>
 
 <div class="tabela-container">
@@ -82,14 +74,12 @@
             <button onclick="saveStatus()">Salvar</button>
         </div>
     </div>
-    
-    </div>
-    
-    <div class="pagination-container">
-        <button id="prev-page" onclick="prevPage()">Anterior</button>
-        <span id="page-info"></span>
-        <button id="next-page" onclick="nextPage()">Próxima</button>
-    </div>
+</div>
+
+<div class="pagination-container">
+    <button id="prev-page" onclick="prevPage()">Anterior</button>
+    <span id="page-info"></span>
+    <button id="next-page" onclick="nextPage()">Próxima</button>
 </div>
 
 <script src="../Conexoes/ListaPedidos.js"></script>

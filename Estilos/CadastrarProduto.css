@@ -13,22 +13,22 @@ h2 {
     font-weight: 300;
     font-style: normal;
     color: #fff;
-    margin-left: 10px;
+    margin-left: 8.1px; /* 85% de 9px */
 }
 
 header {
     background-color: #191340;
     width: 100vw;
-    height: 8vh;
+    height: 6.12vh; /* 85% de 7.2vh */
     flex-shrink: 0;
 }
 
 img {
-    width: 67px;
-    height: 67px;
+    width: 51.255px; /* 85% de 60.3px */
+    height: 51.255px; /* 85% de 60.3px */
     flex-shrink: 0;
-    margin: 0px 0px 0px 30px;
-    padding: 5px;
+    margin: 0px 0px 0px 22.95px; /* 85% de 27px */
+    padding: 3.825px; /* 85% de 4.5px */
 }
 
 .container-header {
@@ -37,11 +37,16 @@ img {
     justify-content: space-between;
 }
 
+.icon-button-container {
+    display: flex;
+    align-items: center;
+    margin-top: 10px; /* Adicionado para mover o ícone e o botão um pouco mais abaixo */
+}
+
 .icone {
-    margin-right: 80px;
-    margin-top: 3px;
+    margin-right: 7px; /* Espaçamento de 7px */
     background-color: #fff;
-    border-radius: 20px;
+    border-radius: 15.3px; /* 85% de 18px */
 }
 
 .nome-loja {
@@ -50,11 +55,7 @@ img {
     font-weight: normal;
     font-style: normal;
     color: #fff;
-    margin-right: 1500px;
-}
-
-.espaco-preto{
-    background-color: #000;
+    margin-right: 1147.5px; /* 85% de 1350px */
 }
 
 .titulo {
@@ -63,102 +64,102 @@ img {
     font-weight: 300;
     font-style: normal;
     color: #fff;
-    margin-left: 30px;
+    margin-left: 22.95px; /* 85% de 27px */
 }
 
 .header-body {
     background-color: #191340;
     width: 100vw;
-    height: 8vh;
+    height: 6.12vh; /* 85% de 7.2vh */
     flex-shrink: 0;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
 .titulo-cadastro {
-    color: #FFF; /* Cor do texto */
-    font-family: "Inter", sans-serif; /* Fonte consistente */
-    font-size: 24px; /* Tamanho da fonte */
-    font-weight: 500; /* Peso da fonte */
-    margin: 20px 0; /* Margem superior e inferior */
-    margin-left: 50px;
-    text-align: center; /* Centraliza o texto */
+    color: #FFF;
+    font-family: "Inter", sans-serif;
+    font-size: 18.36px; /* 85% de 21.6px */
+    font-weight: 500;
+    margin: 15.3px 0; /* 85% de 18px */
+    margin-left: 38.25px; /* 85% de 45px */
+    text-align: center;
 }
 
 .botao-voltar {
-    background-color: #fff; /* Cor de fundo */
-    color: #000; /* Cor do texto */
-    border: none; /* Remove a borda */
-    border-radius: 5px; /* Bordas levemente arredondadas */
-    padding: 10px 20px; /* Espaçamento interno */
-    font-family: 'Inter', sans-serif; /* Fonte consistente */
-    font-size: 16px; /* Tamanho da fonte */
-    cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
-    transition: background-color 0.3s; /* Transição suave para o efeito de hover */
-    margin-right: 80px;
+    background-color: #fff;
+    color: #000;
+    border: none;
+    border-radius: 3.825px; /* 85% de 4.5px */
+    padding: 7.65px 15.3px; /* 85% de 9px 18px */
+    font-family: 'Inter', sans-serif;
+    font-size: 12.24px; /* 85% de 14.4px */
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
 }
 
 .botao-voltar:hover {
     color: #fff;
-    background-color: #191340; /* Cor de fundo ao passar o mouse */
+    background-color: #191340;
 }
 
 .titulo-campo {
-    width: 50%; /* Largura dos títulos */
-    text-align: left; /* Alinha o texto à esquerda */
-    font-family: "Inter", sans-serif; /* Fonte consistente */
-    font-size: 16px; /* Tamanho da fonte */
-    color: #191340; /* Cor do texto */
-    margin-bottom: 5px; /* Margem inferior para separar do campo de entrada */
+    width: 45%;
+    text-align: left;
+    font-family: "Inter", sans-serif;
+    font-size: 12.24px; /* 85% de 14.4px */
+    color: #191340;
+    margin-bottom: 3.825px; /* 85% de 4.5px */
 }
 
 .input-cadastro {
-    width: 50%; /* Largura dos campos */
-    padding: 10px; /* Espaçamento interno */
-    border: 1px solid #000; /* Borda fina e suave */
-    border-radius: 5px; /* Bordas levemente arredondadas */
-    font-family: "Inter", sans-serif; /* Fonte consistente */
-    font-size: 16px; /* Tamanho da fonte */
-    outline: none; /* Remove o contorno padrão */
-    transition: border-color 0.3s; /* Transição suave para o efeito de foco */
+    width: 45%;
+    padding: 7.65px; /* 85% de 9px */
+    border: 1px solid #000;
+    border-radius: 3.825px; /* 85% de 4.5px */
+    font-family: "Inter", sans-serif;
+    font-size: 12.24px; /* 85% de 14.4px */
+    outline: none;
+    transition: border-color 0.3s;
 }
 
 .input-cadastro:focus {
-    border-color: #191340; /* Cor da borda ao focar */
+    border-color: #191340;
 }
 
 .botao-cadastro {
-    background-color: #191340; /* Cor de fundo */
-    color: #fff; /* Cor do texto */
-    border: none; /* Remove a borda */
-    border-radius: 5px; /* Bordas levemente arredondadas */
-    padding: 10px 20px; /* Espaçamento interno */
-    font-family: "Inter", sans-serif; /* Fonte consistente */
-    font-size: 16px; /* Tamanho da fonte */
-    cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
-    transition: background-color 0.3s; /* Transição suave para o efeito de hover */
+    background-color: #191340;
+    color: #fff;
+    border: none;
+    border-radius: 3.825px; /* 85% de 4.5px */
+    padding: 7.65px 15.3px; /* 85% de 9px 18px */
+    font-family: "Inter", sans-serif;
+    font-size: 12.24px; /* 85% de 14.4px */
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 .botao-cadastro:hover {
-    background-color: #000; /* Cor de fundo ao passar o mouse */
+    background-color: #000;
 }
 
 .form-cadastro-container {
     display: flex;
-    justify-content: flex-start; /* Alinha os itens à esquerda */
-    align-items: flex-start; /* Alinha os itens no início */
-    margin: 20px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 15.3px; /* 85% de 18px */
 }
 
 .form-cadastro {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 30px; /* Ajustado para reduzir o espaçamento */
-    margin-top: 20px;
-    width: 70%;
+    gap: 22.95px; /* 85% de 27px */
+    margin-top: 15.3px; /* 85% de 18px */
+    width: 63%;
 }
 
 .upload-container {
@@ -166,79 +167,79 @@ img {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 15px;
-    width: 30%;
+    gap: 11.475px; /* 85% de 13.5px */
+    width: 27%;
     margin-left: auto;
-    margin-right: 200px;
-    margin-bottom: 20px;
-    margin-top: 20px; /* Removido margin-top negativo */
+    margin-right: 153px; /* 85% de 180px */
+    margin-bottom: 15.3px; /* 85% de 18px */
+    margin-top: 15.3px; /* 85% de 18px */
 }
 
 .campo-container {
-    width: 100%; /* Largura do contêiner dos campos */
-    display: flex;  
+    width: 100%;
+    display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Alinha os itens à esquerda */
-    gap: 10px;
-    margin: 20px 20px 20px 60px;
+    align-items: flex-start;
+    gap: 7.65px; /* 85% de 9px */
+    margin: 15.3px 15.3px 15.3px 45.9px; /* 85% de 18px 18px 18px 54px */
 }
 
 .upload-container {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centraliza os itens */
-    justify-content: center; /* Centraliza verticalmente */
-    gap: 15px; /* Espaçamento entre os itens */
-    width: 30%; /* Largura do contêiner de upload */
-    margin-top: -500px;
+    align-items: center;
+    justify-content: center;
+    gap: 11.475px; /* 85% de 13.5px */
+    width: 27%;
+    margin-top: -382.5px; /* 85% de -450px */
     margin-left: auto;
-    margin-right: 200px;
-    margin-bottom: 20px;
+    margin-right: 153px; /* 85% de 180px */
+    margin-bottom: 15.3px; /* 85% de 18px */
 }
 
 .upload-container input[type="file"] {
-    display: none; /* Esconde o input de arquivo */
+    display: none;
 }
 
 .upload-container label {
-    background-color: #191340; /* Cor de fundo */
-    color: #fff; /* Cor do texto */
-    border: none; /* Remove a borda */
-    border-radius: 5px; /* Bordas levemente arredondadas */
-    padding: 10px 20px; /* Espaçamento interno */
-    font-family: "Inter", sans-serif; /* Fonte consistente */
-    font-size: 16px; /* Tamanho da fonte */
-    cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
-    transition: background-color 0.3s; /* Transição suave para o efeito de hover */
+    background-color: #191340;
+    color: #fff;
+    border: none;
+    border-radius: 3.825px; /* 85% de 4.5px */
+    padding: 7.65px 15.3px; /* 85% de 9px 18px */
+    font-family: "Inter", sans-serif;
+    font-size: 12.24px; /* 85% de 14.4px */
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 .upload-container label:hover {
-    background-color: #000; /* Cor de fundo ao passar o mouse */
+    background-color: #000;
 }
 
 .upload-container .image-preview {
-    width: 200px; /* Largura fixa da imagem */
-    height: auto; /* Altura automática para manter a proporção */
-    border-radius: 5px; /* Bordas levemente arredondadas */
-    margin-bottom: 10px; /* Margem inferior para separar do botão */
+    width: 153px; /* 85% de 180px */
+    height: auto;
+    border-radius: 3.825px; /* 85% de 4.5px */
+    margin-bottom: 7.65px; /* 85% de 9px */
 }
 
 #image-previews {
     display: flex;
-    flex-wrap: wrap; /* Permite que as imagens quebrem linha */
-    gap: 10px; /* Espaçamento entre as imagens */
-    max-height: 500px; /* Altura máxima do contêiner */
-    overflow-y: auto; /* Adiciona rolagem vertical se necessário */
-    padding: 10px; /* Espaçamento interno */
-    border: 1px solid #a1a1a1; /* Borda para visualização */
-    border-radius: 5px; /* Bordas levemente arredondadas */
+    flex-wrap: wrap;
+    gap: 7.65px; /* 85% de 9px */
+    max-height: 382.5px; /* 85% de 450px */
+    overflow-y: auto;
+    padding: 7.65px; /* 85% de 9px */
+    border: 1px solid #a1a1a1;
+    border-radius: 3.825px; /* 85% de 4.5px */
 }
 
 @media (max-width: 1200px) {
     .form-cadastro-container {
         flex-direction: column;
         align-items: center;
-        margin: 50px;
+        margin: 38.25px; /* 85% de 45px */
     }
 
     .form-cadastro {
@@ -247,37 +248,36 @@ img {
 
     .upload-container {
         width: 100%;
-        margin-top: 20px;
+        margin-top: 15.3px; /* 85% de 18px */
         margin-left: 0;
     }
 }
 
 @media (max-width: 768px) {
     .form-cadastro-container {
-        margin: 20px;
+        margin: 15.3px; /* 85% de 18px */
     }
 
     .upload-container .image-preview {
-        width: 150px;
+        width: 114.75px; /* 85% de 135px */
     }
 }
 
 @media (max-width: 480px) {
     .form-cadastro-container {
-        margin: 10px;
+        margin: 7.65px; /* 85% de 9px */
     }
 
     .upload-container .image-preview {
-        width: 100px;
+        width: 76.5px; /* 85% de 90px */
     }
 
     .upload-container label {
-        padding: 5px 10px;
-        font-size: 14px;
+        padding: 3.825px 7.65px; /* 85% de 4.5px 9px */
+        font-size: 10.71px; /* 85% de 12.6px */
     }
 }
 
-/* Media Queries para o header */
 @media (max-width: 1200px) {
     .container-header {
         flex-direction: column;
@@ -286,12 +286,12 @@ img {
     }
 
     .container-header img {
-        width: 80px;
+        width: 61.2px; /* 85% de 72px */
         height: auto;
     }
 
     .nome-loja {
-        font-size: 24px;
+        font-size: 18.36px; /* 85% de 21.6px */
     }
 }
 
@@ -303,12 +303,12 @@ img {
     }
 
     .container-header img {
-        width: 60px;
+        width: 45.9px; /* 85% de 54px */
         height: auto;
     }
 
     .nome-loja {
-        font-size: 20px;
+        font-size: 15.3px; /* 85% de 18px */
     }
 }
 
@@ -320,36 +320,38 @@ img {
     }
 
     .container-header img {
-        width: 40px;
+        width: 30.6px; /* 85% de 36px */
         height: auto;
     }
 
     .nome-loja {
-        font-size: 16px;
+        font-size: 12.24px; /* 85% de 14.4px */
     }
 }
 
 .remove-button {
     display: flex;
     align-items: center;
-    background-color: #e74c3c; 
-    height: 2vw;
+    background-color: #e74c3c;
+    height: 1.53vw; /* 85% de 1.8vw */
     color: white;
-    border: none; 
-    border-radius: 5px; 
-    padding: 8px 12px; 
-    cursor: pointer; 
-    font-size: 14px; 
-    transition: background-color 0.3s ease; 
+    border: none;
+    border-radius: 3.825px; /* 85% de 4.5px */
+    padding: 6.12px 9.18px; /* 85% de 7.2px 10.8px */
+    cursor: pointer;
+    font-size: 10.71px; /* 85% de 12.6px */
+    transition: background-color 0.3s ease;
 }
 
 .remove-button:hover {
-    background-color: #c0392b; 
+    background-color: #c0392b;
 }
+
 .remove-button:focus {
-    outline: none; 
+    outline: none;
 }
+
 .principal {
-    border: 2px solid green; 
-    transform: scale(1.1); 
+    border: 1.53px solid green; /* 85% de 1.8px */
+    transform: scale(1.1);
 }

@@ -13,22 +13,22 @@ h2 {
     font-weight: 300;
     font-style: normal;
     color: #fff;
-    margin-left: 10px;
+    margin-left: 7.8px; /* 78% de 10px */
 }
 
 header {
     background-color: #191340;
     width: 100vw;
-    height: 8vh;
+    height: 6.24vh; /* 78% de 8vh */
     flex-shrink: 0;
 }
 
 img {
-    width: 67px;
-    height: 67px;
+    width: 52.26px; /* 78% de 67px */
+    height: 52.26px; /* 78% de 67px */
     flex-shrink: 0;
-    margin: 0px 0px 0px 30px;
-    padding: 5px;
+    margin: 0px 0px 0px 23.4px; /* 78% de 30px */
+    padding: 3.9px; /* 78% de 5px */
 }
 
 .container-header {
@@ -38,10 +38,10 @@ img {
 }
 
 .icone {
-    margin-right: 80px;
-    margin-top: 3px;
+    margin-right: 62.4px; /* 78% de 80px */
+    margin-top: 2.34px; /* 78% de 3px */
     background-color: #fff;
-    border-radius: 20px;
+    border-radius: 15.6px; /* 78% de 20px */
 }
 
 .nome-loja {
@@ -50,7 +50,7 @@ img {
     font-weight: normal;
     font-style: normal;
     color: #fff;
-    margin-right: 1500px;
+    margin-right: 1170px; /* 78% de 1500px */
 }
 
 .espaco-body {
@@ -63,32 +63,33 @@ img {
     font-weight: 300;
     font-style: normal;
     color: #fff;
-    margin-left: 30px;
+    margin-left: 23.4px; /* 78% de 30px */
 }
 
 .header-body {
     background-color: #191340;
     width: 100vw;
-    height: 8vh;
+    height: 6.24vh; /* 78% de 8vh */
     flex-shrink: 0;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
 .botao-add {
-    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    margin-top: 15.6px; /* 78% de 20px */
 }
 
 .botao-add a button {
     background-color: #000; 
     color: #fff;
     border: none; 
-    border-radius: 5px; 
-    padding: 10px 20px; 
+    border-radius: 3.9px; /* 78% de 5px */
+    padding: 7.8px 15.6px; /* 78% de 10px 20px */
     font-family: 'Inter', sans-serif; 
-    font-size: 16px; 
+    font-size: 12.48px; /* 78% de 16px */
     cursor: pointer; 
     transition: background-color 0.3s; 
 }
@@ -97,24 +98,49 @@ img {
     background-color: #191340; 
 }
 
+.botao-deslogar {
+    background-color: #007bff; /* Cor padrão do botão */
+    color: white;
+    border: none;
+    border-radius: 3.9px; /* 78% de 5px */
+    padding: 7.8px 15.6px; /* 78% de 10px 20px */
+    font-family: "Inter", sans-serif;
+    font-size: 12.48px; /* 78% de 16px */
+    cursor: pointer;
+    transition: all 0.3s ease; /* Suaviza as mudanças no hover */
+    box-shadow: 0 3.12px 4.68px rgba(0, 0, 0, 0.1); /* 78% de 4px 6px */
+    outline: none;
+    margin-left: 7.8px; /* 78% de 10px */
+}
 
+.botao-deslogar:hover {
+    background-color: #0056b3; /* Cor mais escura no hover */
+    transform: translateY(-1.56px); /* 78% de 2px, efeito de "levantar" */
+    box-shadow: 0 4.68px 6.24px rgba(0, 0, 0, 0.2); /* 78% de 6px 8px */
+}
+
+.botao-deslogar:active {
+    background-color: #003d80; /* Cor ainda mais escura ao clicar */
+    transform: translateY(0); /* Remove o efeito de levantar */
+    box-shadow: 0 2.34px 3.9px rgba(0, 0, 0, 0.2); /* 78% de 3px 5px */
+}
 
 .caixa-pesquisa {
     display: flex;
     align-items: center; 
-    gap: 10px; 
-    margin-top: 20px; 
-    margin-left: 30px; 
+    gap: 7.8px; /* 78% de 10px */
+    margin-top: 15.6px; /* 78% de 20px */
+    margin-left: 23.4px; /* 78% de 30px */
 }
 
 .pesquisa {
     background-color: #fff;
     color: #191340;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px 20px;
+    border-radius: 3.9px; /* 78% de 5px */
+    padding: 7.8px 15.6px; /* 78% de 10px 20px */
     font-family: "Inter", sans-serif;
-    font-size: 16px;
+    font-size: 12.48px; /* 78% de 16px */
     transition: border-color 0.3s, box-shadow 0.3s;
     outline: none;
     box-shadow: none;
@@ -130,41 +156,41 @@ img {
 
 .pesquisa:focus {
     border-color: #191340;
-    box-shadow: 0 0 5px rgba(25, 19, 64, 0.5);
+    box-shadow: 0 0 3.9px rgba(25, 19, 64, 0.5); /* 78% de 5px */
 }
 
 .botao-voltar {
     background-color: #fff;
     color: #000;
     border: 1px solid #191340;
-    border-radius: 5px;
-    padding: 10px 20px;
+    border-radius: 3.9px; /* 78% de 5px */
+    padding: 7.8px 15.6px; /* 78% de 10px 20px */
     font-family: "Inter", sans-serif;
-    font-size: 16px;
+    font-size: 12.48px; /* 78% de 16px */
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
     outline: none;
-    margin-left: 10px;
+    margin-left: 7.8px; /* 78% de 10px */
 }
 
-.botao-pesquisa:hover {
+.botao-voltar:hover {
     background-color: #191340;
     color: #fff;
 }
 
-.botao-addCarrinho{
+.botao-addCarrinho {
     background-color: #fff;
     color: #191340;
     border: 1px solid #191340;
-    border-radius: 5px;
-    padding: 10px 20px;
-    margin: 40px;
+    border-radius: 3.9px; /* 78% de 5px */
+    padding: 7.8px 15.6px; /* 78% de 10px 20px */
+    margin: 31.2px; /* 78% de 40px */
     font-family: "Inter", sans-serif;
-    font-size: 16px;
+    font-size: 12.48px; /* 78% de 16px */
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
     outline: none;
-    margin-left: 10px;
+    margin-left: 7.8px; /* 78% de 10px */
 }
 
 .botao-addCarrinho:hover {
@@ -177,48 +203,42 @@ img {
     justify-content: center;
     margin: 0px;
 }
-    .tabela th:nth-child(1) {
-        width: 25%; /* Numero do pedido */
-    }
-    .tabela th:nth-child(2) {
-        width: 25%; /* Nome */
-    }
-    .tabela th:nth-child(3) {
-        width: 25%; /* Status */
-    }
-    .tabela th:nth-child(4) {
-        width: 25%; /* Endereço */
-    }
+
+.tabela th:nth-child(1) {
+    width: 25%; /* Numero do pedido */
+}
+.tabela th:nth-child(2) {
+    width: 25%; /* Nome */
+}
+.tabela th:nth-child(3) {
+    width: 25%; /* Status */
+}
+.tabela th:nth-child(4) {
+    width: 25%; /* Endereço */
+}
 
 .tabela {
     width: 100%;
     max-width: 100vw;
     border-collapse: collapse;
     background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 7.8px rgba(0, 0, 0, 0.1); /* 78% de 10px */
 }
 
 .tabela th, .tabela td {
-    padding: 10px;
-    border: 1px solid #ccc;
-    text-align: left;
-    font-family: 'Inter', sans-serif;
-}
-
-.tabela th, tabela td {
-    padding: 10px;
+    padding: 7.8px; /* 78% de 10px */
     border: 1px solid #ccc;
     text-align: left;
     font-family: 'Inter', sans-serif;
 }
 
 .botao {
-    padding: 5px 10px;
-    font-size: 14px;
+    padding: 3.9px 7.8px; /* 78% de 5px 10px */
+    font-size: 10.92px; /* 78% de 14px */
     background-color: #191340;
     color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 3.9px; /* 78% de 5px */
     cursor: pointer;
     font-family: 'Inter', sans-serif;
 }
@@ -231,18 +251,18 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 20px;
+    margin: 15.6px; /* 78% de 20px */
 }
 
 .pagination-container button {
-    padding: 10px 20px;
-    font-size: 16px;
+    padding: 7.8px 15.6px; /* 78% de 10px 20px */
+    font-size: 12.48px; /* 78% de 16px */
     background-color: #191340;
     color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 3.9px; /* 78% de 5px */
     cursor: pointer;
-    margin: 0 10px;
+    margin: 0 7.8px; /* 78% de 10px */
 }
 
 .pagination-container button:hover {
@@ -250,34 +270,34 @@ img {
 }
 
 .pagination-container span {
-    font-size: 16px;
+    font-size: 12.48px; /* 78% de 16px */
 }
 
 .checkbox-ativa {
-    margin-left: 10px;
+    margin-left: 7.8px; /* 78% de 10px */
 }
 
 .botao {
-    padding: 10px 20px;
-    font-size: 16px;
+    padding: 7.8px 15.6px; /* 78% de 10px 20px */
+    font-size: 12.48px; /* 78% de 16px */
     font-weight: bold;
     color: white;
     background-color: #007bff; /* Cor padrão do botão */
     border: none;
-    border-radius: 5px;
+    border-radius: 3.9px; /* 78% de 5px */
     cursor: pointer;
     transition: all 0.3s ease; /* Suaviza as mudanças no hover */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    box-shadow: 0 3.12px 4.68px rgba(0, 0, 0, 0.1); /* 78% de 4px 6px */
 }
 
 .botao:hover {
     background-color: #0056b3; /* Cor mais escura no hover */
-    transform: translateY(-2px); /* Efeito de "levantar" */
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Sombra mais intensa */
+    transform: translateY(-1.56px); /* 78% de 2px, efeito de "levantar" */
+    box-shadow: 0 4.68px 6.24px rgba(0, 0, 0, 0.2); /* 78% de 6px 8px */
 }
 
 .botao:active {
     background-color: #003d80; /* Cor ainda mais escura ao clicar */
     transform: translateY(0); /* Remove o efeito de levantar */
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); /* Sombra reduzida */
+    box-shadow: 0 2.34px 3.9px rgba(0, 0, 0, 0.2); /* 78% de 3px 5px */
 }

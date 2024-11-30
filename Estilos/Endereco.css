@@ -1,282 +1,282 @@
 body {
-    margin: 0;
-    font-family: "Inter", sans-serif;
-  }
-  
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  font-size: 79%;
+}
+
+.container-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  background-color: #191340;
+  height: 8vh;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 39.5px;
+  height: 39.5px;
+  margin-right: 10px;
+}
+
+.logo h2 {
+  color: #fff;
+}
+
+.navegacao {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.navegacao ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navegacao li {
+  margin-right: 11.85px;
+}
+
+.navegacao a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.navegacao ul li a:hover {
+  color: #FFD700;
+}
+
+.nav-icon-container {
+  display: flex;
+  align-items: center;
+}
+
+.icone, .carrinho-button {
+  width: 23.7px;
+  height: 23.7px;
+  margin-left: 11.85px;
+}
+
+.card-login-cadastro {
+  background-color: #000;
+  display: none;
+  position: absolute;
+  top: 47.4px;
+  right: 0;
+  width: 157.9px;
+  padding: 7.9px;
+  border: 1px solid #000000;
+  border-radius: 6.32px;
+  box-shadow: 0 1.58px 3.16px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.card-login-cadastro button {
+  display: block;
+  width: 100%;
+  padding: 6.32px;
+  margin-top: 6.32px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 3.16px;
+  cursor: pointer;
+  font-size: 0.711em;
+}
+
+.card-login-cadastro button:hover {
+  background-color: #0056b3;
+}
+
+main {
+  padding: 15.8px;
+  background-color: white;
+  margin: 15.8px auto;
+  max-width: 790px;
+  box-shadow: 0 0 7.9px rgba(0, 0, 0, 0.1);
+  border-radius: 6.32px;
+}
+
+h2 {
+  margin-top: 0;
+  color: #333;
+}
+
+input, select {
+  width: 100%;
+  padding: 6.32px;
+  margin-bottom: 6.32px;
+  border: 1px solid #ccc;
+  border-radius: 3.16px;
+  font-size: 11.06px;
+}
+
+input[disabled], select[disabled], span {
+  background-color: #f0f0f0;
+  color: #666;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 6.32px 9.48px;
+  border-radius: 3.95px;
+  cursor: pointer;
+  font-size: 11.06px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+#new-address-container {
+  margin-top: 7.9px;
+}
+
+#new-address-input {
+  width: calc(100% - 15.8px);
+  padding: 6.32px;
+  margin-bottom: 6.32px;
+  border: 1px solid #ccc;
+  border-radius: 3.16px;
+  font-size: 11.06px;
+}
+
+.address-flex-container {
+  display: flex;
+  gap: 15.8px;
+}
+
+#added-addresses-container {
+  flex: 1;
+  margin-top: 15.8px;
+}
+
+.address-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7.9px;
+  border: 1px solid #ccc;
+  border-radius: 3.16px;
+  margin-bottom: 7.9px;
+}
+
+.address-item p {
+  margin: 0;
+}
+
+.address-item .default-label {
+  color: green;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
   .container-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between; 
-    padding: 0 20px; 
-    background-color: #191340;
-    height: 8vh;
+    flex-direction: column;
+    height: auto;
+    padding: 7.9px;
   }
-  
-  .logo {
-    display: flex;
-    align-items: center;
-  }
-  
-  .logo img {
-    width: 50px; 
-    height: 50px; 
-    margin-right: 10px; 
-  }
-  
-  .logo h2 {
-    color: #fff;
-  }
-  
-  .navegacao {
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-  }
-  
+
   .navegacao ul {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    margin: 0;
+    flex-direction: column;
   }
-  
+
   .navegacao li {
-    margin-right: 15px;
+    margin-bottom: 7.9px;
+    margin-right: 0;
   }
-  
-  .navegacao a {
-    text-decoration: none;
-    color: #fff;
-  }
-  
-  .navegacao ul li a:hover {
-    color: #FFD700;
-  }
-  
-  .nav-icon-container {
-    display: flex;
-    align-items: center;
-  }
-  
+
   .icone, .carrinho-button {
-    width: 30px;
-    height: 30px;
-    margin-left: 15px;
+    width: 23.7px;
+    height: 23.7px;
   }
-  
-  .card-login-cadastro {
-    background-color: #000;
-    display: none;
-    position: absolute;
-    top: 60px;
-    right: 0;
-    width: 200px;
-    padding: 10px;
-    border: 1px solid #000000;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
+
+  .button {
+    margin-left: 0;
   }
-  
-  .card-login-cadastro button {
-    display: block;
-    width: 100%;
-    padding: 8px;
-    margin-top: 8px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 0.9em;
-  }
-  
-  .card-login-cadastro button:hover {
-    background-color: #0056b3;
-  }
-  
-  main {
-    padding: 20px;
-    background-color: white;
-    margin: 20px auto;
-    max-width: 1000px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-  }
-  
-  h2 {
-    margin-top: 0;
-    color: #333;
-  }
-  
-  input, select {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
-  }
-  
-  input[disabled], select[disabled], span {
-    background-color: #f0f0f0;
-    color: #666;
-  }
-  
-  button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
-  #new-address-container {
-    margin-top: 10px;
-  }
-  
-  #new-address-input {
-    width: calc(100% - 20px);
-    padding: 8px;
-    margin-bottom: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
-  }
-  
+
   .address-flex-container {
-    display: flex;
-    gap: 20px;
+    flex-direction: column;
   }
-  
-  #added-addresses-container {
-    flex: 1;
-    margin-top: 20px;
+}
+
+@media (max-width: 480px) {
+  .container-header {
+    padding: 7.9px;
   }
-  
-  .address-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-bottom: 10px;
+
+  .navegacao ul {
+    padding-left: 0;
   }
-  
-  .address-item p {
-    margin: 0;
+
+  .navegacao li {
+    margin-bottom: 3.95px;
   }
-  
-  .address-item .default-label {
-    color: green;
-    font-weight: bold;
+
+  .icone, .carrinho-button {
+    width: 19.75px;
+    height: 19.75px;
   }
-  
-  /* Media queries para responsividade */
-  @media (max-width: 768px) {
-    .container-header {
-      flex-direction: column;
-      height: auto;
-      padding: 10px;
-    }
-  
-    .navegacao ul {
-      flex-direction: column;
-    }
-  
-    .navegacao li {
-      margin-bottom: 10px;
-      margin-right: 0;
-    }
-  
-    .icone, .carrinho-button {
-      width: 30px;
-      height: 30px;
-    }
-  
-    .button {
-      margin-left: 0;
-    }
-  
-    .address-flex-container {
-      flex-direction: column;
-    }
+
+  .carousel {
+    height: 197.5px;
   }
-  
-  @media (max-width: 480px) {
-    .container-header {
-      padding: 10px;
-    }
-  
-    .navegacao ul {
-      padding-left: 0;
-    }
-  
-    .navegacao li {
-      margin-bottom: 5px;
-    }
-  
-    .icone, .carrinho-button {
-      width: 25px;
-      height: 25px;
-    }
-  
-    .carousel {
-      height: 250px;
-    }
-  
-    .c-card {
-      width: 100%;
-      padding: 15px;
-    }
-  
-    .button {
-      padding: 0.6em 1.2em;
-      margin-left: 0;
-    }
-  }
-  
-  label {
-    display: block;
-    font-size: 14px;
-    color: #333;
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
-  
-  label input {
+
+  .c-card {
     width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    margin-bottom: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
+    padding: 11.85px;
   }
-  
+
+  .button {
+    padding: 0.49em 0.99em;
+    margin-left: 0;
+  }
+}
+
+label {
+  display: block;
+  font-size: 11.06px;
+  color: #333;
+  margin-bottom: 3.95px;
+  font-weight: bold;
+}
+
+label input {
+  width: 100%;
+  padding: 6.32px;
+  margin-top: 3.95px;
+  margin-bottom: 6.32px;
+  border: 1px solid #ccc;
+  border-radius: 3.16px;
+  font-size: 11.06px;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 31.6px;
+}
+
+.user-data, .address-data, .added-addresses {
+  flex: 1;
+  background-color: white;
+  padding: 15.8px;
+  box-shadow: 0 0 7.9px rgba(0, 0, 0, 0.1);
+  border-radius: 6.32px;
+}
+
+@media (max-width: 768px) {
   .flex-container {
-    display: flex;
-    justify-content: space-between;
-    gap: 40px;
+    flex-direction: column;
   }
-  
-  .user-data, .address-data, .added-addresses {
-    flex: 1;
-    background-color: white;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-  }
-  
-  @media (max-width: 768px) {
-    .flex-container {
-      flex-direction: column;
-    }
-  }
+}

@@ -2,6 +2,15 @@
     box-sizing: border-box;
 }
 
+h1 {
+    font-family: "Inter", sans-serif;
+    font-size: 21.6px; /* 90% de 24px */
+    font-weight: bold; /* Negrito */
+    color: #191340; /* Cor do texto */
+    text-align: center; /* Centraliza o texto */
+    margin: 60px 0 0px; /* 90% de 50px 0 20px */
+}
+
 body {
     margin: 0;
     font-family: "Inter", sans-serif;
@@ -15,9 +24,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between; 
-    padding: 0 20px; 
+    padding: 0 15.8px; /* 79% de 20px */
     background-color: #191340;
-    height: 8vh;
+    height: 6.32vh; /* 79% de 8vh */
     width: 100%;
 }
 
@@ -27,9 +36,9 @@ body {
 }
 
 .logo img {
-    width: 50px; 
-    height: 50px; 
-    margin-right: 10px; 
+    width: 39.5px; /* 79% de 50px */
+    height: 39.5px; /* 79% de 50px */
+    margin-right: 7.9px; /* 79% de 10px */
 }
 
 .logo h2 {
@@ -50,7 +59,7 @@ body {
 }
 
 .navegacao li {
-    margin-right: 20px;
+    margin-right: 15.8px; /* 79% de 20px */
 }
 
 .navegacao a {
@@ -65,32 +74,32 @@ body {
 }
 
 .icone, .carrinho-button {
-    width: 50px;
-    height: 50px;
-    margin-left: 20px;
+    width: 39.5px; /* 79% de 50px */
+    height: 39.5px; /* 79% de 50px */
+    margin-left: 15.8px; /* 79% de 20px */
 }
 
 main {
-    padding: 20px;
+    padding: 15.8px; /* 79% de 20px */
     width: 100%;
-    max-width: 800px;
+    max-width: 568.8px; /* 79% de 720px */
     margin: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: calc(100vh - 8vh);
+    height: calc(100vh - 6.32vh); /* 79% de 8vh */
 }
 
-section {
-    margin: 20px 0;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+section.forma-pagamento {
+    margin: 15.8px 0; /* 79% de 20px */
+    padding: 15.8px; /* 79% de 20px */
+    border-radius: 3.95px; /* 79% de 5px */
+    box-shadow: 0 0 7.9px rgba(0, 0, 0, 0.1); /* 79% de 10px */
     text-align: center;
     background-color: #fff;
     width: 100%;
-    max-width: 600px;
+    max-width: 426.6px; /* 79% de 540px */
 }
 
 h2 {
@@ -100,9 +109,9 @@ h2 {
 button {
     background-color: #4CAF50;
     color: white;
-    padding: 10px 20px;
+    padding: 7.9px 15.8px; /* 79% de 10px 20px */
     border: none;
-    border-radius: 5px;
+    border-radius: 3.95px; /* 79% de 5px */
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
@@ -124,41 +133,47 @@ form {
 }
 
 label {
-    margin: 10px 0 5px;
+    margin: 7.9px 0 3.95px; /* 79% de 10px 0 5px */
 }
 
 input {
-    padding: 10px;
-    margin-bottom: 10px;
+    padding: 7.9px; /* 79% de 10px */
+    margin-bottom: 7.9px; /* 79% de 10px */
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 3.95px; /* 79% de 5px */
     width: 100%;
-    max-width: 300px;
+    max-width: 213.3px; /* 79% de 270px */
+}
+
+.forma-pagamento {
+    font-size: 14.22px; /* 79% de 18px */
+    color: #191340;
+    margin-bottom: 15.8px; /* 79% de 20px */
 }
 
 @media (max-width: 1200px) {
     main {
-        max-width: 700px;
+        max-width: 496.8px; /* 79% de 630px */
     }
 
-    section {
-        max-width: 500px;
+    section.forma-pagamento {
+        max-width: 355.5px; /* 79% de 450px */
     }
 }
 
 @media (max-width: 992px) {
     main {
-        max-width: 600px;
+        max-width: 426.6px; /* 79% de 540px */
     }
 
-    section {
-        max-width: 400px;
+    section.forma-pagamento {
+        max-width: 284.4px; /* 79% de 360px */
     }
 
     .container-header {
         flex-direction: column;
         height: auto;
-        padding: 10px;
+        padding: 7.9px; /* 79% de 10px */
     }
 
     .navegacao ul {
@@ -167,38 +182,38 @@ input {
     }
 
     .navegacao li {
-        margin: 10px 0;
+        margin: 7.9px 0; /* 79% de 10px */
     }
 }
 
 @media (max-width: 768px) {
     main {
-        padding: 10px;
+        padding: 7.9px; /* 79% de 10px */
         max-width: 100%;
         height: auto;
     }
 
-    section {
-        margin: 10px 0;
-        padding: 15px;
+    section.forma-pagamento {
+        margin: 7.9px 0; /* 79% de 10px */
+        padding: 11.85px; /* 79% de 15px */
         max-width: 100%;
     }
 
     button {
-        padding: 8px 16px;
+        padding: 6.32px 12.64px; /* 79% de 8px 16px */
     }
 
     input {
-        padding: 8px;
+        padding: 6.32px; /* 79% de 8px */
     }
 }
 
 @media (min-width: 1920px) {
     main {
-        max-width: 1000px;
+        max-width: 711px; /* 79% de 900px */
     }
 
-    section {
-        max-width: 800px;
+    section.forma-pagamento {
+        max-width: 568.8px; /* 79% de 720px */
     }
 }
