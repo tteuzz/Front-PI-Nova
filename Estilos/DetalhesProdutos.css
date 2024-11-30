@@ -6,13 +6,13 @@ body {
     background-color: #f0f0f5; /* Fundo suave */
     margin: 0;
     padding: 0;
-    font-size: 20px; /* Tamanho padrão da fonte */
+    font-size: 17.6px; /* 88% de 20px */
 }
 
 header {
     background-color: #191340; /* Cor do cabeçalho */
     color: white;
-    padding: 20px;
+    padding: 17.6px; /* 88% de 20px */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -24,21 +24,21 @@ header {
 }
 
 .logo img {
-    height: 50px; /* Ajuste a altura da logo */
-    margin-right: 10px; /* Espaço entre a logo e o texto */
+    height: 44px; /* 88% de 50px */
+    margin-right: 8.8px; /* 88% de 10px */
 }
 
 .logo h1 {
     margin: 0;
-    font-size: 24px;
+    font-size: 21.12px; /* 88% de 24px */
     font-weight: bold;
 }
 
 .nav-menu a {
     color: white;
     text-decoration: none;
-    margin: 0 15px;
-    font-size: 18px; /* Tamanho dos links de navegação */
+    margin: 0 13.2px; /* 88% de 15px */
+    font-size: 15.84px; /* 88% de 18px */
 }
 
 .nav-menu a:hover {
@@ -48,23 +48,23 @@ header {
 .container {
     display: flex;
     justify-content: space-between;
-    margin: 20px auto;
-    padding: 20px;
-    max-width: 1200px; /* Largura máxima do container */
+    margin: 17.6px auto; /* 88% de 20px */
+    padding: 17.6px; /* 88% de 20px */
+    max-width: 1056px; /* 88% de 1200px */
 }
 
 /* Seção do Produto */
 .product-section {
-    width: 60%; /* Largura da seção do produto */
+    width: 52.8%; /* 88% de 60% */
 }
 
 .details-section {
-    width: 35%; /* Largura da seção de detalhes */
-    margin-left: 20px; /* Espaço à esquerda */
+    width: 30.8%; /* 88% de 35% */
+    margin-left: 17.6px; /* 88% de 20px */
     background-color: white; /* Fundo branco */
-    padding: 20px;
-    border-radius: 8px; /* Bordas arredondadas */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    padding: 17.6px; /* 88% de 20px */
+    border-radius: 7.04px; /* 88% de 8px */
+    box-shadow: 0 1.76px 8.8px rgba(0, 0, 0, 0.1); /* 88% de 2px 10px */
 }
 
 /* Estilos do Carrossel */
@@ -73,13 +73,13 @@ header {
     justify-content: center;
     align-items: center;
     position: relative;
-    margin-bottom: 30px; /* Espaço abaixo do carrossel */
+    margin-bottom: 26.4px; /* 88% de 30px */
 }
 
 .carousel-images {
     display: flex;
     width: 100%; /* Ajusta a largura do carrossel */
-    height: 400px; /* Ajuste a altura do carrossel */
+    height: 352px; /* 88% de 400px */
     overflow: hidden; /* Oculta imagens fora do contêiner */
     justify-content: center;
 }
@@ -100,51 +100,51 @@ header {
     background-color: rgba(0, 0, 0, 0.5); /* Botões do carrossel */
     border: none;
     color: white;
-    padding: 10px;
+    padding: 8.8px; /* 88% de 10px */
     cursor: pointer;
-    font-size: 20px; /* Tamanho da fonte dos botões */
+    font-size: 17.6px; /* 88% de 20px */
     position: absolute;
     top: 50%;
     transform: translateY(-50%); /* Centraliza verticalmente */
 }
 
 .carousel-button.prev {
-    left: 10px; /* Espaço à esquerda */
+    left: 8.8px; /* 88% de 10px */
 }
 
 .carousel-button.next {
-    right: 10px; /* Espaço à direita */
+    right: 8.8px; /* 88% de 10px */
 }
 
 /* Detalhes do Produto */
 .product-details ul {
     list-style: none; /* Remove marcadores da lista */
     padding: 0;
-    font-size: 22px; /* Tamanho da fonte dos detalhes */
+    font-size: 19.36px; /* 88% de 22px */
 }
 
 .product-details li {
-    padding: 10px 0; /* Espaçamento vertical entre itens */
+    padding: 8.8px 0; /* 88% de 10px */
 }
 
 .product-details p {
-    font-size: 22px; /* Tamanho da fonte do preço */
+    font-size: 19.36px; /* 88% de 22px */
     font-weight: bold; /* Negrito */
     color: #191340; /* Cor do texto do preço */
     text-align: center; /* Centraliza o texto */
-    margin-top: 20px; /* Espaço acima do preço */
+    margin-top: 17.6px; /* 88% de 20px */
 }
 
 button#add-to-cart {
     background-color: #191340; /* Cor do botão */
     color: white; /* Cor do texto do botão */
-    padding: 10px 20px; /* Espaçamento interno do botão */
+    padding: 8.8px 17.6px; /* 88% de 10px 20px */
     border: none;
-    border-radius: 5px; /* Bordas arredondadas */
+    border-radius: 4.4px; /* 88% de 5px */
     cursor: pointer; /* Cursor de mão ao passar sobre o botão */
-    font-size: 18px; /* Tamanho da fonte do botão */
+    font-size: 15.84px; /* 88% de 18px */
     width: 100%; /* Largura total do botão */
-    margin-top: 15px; /* Espaço acima do botão */
+    margin-top: 13.2px; /* 88% de 15px */
 }
 
 button#add-to-cart:hover {
@@ -153,31 +153,31 @@ button#add-to-cart:hover {
 
 /* Avaliação fixa do usuário */
 .user-review {
-    margin-top: 20px; /* Espaço acima da avaliação */
+    margin-top: 17.6px; /* 88% de 20px */
 }
 
 .fixed-review .stars {
-    font-size: 25px; /* Tamanho das estrelas */
+    font-size: 22px; /* 88% de 25px */
     color: gold; /* Cor das estrelas */
 }
 
 .fixed-review p {
-    font-size: 20px; /* Tamanho da fonte da avaliação */
+    font-size: 17.6px; /* 88% de 20px */
     color: #666; /* Cor do texto da avaliação */
 }
 
 /* Estilos do Carrinho */
 .cart {
     background-color: #fff; /* Fundo do carrinho */
-    padding: 20px; /* Espaçamento interno do carrinho */
-    border-radius: 8px; /* Bordas arredondadas */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    margin-top: 20px; /* Espaço acima do carrinho */
+    padding: 17.6px; /* 88% de 20px */
+    border-radius: 7.04px; /* 88% de 8px */
+    box-shadow: 0 1.76px 8.8px rgba(0, 0, 0, 0.1); /* 88% de 2px 10px */
+    margin-top: 17.6px; /* 88% de 20px */
 }
 
 .cart h2 {
     margin: 0; /* Remove margens */
-    font-size: 24px; /* Tamanho do título do carrinho */
+    font-size: 21.12px; /* 88% de 24px */
 }
 
 .cart ul {
@@ -186,12 +186,12 @@ button#add-to-cart:hover {
 }
 
 .cart ul li {
-    padding: 5px 0; /* Espaçamento vertical entre itens do carrinho */
-    font-size: 16px; /* Tamanho da fonte dos itens do carrinho */
+    padding: 4.4px 0; /* 88% de 5px */
+    font-size: 14.08px; /* 88% de 16px */
 }
 
 .cart p {
-    font-size: 20px; /* Tamanho da fonte do total */
+    font-size: 17.6px; /* 88% de 20px */
     font-weight: bold; /* Negrito */
 }
 
@@ -207,12 +207,10 @@ button#add-to-cart:hover {
     }
 
     .carousel-container {
-        margin-bottom: 20px; /* Espaçamento reduzido em telas pequenas */
+        margin-bottom: 17.6px; /* 88% de 20px */
     }
 
     .cart {
         width: 100%; /* Largura total do carrinho */
     }
 }
-
-

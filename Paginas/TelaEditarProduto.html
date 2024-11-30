@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Produto</title>
-    <link rel="shortcut icon" href="../img/LOGO NOVA.jpg type="image/x-icon">
+    <link rel="shortcut icon" href="../img/LOGO NOVA.jpg" type="image/x-icon">
     <link rel="stylesheet" href="../Estilos/CadastrarProduto.css">
 </head>
 <body>
@@ -12,23 +12,19 @@
         <div class="container-header">
             <img src="../img/LOGO NOVA.jpg" alt="Logo">
             <h2 class="nome-loja">N O V A</h2>
-            <img class="icone" src="../img/perfil.png" alt="icone de uma pessoa">
+            <img class="icone" src="../img/perfil.png" alt="Ícone de uma pessoa">
         </div>
     </header>
     <!-- pra ter certinho na main -->
-<!-- pra ter certinho na main -->
-    <div class="espaco-preto">
-        <p>""</p>
-    </div>
 
     <div class="header-body">
-        <h1 class="titulo-cadastro">Cadastro de Produto</h1>
+        <h1 class="titulo-cadastro">Editando Produto</h1>
         <button class="botao-voltar" onclick="window.location.href='ListaProdutos.html'">Voltar</button>
     </div>
 
     <form class="form-cadastro">
         <div class="campo-container">
-             <h2 class="titulo-campo">Nome do produto</h2>
+            <h2 class="titulo-campo">Nome do produto</h2>
             <input type="text" class="input-cadastro" id="nomeProduto" name="nomeProduto" placeholder="Nome do Produto" required>
     
             <h2 class="titulo-campo">Avaliação</h2>
@@ -63,6 +59,6 @@
         <input type="file" id="upload" name="upload" accept="image/*" multiple style="display:none;" onchange="previewImages(event)">
     </div>
 
-    <script src="../Conexoes/editarProduto.js""></script>
+    <script src="../Conexoes/editarProduto.js"></script>
 </body>
 </html>
