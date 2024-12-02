@@ -29,8 +29,10 @@ function displayUsers() {
         const row = document.createElement('tr');
         row.innerHTML =
             `
+        <td>${user.idUsuario || 'N/A'}</td>
         <td>${user.usuaNmUsuario || 'N/A'}</td>
         <td>${user.usuaDsEmail || 'N/A'}</td>
+        <td>${user.usuaCdGrupo || 'N/A'}</td>
         <td>${user.usuaDhInativo ? 'INATIVO' : 'ATIVO'}</td>
          <td>
                 <button onclick="alterarStatus('${user.idUsuario}')">alterar Status</button>
