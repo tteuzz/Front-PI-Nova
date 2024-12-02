@@ -1,10 +1,11 @@
-
 //comentando pra main
 document.addEventListener('DOMContentLoaded', (event) => {
     const icone = document.querySelector('.icone');
     const cardLoginCadastro = document.getElementById('card-login-cadastro');
-    const userLogado = sessionStorage.getItem("usuarioLogado")
+    const userLogado = sessionStorage.getItem("usuarioLogado");
     fetchProducts();
+    updateCartQuantity(); // Atualiza a quantidade de itens no carrinho
+
     icone.addEventListener('click', (event) => {
         event.stopPropagation(); 
         if (cardLoginCadastro.style.display === 'none' || cardLoginCadastro.style.display === '') {
@@ -127,4 +128,11 @@ function displayProducts(products) {
 
 function viewProduct(idProduto) {
     window.location.href = `DetalhesProdutos.html?id=${idProduto}`;
+}
+
+function updateCartQuantity() {
+    const cartQuantityElement = document.getElementById("cart-quantity");
+    const cart = JSON.parse(localStorage.getItem('produtos')) || [];
+    const totalQuantity = cart.reduce((sum, item) => sum + item.quantidade, 0);
+    cartQuantityElement.textContent = totalQuantity;
 }

@@ -151,4 +151,5 @@ function updateCartQuantity() {
     const cartQuantityElement = document.getElementById("cart-quantity");
     const totalQuantity = cart.reduce((sum, item) => sum + item.quantidade, 0);
     cartQuantityElement.textContent = totalQuantity;
+    sessionStorage.setItem('cartQuantity', totalQuantity);
 }
